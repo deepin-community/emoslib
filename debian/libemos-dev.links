@@ -1,0 +1,6 @@
+/usr/lib/${DEB_HOST_MULTIARCH}/libemos.so.0d /usr/lib/${DEB_HOST_MULTIARCH}/libemos.so
+/usr/lib/${DEB_HOST_MULTIARCH}/libemosR64.so.0d /usr/lib/${DEB_HOST_MULTIARCH}/libemosR64.so
+/usr/lib/${DEB_HOST_MULTIARCH}/libemos.so.0d /usr/lib/${DEB_HOST_MULTIARCH}/libemos.R32.D64.I32.so
+/usr/lib/${DEB_HOST_MULTIARCH}/libemosR64.so.0d /usr/lib/${DEB_HOST_MULTIARCH}/libemos.R64.D64.I32.so
+/usr/lib/${DEB_HOST_MULTIARCH}/libemos.a /usr/lib/${DEB_HOST_MULTIARCH}/libemos.R32.D64.I32.a
+/usr/lib/${DEB_HOST_MULTIARCH}/libemosR64.a /usr/lib/${DEB_HOST_MULTIARCH}/libemos.R64.D64.I32.a

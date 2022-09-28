@@ -1,0 +1,59 @@
+001 metre                         m                       M                       1
+002 kilogram                      kg                      KG                      1 
+003 second                        s                       S                       1
+004 ampere                        A                       A                       1
+005 kelvin                        K                       K                       1
+006 mole                          mol                     MOL                     1 
+007 candela                       cd                      CD                      1
+021 radian                        rad                     RAD                     1
+022 steradian                     sr                      SR                      1
+030 hertz                         Hz                      HZ                      1
+031 newton                        N                       N                       1
+032 pascal                        Pa                      PA                      1
+033 joule                         J                       J                       1
+034 watt                          W                       W                       1
+035 coulomb                       C                       C                       1
+036 volt                          V                       V                       1
+037 farad                         F                       F                       1
+038 ohm                           ohm                     OHM                     1
+039 siemens                       S                       SIE                     1
+040 weber                         Wb                      WB                      1
+041 tesla                         T                       T                       1
+042 henry                         H                       H                       1
+060 degree Celsius                Cel                     CEL                     1
+070 lumen                         lm                      LM                      1
+071 lux                           lx                      LX                      1
+080 becquerel                     Bq                      BQ                      1
+081 gray                          Gy                      GY                      1
+082 sievert                       Sv                      SV                      1
+110 degree (angle)                deg                     DEG                     1
+111 minute (angle)                '                       MNT                     1
+112 second (angle)                "                       SEC                     1
+120 litre                         l                       L                       1
+130 minute (time)                 min                     MIN                     1
+131 hour                          h                       HR                      1
+132 day                           d                       D                       1
+150 tonne                         t                       TNE                     1
+160 electron volt                 eV                      EV                      1
+161 astronomic unit               AU                      AU                      1
+170 parsec                        pc                      PRS                     1
+201 knot                          kt                      KT                      1
+210 decibel                       dB                      DB                      1
+220 hectare                       ha                      HAR                     1
+231 year                          a                       ANN                     1
+300 per cent                      %                       PERCENT                 1
+301 parts per thousand            0/00                    PERTHOU                 1
+310 eiths of cloud                octa                    OCTA                    1
+320 degree true                   deg                     DEG                     1
+321 degrees per second            deg/s                   DEG/S                   1
+350 degrees Celsius               C                       C                       1
+351 degrees Celsius per metre     C/m                     C/M                     1
+352 degrees Celsius per 100 metresC/100 m                 C/100 M                 1
+360 Dobson Unit                   DU                      DU                      1
+430 month                         mon                     MON                     1
+441 per second                    /s                      /S                      1
+510 foot                          ft                      FT                      1
+530 hectopascal                   hPa                     HPAL                    1
+620 grams per kilogram            g/kg                    G/KG                    1
+710 millimetre                    mm                      MM                      1
+740 kilometre                     km                      KM                      1 

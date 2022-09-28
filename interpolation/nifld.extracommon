@@ -1,0 +1,258 @@
+C Copyright 1981-2016 ECMWF.
+C
+C This software is licensed under the terms of the Apache Licence 
+C Version 2.0 which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
+C
+C In applying this licence, ECMWF does not waive the privileges and immunities 
+C granted to it by virtue of its status as an intergovernmental organisation 
+C nor does it submit to any jurisdiction.
+C
+C
+C**** "nifld.extracommon"
+C
+C     Purpose
+C     _______
+C
+C     This file contains all the input field definition variables.
+C
+C
+C     Interface
+C     _________
+C
+C
+C     Common block usage
+C     __________________
+C
+C     JDCFLAGS
+C     --------
+C
+C     LCHANGE      - This flag indicates whether a change of
+C                    interpolating process has occurred.
+C     LSMCHNG      - This flag indicates whether a change of LSM flag
+C                    has occurred.
+C     LSM          - This flag indicates whether a land sea mask
+C                    should be used for interpolation.
+C     LSMSET       - This flag indicates whether the user has defined
+C                    the LSM flag.
+C     LSMPAR       - This flag indicates whether the LSM variable is
+C                    being interpolated.
+C     LSMPARSET    - This flag indicates whether the user has defined
+C                    the LSMPAR flag.
+C     LPREC        - This flag indicates whether a precipitation
+C                    variable is being interpolated.
+C     LPRECSET     - This flag indicates whether the user has defined
+C                    the LPREC flag.
+C     LWIND        - This flag indicates whether a wind variable is
+C                    being interpolated.
+C     LWINDSET     - This flag indicates whether the user has defined
+C                    the LWIND flag.
+C     LNIGAUS      - Flag to say whether or not user specified NIGAUS
+C     LNGSPEC      - Flag to say whether or not user specified NGSPEC
+C     LIGIVEL      - Flag to say whether or not user specified latitudes
+C                    for the input gaussian grid
+C     LIGIVEP      - Flag to say whether or not user specified number of
+C                    points along latitudes for the input gaussian grid
+C     LIMISSV      - Flag to say whether or not user specified input
+C                    field missing data value
+C     LIMISSA      - Flag to say whether or not user specified input
+C                    field missing data value grib_api merging
+C     LNIISCL      - Flag to say whether or not user specified islscp
+C                    processing.
+C     LNOAREA      - Flag to say whether or not user specified NOAREA
+C     LNOGAUS      - Flag to say whether or not user specified NOGAUSS
+C     LNOREDL      - Flag to say whether or not user specified NOREDLL
+C     LOGIVEL      - Flag to say whether or not user specified latitudes
+C                    for the output gaussian grid
+C     LOGIVEP      - Flag to say whether or not user specified number of
+C                    points along latitudes for the output gaussian grid
+C     LNORESO      - Flag to say whether or not user specified NORESO
+C     LNOACC       - Flag to say whether or not user specified NOACC
+C     LNOREPR      - Flag to say whether or not user specified NOREPR
+C     LNOTABL      - Flag to say whether or not user specified NOTABLE
+C     LNOPARA      - Flag to say whether or not user specified NOPARAM
+C     LNOLEVL      - Flag to say whether or not user specified NOLEVEL
+C     LNOLEVT      - Flag to say whether or not user specified NOLEVT
+C     LNOGRID      - Flag to say whether or not user specified NOGRID
+C     LARESOL      - Flag to say whether or not user specified 'Autoresol'
+C     LNOBITMP     - Flag to say whether or not user specified NOBITMP
+C     LNOFRAME     - Flag to say whether or not user specified NOFRAME
+C     LNOSTYLE     - Flag to say whether or not user specified NOSTYLE
+C     LSTAGGL      - Flag to say if is the input field staggered grid
+C     LOCEAN       - Flag to say if is the ocean input field
+C
+C     JDNIFLD
+C     -------
+C
+C     NILOCAL      - Input field ECMWF local definition number
+C     NISTREM      - Input field ECMWF stream number
+C     NIFORM       - Input field data format (0-Unpacked, 1-Grib).
+C     NIREPR       - Input field representation. Supported
+C                    representations are
+C                       Spherical harmonic
+C                       Regular Gaussian grid
+C                       Reduced Gaussian grid
+C                       Latitude/longitude grid
+C     NIGAUSS      - Input field Gaussian truncation.
+C     NGSPEC       - Reduced gaussian grid specification
+C     NIRESO       - Input field spherical harmonic resolution.
+C     NIGRID       - Input field grid definition (WE/NS).
+C     NIAREA       - Input field area definition (N/W/S/E).
+C     NINS         - Number of grid points in NS direction for input
+C                    field.
+C     NIWE         - Number of grid points in WE direction for input
+C                    field.
+C     NIPARAM      - Input field parameter number
+C     NISCNM       - Input field scanning mode.
+C     NITABLE      - Input field table number.
+C     NILEVEL      - Input field level.
+C     NILEVT       - Input field level type.
+C     NIACC        - Number of packing bits to be used for input
+C                    GRIB field.
+C     NISLSCP      - Index returned from PBOPEN for islscp land-sea mask
+C                    GRIB product file
+C     NIPOGRB      - Pointer to memory allocated to hold islscp old land-sea
+C                    mask GRIB product
+C     NIPOGRS      - Size in bytes of memory allocated to hold islscp old
+C                    land-sea mask GRIB product
+C     NIPNGRB      - Pointer to memory allocated to hold islscp new land-sea
+C                    mask GRIB product
+C     NIMATR       - Number of matrix values
+C     NIPNGRS      - Size in bytes of memory allocated to hold islscp new
+C                    land-sea mask GRIB product
+C
+C     PILATS       - Array of reduced gaussian grid latitudes(N to S pole)
+C                    (RIGAUSS in grspace.h used instead now)
+C     NILPTS       - Array of reduced gaussian grid no.of pts. per latitude
+C                    (MILLEN in grspace.h used instead now)
+C     NIPCNT       - Total number of pts in input reduced gaussian field
+C     NJDCDOT      - 'magic number', set when basic initialisation has been
+C                     done
+C     NIDATE       - Input field date
+C     NICOMP       - Spectral truncation above which interpolation coefficients
+C                    are calculated 'on the fly'
+C     RISTRET      - Stretching factor used in the input field
+C     RMISSGV      - Input field missing data value
+C
+C     JNPRECP
+C     -------
+C     RPRECIP      - Precipitation threshold value
+C
+C
+C     NILOCAL      - Input field ECMWF local definition number
+C
+C
+C     Reference
+C     _________
+C
+C     None.
+C
+C
+C     Comments
+C     ________
+C
+C     None.
+C
+C
+C     AUTHOR
+C     ______
+C
+C     J.D.Chambers      ECMWF       Aug 1994
+C
+C
+C     Modifications
+C     _____________
+C
+C     None.
+C
+C
+C     _______________________________________________________
+C
+C*    Section 1. Flag variables
+C     _______________________________________________________
+C
+C     LOGICAL
+C    1  LCHANGE , LSMCHNG , LSM     , LWIND   , LPREC   , LSMPAR  ,
+C    2  LSMSET  , LWINDSET, LPRECSET,LSMPARSET, LNOREDL , LNIGAUS ,
+C    3  LIGIVEL , LIGIVEP , LNOGAUS , LOGIVEL , LOGIVEP , LNORESO ,
+C    4  LNOACC  , LNOREPR , LNOTABL , LNOPARA , LNOLEVL , LNOLEVT ,
+C    5  LNOGRID , LARESOL , LNOBITMP, LNOFRAME, LNOSTYLE, LNOAREA ,
+C    6  LFILEIO , LMEMORY , LSHARED , LON_FLY , LMAPPED,  LNGSPEC ,
+C    7  LIFIRST , LIMISSV , LNIISCL , LSTAGGL , LOCEAN,   LIMISSA ,
+C    8  LACCUR
+C
+C     COMMON /JDCFLAGS/
+C    1  LCHANGE , LSMCHNG , LSM     , LWIND   , LPREC   , LSMPAR  ,
+C    2  LSMSET  , LWINDSET, LPRECSET,LSMPARSET, LNOREDL , LNIGAUS ,
+C    3  LIGIVEL , LIGIVEP , LNOGAUS , LOGIVEL , LOGIVEP , LNORESO ,
+C    4  LNOACC  , LNOREPR , LNOTABL , LNOPARA , LNOLEVL , LNOLEVT ,
+C    5  LNOGRID , LARESOL , LNOBITMP, LNOFRAME, LNOSTYLE, LNOAREA ,
+C    6  LFILEIO , LMEMORY , LSHARED , LON_FLY , LMAPPED,  LNGSPEC ,
+C    7  LIFIRST , LIMISSV , LNIISCL , LSTAGGL , LOCEAN,   LIMISSA ,
+C    8  LACCUR
+C
+C     SAVE /JDCFLAGS/
+C
+C     _______________________________________________________
+C
+C*    Section 2. Field definition variables
+C     _______________________________________________________
+C
+C     INTEGER
+C    X  NILOCAL, NISTREM, NGSPEC ,
+C    X  NIFORM , NIREPR , NIGRID , NIAREA , NIGAUSS, NIRESO ,
+C    X  NIWE   , NINS   , NISCNM , NIPARAM, NITABLE, NIACC  ,
+C    X  NJDCDOT, NIPCNT , NILEVEL, NILEVT , NIDATE , NICOMP ,
+C    X  NISLSCP, NIPOGRS, NIPNGRS, NIMATR
+C     REAL RISTRET, RMISSGV
+C     DIMENSION NIGRID(2)
+C     DIMENSION NIAREA(4)
+C
+C     COMMON /JDNIFLD/
+C    X  RISTRET, RMISSGV,
+C    X  NILOCAL, NISTREM, NGSPEC ,
+C    X  NIFORM , NIREPR , NIGAUSS, NIRESO ,
+C    X  NIWE   , NINS   , NISCNM , NIPARAM, NITABLE, NIACC  ,
+C    X  NJDCDOT, NIPCNT , NILEVEL, NILEVT , NIDATE , NICOMP ,
+C    X  NISLSCP, NIPOGRS, NIPNGRS, NIGRID , NIAREA , NIMATR
+C
+C     SAVE /JDNIFLD/
+C
+#ifndef _CRAYFTN
+#ifdef POINTER_64
+      INTEGER*8 NIPOGRB, NIPNGRB
+#else
+      INTEGER NIPOGRB, NIPNGRB
+#endif
+#endif
+      COMMON /JDNIPTR/
+     X  NIPOGRB, NIPNGRB 
+C
+      SAVE /JDNIPTR/
+C
+C     REAL ZPRECIP
+C     COMMON /JNPRECP/ ZPRECIP
+C     SAVE /JNPRECP/
+
+C     _______________________________________________________
+C
+C*    Section 3. Ocean
+C     _______________________________________________________
+C
+C     INTEGER
+C    X  NIOCO3, NIOCO4,
+C    X  NIOCO4F, NIOCO3F, NIOCO4L, NIOCO3L,
+C    X  NIOIINC, NIOJINC,
+C    X  NIOIRGR, NIONOST,NICOORN,
+C    X  NIVCDEF
+C     INTEGER OCCOOR
+C     DIMENSION OCCOOR(1000)
+C
+C     COMMON /JOCEANI/
+C    X  NIOCO3, NIOCO4,
+C    X  NIOCO4F, NIOCO3F, NIOCO4L, NIOCO3L,
+C    X  NIOIINC, NIOJINC,
+C    X  NIOIRGR, NIONOST, NICOORN,
+C    X  NIVCDEF,
+C    X  OCCOOR
+C
+C     SAVE /JOCEANI/

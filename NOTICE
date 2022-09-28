@@ -1,0 +1,38 @@
+Emoslib
+=======
+
+Copyright 1981-2016 ECMWF
+
+This product mainly includes software developed by the 
+
+ Data and Services Section 
+
+ and  
+
+ Meteorological Visualisation Section
+
+at the 
+
+  "European Centre for Medium-Range Weather Forecasts" 
+           (ECMWF - http://www.ecmwf.int ).
+
+
+We would like to acknoledge the following contributions to Emoslib:
+
+- Files written by NCAR, the National Center for Atmospheric Research. 
+   bt_ibm_bal.bal
+   btibm.special
+
+- File kwprs1.F makes use of the
+   WMO Manual on Codes re GRIB Code.
+   http://www.nco.ncep.noaa.gov/pmb/docs/on388/appendixc.html.
+
+- File c2gene.F 
+  Algorithm used to determine groups is derived from Harry R. Glahn
+ (U.S. Met Service), from a working paper submitted to WMO SGDRC
+ in 1995.
+
+- File calcop.F 
+  Located in the materials contains the following citation:
+  Seber, G.A.F. (1979). Linear Regression Analyses.
+  John Wiley and Sons

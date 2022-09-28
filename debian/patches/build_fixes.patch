@@ -1,0 +1,36 @@
+Author: Alastair McKinstry <mckinstry@debian.org>
+Description: Build fix for Hurd-i386 on Debian
+Last-Updated: 2015-07-09
+Forwarded: no
+
+Index: emoslib-4.4.9/gribex/csect4.F
+===================================================================
+--- emoslib-4.4.9.orig/gribex/csect4.F
++++ emoslib-4.4.9/gribex/csect4.F
+@@ -308,10 +308,10 @@ C     Calculate the scale and reference
+ #endif
+ #if defined hpR32 || defined (__alpha) || defined hpR64 || defined hpiaR64
+       ISCALE = MIN (INT(ZS),INT(ZS+DSIGN(1.0D0,ZS)))
+-#elif defined (linux) || defined (darwin)
+-      ISCALE = MIN (INT(ZS),INT(ZS+SIGN(1.D0,ZS)))
++#elif defined (linux) || defined (darwin) || defined(__GNU__)
++      ISCALE = MIN (INT(ZS),INT(ZS+SIGN(REAL(1.D0),REAL(ZS))))
+ #else
+-      ISCALE = MIN (INT(ZS),INT(ZS+SIGN(1.,ZS)))
++      ISCALE = MIN (INT(ZS),INT(ZS+SIGN(REAL(1.),REAL(ZS))))
+ #endif
+       ZSCALE = 2.0**ISCALE
+ C
+Index: emoslib-4.4.9/CMakeLists.txt
+===================================================================
+--- emoslib-4.4.9.orig/CMakeLists.txt
++++ emoslib-4.4.9/CMakeLists.txt
+@@ -63,7 +63,7 @@ endif()
+ 
+ # build type flags
+ if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
+-  ecbuild_add_fortran_flags("-ffixed-line-length-none -fcray-pointer -fno-second-underscore -Wuninitialized -Wunused-variable -DSHAREDMEMORY")
++	ecbuild_add_fortran_flags("-ffixed-line-length-none -fcray-pointer -fno-second-underscore -Wuninitialized -Wunused-variable -DSHAREDMEMORY  ${BUILD_FLAGS}")
+   ecbuild_add_fortran_flags("-O2" BUILD RELEASE)
+   ecbuild_add_fortran_flags("-O2" BUILD RELWITHDEBINFO)
+   ecbuild_add_fortran_flags("-g"                BUILD RELWITHDEBINFO)

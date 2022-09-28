@@ -1,0 +1,6 @@
+share/libemos/tables/bufrtables/*.TXT	/usr/share/emos/bufrtables
+share/libemos/tables/bufrtables/*.distinct	/usr/share/emos/bufrtables
+share/libemos/tables/gribtables/*	/usr/share/emos/gribtables
+share/libemos/tables/gribtemplates/*	/usr/share/emos/gribtemplates
+usr/share/emos/interpol/*	/usr/share/emos/interpol
+share/libemos/tables/bufrtables/links.sh	/usr/share/emos/bufrtables

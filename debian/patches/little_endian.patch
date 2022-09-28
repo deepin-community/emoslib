@@ -1,0 +1,38 @@
+Author: Alastair McKinstry <mckinstry@debian.org>
+Description: Only use LITTLE_ENDIAN on LITTLE_ENDIAN machines (make optional and
+  say no on big-endian in debian/rules)
+Last-Updated: 2016-02-04
+Forwarded: https://software.ecmwf.int/issues/browse/SUP-1594
+
+Index: emoslib-4.5.4/CMakeLists.txt
+===================================================================
+--- emoslib-4.5.4.orig/CMakeLists.txt
++++ emoslib-4.5.4/CMakeLists.txt
+@@ -38,6 +38,8 @@ ecbuild_add_option( FEATURE LIBEMOS_TEST
+ 
+ ecbuild_add_option( FEATURE LIBEMOS_BUILD_SHARED_LIBS DESCRIPTION "build shared libraries (unsupported)"   DEFAULT OFF )
+ 
++ecbuild_add_option( FEATURE LITTLE_ENDIAN  DESCRIPTION "Enable LITTLE_ENDIAN flag (in GRIBEX)"     DEFAULT ON )
++
+ ################################################################################
+ # compiler/linker flags
+ 
+@@ -289,12 +291,17 @@ list( APPEND LIBEMOS_DEFINITIONS
+   POINTER_64
+   _LARGEFILE64_SOURCE
+   _FILE_OFFSET_BITS=64
+-  LITTLE_ENDIAN
+   INTEGER_IS_INT
+   ${GRIB_API_DEFINITIONS} )
+ 
+ # FIXME: LITTLE_ENDIAN is not portable!
+ # (EMOS-172: remove this flag, only used in GRIBEX, temporarily enabled for now)
++if(ENABLE_LITTLE_ENDIAN)
++  ecbuild_add_fortran_flags("-DLITTLE_ENDIAN" BUILD RELEASE)
++  ecbuild_add_fortran_flags("-DLITTLE_ENDIAN" BUILD RELWITHDEBINFO)
++  ecbuild_add_fortran_flags("-DLITTLE_ENDIAN" BUILD RELWITHDEBINFO)
++  ecbuild_add_fortran_flags("-DLITTLE_ENDIAN" BUILD DEBUG)
++endif()
+ 
+ 
+ ################################################################################

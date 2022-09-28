@@ -1,0 +1,48 @@
+This package was debianized by Alastair McKinstry <mckinstry@debian.org>, on
+Mon,  6 Apr 2009 16:22:04 +0100.  It was downloaded from
+http://www.ecmwf.int/products/data/software/interpolation.html
+
+Upstream authors: ECMWF
+
+Copyright  © 1981-2013  European Centre for Medium-Range Weather Forecasts.
+
+Licensed under the Apache License 2.0. 
+The texts of the license can be found in /usr/share/common-licenses/Apache-2.0
+
+The Debian packaging is Copyright © 2009, Alastair McKinstry <mckinstry@debian.org>,
+is licensed under the terms of the GNU GPL version 3.
+
+
+This product mainly includes software developed by the 
+
+ Data and Services Section 
+
+ and  
+
+ Meteorological Visualisation Section
+
+at the 
+
+  "European Centre for Medium-Range Weather Forecasts" 
+           (ECMWF - http://www.ecmwf.int ).
+
+
+We would like to acknoledge the following contributions to Emoslib:
+
+- Files written by NCAR, the National Center for Atmospheric Research. 
+   bt_ibm_bal.bal
+   btibm.special
+
+- File kwprs1.F makes use of the
+   WMO Manual on Codes re GRIB Code.
+   http://www.nco.ncep.noaa.gov/pmb/docs/on388/appendixc.html.
+
+- File c2gene.F 
+  Algorithm used to determine groups is derived from Harry R. Glahn
+ (U.S. Met Service), from a working paper submitted to WMO SGDRC
+ in 1995.
+
+- File calcop.F 
+  Located in the materials contains the following citation:
+  Seber, G.A.F. (1979). Linear Regression Analyses.
+  John Wiley and Sons

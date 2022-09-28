@@ -1,0 +1,5 @@
+#!/bin/bash
+
+TOP=${bamboo_working_directory:-$PWD}
+
+[[ $status -eq 0 ]] && find $TOP/build/libemos -size +10M -delete

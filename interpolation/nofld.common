@@ -1,0 +1,166 @@
+C Copyright 1981-2016 ECMWF.
+C
+C This software is licensed under the terms of the Apache Licence
+C Version 2.0 which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
+C
+C In applying this licence, ECMWF does not waive the privileges and immunities
+C granted to it by virtue of its status as an intergovernmental organisation
+C nor does it submit to any jurisdiction.
+C
+C
+C**** "nofld.common"
+C
+C     Purpose
+C     _______
+C
+C     This file contains all the output field definition variables.
+C
+C
+C     Interface
+C     _________
+C
+C     #include "nofld.common"
+C
+C     Common block usage
+C     __________________
+C
+C     JDNOFLD
+C     -------
+C
+C     NOFORM       - Output field data format (0-Unpacked, 1-Grib).
+C     NOREPR       - Output field representation. Supported
+C                    representations are
+C                       Spherical harmonic
+C                       Regular Gaussian grid
+C                       Reduced Gaussian grid
+C                       Latitude/longitude grid
+C     NOGAUSS      - Output field Gaussian truncation.
+C     NOMEGA       - Intermediate field Gaussian truncation.
+C     NORESO       - Output field spherical harmonic resolution.
+C     NOGRID       - Output field grid definition (WE/NS).
+C     NOAREA       - Output field area definition (N/W/S/E).
+C     NONS         - Number of grid points in NS direction for output
+C                    field.
+C     NOWE         - Number of grid points in WE direction for output
+C                    field.
+C     NO1NS        - Index of first output field grid point in NS
+C                    direction of the input field.
+C     NO1WE        - Index of first output field grid point in WE
+C                    direction of the input field.
+C     NOACC        - Number of packing bits to be used for output
+C                    GRIB field.
+C     NOPARAM      - Output field parameter number
+C     NOSCNM       - Output field scanning mode.
+C     NOTABLE      - Output field table number.
+C     NOLEVEL      - Output field level.
+C     NOLEVT       - Output field level type.
+C     POLATS       - Array of reduced gaussian grid latitudes
+C                    (ROGAUSS in grspace.h used instead now)
+C                    (N to S pole)
+C     NOLPTS       - Array of reduced gaussian grid number of points
+C                    per latitude
+C     NOPCNT       - Total number of pts in input reduced gaussian field
+C     NOROTA       - Output field rotation definition (long/lat).
+C     LNOROTA      - Flag which says whether rotation has been specified
+C     LO12PT       - Flag choosing between 12 and 4-point horizontal
+C                    interpolation for rotations
+C     LDOUBLE      - Flag chosing intermediate interpolation between
+C                    two reduced gaussian grids
+C     LMETHOD      - Flag chosing between bilinear and nearest neighbour
+C                     for interpolation method
+C     LNNLSM       - Flag using NN with same type of lsm in
+C                    hirlsm(rotated ll)
+C     LNNLSM_CY41R1- Flag using high-resolution lsm (an additional file
+C                    extension) in (rotated ll)
+C     LINTOUT      - Flag which says whether intout.F has been called.
+C     LOCTAHEDRAL  - Flag which says whether output should be reduced
+C                    gaussian grid, octaghedral version
+C     NODATE       - Input field date
+C     NOMISS       - Set non-zero if the output field is all missing
+C                    data because the input field was all missing data.
+C     NOHFUNC      - Used in CALL GRIBEX to force standard encoding or
+C                    2nd-order packing for grid-point data.
+C     NOBITMP      - Name of file containing bitmap definition
+C     NOFRAME      - Width in grid points of a frame boundary.
+C     NOSTYLE      - Style to be used in generating grid point fields
+C                    (Mars [default] or dissemination).
+C
+C
+C     Reference
+C     _________
+C
+C     None.
+C
+C
+C     Comments
+C     ________
+C
+C     None.
+C
+C
+C     AUTHOR
+C     ______
+C
+C     J.D.Chambers      ECMWF        Oct 1993
+C
+C
+C     Modifications
+C     _____________
+C
+C     None.
+C
+C
+C     _______________________________________________________
+C
+C
+C*    Section 2. Field definition variables
+C     _______________________________________________________
+C
+      INTEGER
+     X  NOFORM , NOREPR , NOGRID , NOAREA , NOAAPI , NOREDLL, NOGAUSS,
+     X  NOMEGA, NORESO ,
+     X  NOWE   , NONS   , NOSCNM , NOPARAM, NOTABLE, NO1WE  , NO1NS  ,
+     X  NOACC  , NOLPTS , NOPCNT , NOROTA , NOLEVEL, NOLEVT , NODATE ,
+     X  NOMISS , NOFRAME, NOSTYLE, OUTLROT
+      DIMENSION NOGRID(2)
+      DIMENSION NOAREA(4), NOAAPI(4)
+      DIMENSION NOLPTS( JPLAT )
+      DIMENSION NOROTA(2)
+C
+      LOGICAL LINTOUT,LNOROTA,LO12PT,LMETHOD,LNNLSM,LNNLSM_CY41R1,
+     X  LDOUBLE,LUVCOMP,LGLOBL,LOCTAHEDRAL
+C
+      CHARACTER*1 NOHFUNC
+      CHARACTER*256 NOBITMP
+C
+      COMMON /JDNOFLD/
+     X  NOFORM , NOREPR , NOGRID , NOAREA , NOAAPI , NOREDLL, NOGAUSS,
+     X  NOMEGA, NORESO ,
+     X  NOWE   , NONS   , NOSCNM , NOPARAM, NOTABLE, NO1WE  , NO1NS  ,
+     X  NOACC  , NOLPTS , NOPCNT , NOROTA , NOLEVEL, NOLEVT , NODATE ,
+     X  NOMISS , NOFRAME, NOSTYLE, OUTLROT,
+     X  LINTOUT,LNOROTA,LO12PT,LMETHOD,LNNLSM,LNNLSM_CY41R1,LDOUBLE,
+     X  LUVCOMP,LGLOBL,LOCTAHEDRAL,NOHFUNC,NOBITMP
+C
+      SAVE /JDNOFLD/
+C     _______________________________________________________
+C
+C*    Section 3. Ocean
+C     _______________________________________________________
+C
+      INTEGER
+     X  NOOCO3, NOOCO4,
+     X  NOOCO4F, NOOCO3F, NOOCO4L, NOOCO3L,
+     X  NOOIINC, NOOJINC,
+     X  NOOIRGR, NOONOST
+      REAL OCCOOO
+      DIMENSION OCCOOO(1000)
+C
+      COMMON /JOCEANO/
+     X  NOOCO3, NOOCO4,
+     X  NOOCO4F, NOOCO3F, NOOCO4L, NOOCO3L,
+     X  NOOIINC, NOOJINC,
+     X  NOOIRGR, NOONOST,
+     X  OCCOOO
+C
+      SAVE /JOCEANO/

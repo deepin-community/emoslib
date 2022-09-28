@@ -1,0 +1,31 @@
+!
+!	localDefinitionTemplate_035
+!	---------------------------
+!
+!Description			Octet	Code	Ksec1	Count
+!-----------			-----	----	-----	-----
+!
+localDefinitionNumber		41	I1	37	-
+class						42	I1	38	-
+type						43	I1	39	-
+stream						44	I2	40	-
+experimentVersionNumber		46	A4	41	-
+yearOfReference				50	I1	42	-
+monthOfReference			51	I1	43	-
+dayOfReference				52	I1	44	-
+hourOfReference				53	I1	45	-
+minuteOfReference			54	I1	46	-
+centuryOfReference			55	I1	47	-
+!
+numberOfForecasts			56	I1	48	-
+numberOfAnalysis			57	I1	49	-
+!
+listOfForecastSteps    	    -   LIST    -   numberOfForecasts
+forecastSteps		       	-   I3  -   -
+endListOfForecastSteps   	-   ENDLIST -   listOfForecastSteps
+!
+listOfAnalysis	    	    -   LIST    -   numberOfAnalysis
+analysisOffset		       	-   I3  -   -
+endListOfAnalysisteps   	-   ENDLIST -   listOfAnalysis
+spareToEnsureFixedLength    -       PADTO   n/a     120
+!

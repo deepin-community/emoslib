@@ -1,0 +1,19 @@
+Author: Alastair McKinstry <mckinstry@debian.org>
+Description: Install INTERPOL tables into install directory; needed to keep 
+ INTELPOL_TABLES_PATH install-friendly
+Last-Updated: 2015-10-28
+Forwarded: no
+
+Index: emoslib-4.5.4/CMakeLists.txt
+===================================================================
+--- emoslib-4.5.4.orig/CMakeLists.txt
++++ emoslib-4.5.4/CMakeLists.txt
+@@ -274,7 +274,7 @@ ecbuild_info( "INTERPOL_TABLES_PATH:   $
+ file( COPY tables/interpol DESTINATION ${CMAKE_BINARY_DIR}/${INSTALL_DATA_DIR}/tables )
+ 
+ # always install tables/interpol
+-install( DIRECTORY tables/interpol DESTINATION "${INTERPOL_TABLES_PATH}" FILE_PERMISSIONS OWNER_READ GROUP_READ WORLD_READ )
++install( DIRECTORY tables/interpol DESTINATION "${CMAKE_INSTALL_PREFIX}/${INTERPOL_TABLES_PATH}" FILE_PERMISSIONS OWNER_READ GROUP_READ WORLD_READ )
+ install( CODE "execute_process(COMMAND \"${CMAKE_COMMAND}\" -E create_symlink interpol ${CMAKE_INSTALL_PREFIX}/${INSTALL_DATA_DIR}/tables/land_sea_mask)" )
+ 
+ 

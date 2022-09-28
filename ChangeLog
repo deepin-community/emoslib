@@ -1,0 +1,1772 @@
+000459
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2018.12
+
+	Improvement
+		[BUFR-62] - New WMO BUFR tables version 31
+
+000458
+
+	Notes
+		* This is an internal release, with no code changes
+
+000457
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2018.06
+		* This is an internal release, with no code changes
+
+	Improvement
+		[BUFR-60] - New WMO BUFR tables version 30
+
+000456
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2018.06
+		* This is an internal release, with no code changes
+
+000455
+
+	Notes
+		* This is an internal release
+
+	Bug fixes
+		* [EMOS-323] - Symbol conflict when linking with BLAS
+
+000454
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2018.02
+		* This is an internal release
+
+	Improvement
+		* [DAPP-467] - bufr_filter displays message number on error
+
+000453
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2017.12
+		* This is an internal release, with no code changes
+
+000452
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2017.10
+		* This is an internal release
+
+	Improvement
+		* [EMOS-317] - Enable building of shared libraries
+
+000451
+
+	Improvement
+		* [EMOS-320] - Use missingValuesPresent (eccodes/2.4.1) instead of bitmapPresent
+
+	Bug fixes
+		* [ECC-511] - Invalid data read from FRET grib2 files with grid_complex_spatial_differencing packing
+
+000450
+
+	Bug fixes
+		* [EMOS-316] - Interpolation of fields with scanningMode=64 to a new grid
+		* [EMOS-318] - Handling high-resolution regular_ll GRIB with unusual scanning mode
+
+000449
+
+	Notes
+		* This is an internal release
+
+	Improvement
+		* [DAPP-404] - bufr_add_bias fix for too many elements
+
+000448
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2017.05
+		* This version of libemos was tested against BUFR tables version 000411, please check also changes of the previous version 000446
+
+000447
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2017.03
+
+	Bug fixes
+		* [EMOS-60] - interpolating WAVE parameter from regular_ll with sub-area to regular_ll with sub-area
+
+000446
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2017.01
+		* This version of libemos was tested against BUFR tables version 000410 (WMO tables 27, released Nov 2016), please check also changes of the previous version 000442
+
+	Bug fixes
+		* [ECC-414] - include sample BUFR file with the new Sentinel 1 descriptors
+
+000445
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2016.11
+		* This release configures with ecCodes by default
+
+	Bug fixes
+		* [EMOS-307] - wave parameter on specific sub-areas straddling Greenwich meridian
+
+000444
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2016.10
+
+	Bug fixes
+		* [EMOS-304] - fix for Greenwich meridian values on particular combinations of increments and sub-areas
+
+000443
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2016.08
+		* This release requires grib_api/1.17.0
+
+	Improvement
+		* [EMOS-301] - interpolation of new directional wave parameter (wefxd)
+
+000442
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2016.06
+		* This version of libemos was tested against BUFR tables version 000409, please check also changes of the previous version 000438
+
+	Improvement
+		* [EMOS-242] - allow optional build using ecCodes instead of GRIB-API for GRIB handling
+		* [EMOS-288] - MS application examples testing
+		* ecBuild bundle support
+
+	Bug fixes
+		* [EMOS-211] - corrected BUFR tables path configuration
+
+000441
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2016.04
+
+	Improvement
+		* [EMOS-282] - improve precision for interpolation of directions (wave model)
+		* [EMOS-283] - update cmake_minimum_required to 2.8.11
+		* [EMOS-272] - SH coefficient files to be loaded are always displayed when required
+
+	Bug fixes
+		* [EMOS-277] - MARS "style=dissemination" gives an additional row for u/v sh to regular_ll interpolations
+
+000440
+
+	Improvement
+		* [EMOS-243] - support additional module path for gfortran 4.1
+
+	Bug fixes
+		* [EMOS-274] - fix interpolations of reduced_gg grids with custom pl arrays (regression from [EMOS-269] fix)
+
+000439
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2016.03
+
+	Bug fixes
+		* [EMOS-269] - avoid unnecessary reduced_gg interpolations
+
+000438
+
+	Notes
+		* This version of libemos was tested against BUFR tables version 000408, please check also changes of the previous version 000437
+
+	Improvement
+		* [EMOS-242] - bufr_filter tool error return codes
+		* [EMOS-254] - HIRLAM routines external memory management functionality
+		* [EMOS-256] - interpolation example (using INTF, Fortran 90)
+		* [EMOS-259] - extend regression tests suite (synchronized with MIR)
+		* [EMOS-263] - BUFR tables 000408
+
+	Bug fixes
+		* [EMOS-250/EMOS-255] - fix missing sanity checks on malloc returned pointer
+		* [EMOS-251] - fix regression tests without FFTW (SH to reduced_gg/octahedral interpolations require FFTW)
+		* [EMOS-252] - fix Cray failures on creating and checking Legendre coefficients file size
+		* [EMOS-260] - incorrect values for interpolation to regular_ll particular sub-areas crossing 0 degrees longitude (particular cases)
+		* [EMOS-262] - incorrect values for interpolation to single points
+		* [EMOS-267] - adjust memory allocation of reduced_gg/regular_gg to regular_ll interpolations
+		* [EMOS-268] - memory leak on era20c moda request
+		* Fix CHEQUAL for strict string comparison respecting bounds and requested range (particular cases)
+
+000437
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2016.01
+		* This version of libemos was tested against BUFR tables version 000407, please check also changes of the previous version 000420
+
+	Improvement
+		* [EMOS-244] - BUFR tables 000407
+
+	Bug fixes
+		* [EMOS-238/EMOS-247] - interpolation from reduced_gg to regular_gg/regular_ll with sub-areas including the 0-meridian
+
+000436
+
+	Notes
+		* Default cmake behaviour now requires FFTW package unless configured with -DENABLE_REQUIRE_FFTW=OFF
+
+	Improvement
+		* [DAPP-284] - bufr_add_bias now handles 181 and 182 subtypes
+		* [EMOS-231] - regression tests suite activated with -DLIBEMOS_TESTS_REGRESS=ON (currently holding only EMOS-216 tests)
+		* [EMOS-223] - default cmake behaviour new requires FFTW package unless configured with -DENABLE_REQUIRE_FFTW=OFF
+		* [EMOS-223] - build options synchronized with ecbuild/develop
+
+	Bug Fixes
+		* [EMOS-238] - fixed longitude increment accumulation for interpolations of Gaussian grids to sub-area regular grids (see also EMOS-216)
+
+000435
+
+	Improvement
+		* [EMOS-234] - internal testing of reduced_gg to lat/lon single-point interpolation
+
+	Bug Fixes
+		* [EMOS-216] - improved longitude increment calculation precision for LSM (affects reduced_gg to regular_ll/regular_gg interpolations)
+
+000434
+
+	Improvement
+		* [EMOS-236] - re-implemented HSP2GG, HSP2GG2 and HSP2GG3 based on HSH2GG, to control SH interpolation to Gaussian grids
+
+	Bug Fixes
+		* [EMOS-233] - corrected encoding of -90/0 rotation
+		* [EMOS-235] - wrong behaviour of configuration option -DENABLE_TESTS=OFF
+
+000433
+
+	Improvement
+		* [EMOS-232] - include climate.v014 land-sea masks
+
+000432
+
+	Bug Fixes
+		* [EMOS-216] - interpolations from regular/reduced global grids to regular (lat/lon and F-grids) local grids use old algorithm
+		* [EMOS-230] - fixed some tests failure when calling grib_compare, when grib_api is not installed
+
+000431
+
+	Bug Fixes
+		* [EMOS-220] - fixed interpolation of wave model parameters sub-areas straddling the Greenwich meridian
+
+000430
+
+	Notes
+		* This release includes corrections related to regular_ll/regular_gg/reduced_gg to regular_ll/regular_gg (performance improvements)
+
+	Improvement
+		* [EMOS-205] - smaller memory allocation for interpolations of u/v on reduced_gg grids
+		* [DAPP-249] - drifting buoys with new BUFR template (subtype 182)
+
+	Bug fixes
+		* [EMOS-188] - HIRLAMW memory allocation issue under very specific conditions
+		* [EMOS-216] - HRES corrections and performance improvement for West-most longitudes and high North/South latitudes, including LSM
+
+000422
+
+	Bug Fixes
+		* [EMOS-220] - fixed interpolation of wave model parameters sub-areas straddling the Greenwich meridian
+
+000421
+
+	Notes
+		* This release is part of ECMWF Development Section Synchronised Release 2015.11
+		* This release requires grib_api/1.14.3
+
+	Improvement
+		* [EMOS-214] - encoding GRIB1 interpolation results with resolution up to 1/16 degrees
+		* [EMOS-226] - removed obsolete GRIBex-based tools (changeExpver, changeGrib, changeStream, compareGribFiles, Dchange_grib, ginout, ginout_c, modify_grib)
+		* Metadata set in double precision (grib_util_grid_spec)
+		* F-grids with arbitrary latitude lines between pole and equator
+		* Unit testing improvements
+		* Fix configuration when -DENABLE_TESTS=OFF
+		* Fix for PGI/GNU mixed compiler builds
+
+000420
+
+	Notes
+		* This release provides support for octahedral reduced Gaussian grids
+		* This release requires grib_api/1.14.2
+		* Tested against BUFR tables version 000406, please check also changes of the previous version 000405
+		* Changes to HIRLAM functions interface, CHARACTER*1 HTYPE as new argument as follows:
+			* HIRLAM(L12PNT,OLDFLD,KOUNT,KGAUSS,HTYPE,AREA,POLE,GRID,NEWFLD,KSIZE,NLON,NLAT)
+			* HIRLSM(L12PNT,OLDFLD,KOUNT,KGAUSS,HTYPE,AREA,POLE,GRID,NEWFLD,KSIZE,NLON,NLAT)
+			* HIRLAMW(L12PNT,OLDFLDU,OLDFLDV,KOUNT,KGAUSS,HTYPE,AREA,POLE,GRID,NEWFLDU,NEWFLDV,KSIZE,NLON,NLAT)
+		  HTYPE should be one of:
+			* 'R' for "quasi-regular" reduced Gaussian grid (equivalent to 'N')
+			* 'O' for octahedral reduced Gaussian grid, or
+			* 'F' for regular Gaussian grid
+			* 'U' for a user-defined gaussian grid
+		* New HSH2GG function, controlling SH interpolation to Gaussian grids, replaces:
+			* HSP2GG
+			* HSP2GG2
+			* HSP2GG3
+		* New INTOUT parameter name CHARACTER*(*) HPARN "gridname", interpreting parameter value CHARACTER*(*) CHARV, describing a list of supported grids as in [https://software.ecmwf.int/wiki/display/USS/Gaussian+Grids+supported+by+MARS+and+ProdGen]. This is the available method to set interpolation to octahedral reduced Gaussian grids.
+		* Build system:
+			* conditional compilation of components (interpolation, GRIBEX and BUFR)
+			* revision of definitions and code reusing, stricter compilation options
+		* FFTW is an optional Fast Fourier Transform library dependency, required for SH to octahedral reduced Gaussian grid interpolations
+		* Improved interpolation testing
+		* Added new HIRLAM LSM masks for specific reduced Gaussian grids:
+			* N64, N96, N512, N128
+			* O64, O80, O96, O128, O160, O200, O256, O320, O400, O512, O640, O1024, O1280
+		* When using INTF2  (e.g. via MARS),  GRIB "latitudeOfLastGridPoint" for wave model interpolations in some cases was encoded wrongly to -79.0xx and is now corrected to be -90+0.5*inc (see MARS-492)
+
+	Known issues
+		* This release is a preview release, and fails some unit tests. The failures happen when comparing interpolation results to reference data (bundled with the package), where the results GRIB header (wrong) are different from the reference data (correct). This is a known issue with grib_api/1.14.2 and will be resolved on grib_api/1.14.3. The affected tests are:
+			* 8 - intuvp2_sh_vod_to_O80_compare (Failed)
+			* 19 - intf2_sh_2t_to_O80_compare_cmp (Failed)
+			* 30 - intf2_sh_vod_to_O80_compare_cmp (Failed)
+			* 41 - intf2_sh_z_to_O80_compare_cmp (Failed)
+			* 57 - intf2_N640_to_O80_compare (Failed)
+			* 68 - intf2_O640_to_O80_compare_cmp (Failed)
+
+	Improvement
+		* [EMOS-112] - add support for new octahedral reduced gaussian grid - MARS and Metview
+		* [EMOS-159] - add support for new octahedral reduced gaussian grid (as output)
+		* [EMOS-177] - support RGG/octahedral grids (non-rotated)
+		* [EMOS-178] - support RGG/octahedral grids (HIRLAM)
+		* [EMOS-179] - support RGG/octahedral grids (LSM-dependant parameters)
+		* [EMOS-183] - support gridname keyword
+		* [EMOS-185] - add sh to octahedral interpolation
+		* [EMOS-190] - tested interpolation on N64 grid
+		* [EMOS-201] - tested against BUFR tables version 000406
+
+	Bug Fixes
+		* [EMOS-168] - bufr_demo was removed (obsolete)
+		* [EMOS-173] - build fix for emoslib on powerpc (partial fix: consistent types and declarations)
+		* [EMOS-175] - fortint error in EMOSLIB (fix: consistent types and declarations)
+		* [EMOS-186] - memory fault in libemos using fftw
+		* [EMOS-200] - incorrect information in pkg-config files
+
+000411
+
+	Notes
+		* This release forces the 'nearest neighbour' interpolation of the new precitation parameters introduced in IFS cycle 41r1 (as recommended by the centre). Affected parameters include:
+			* 260015 ptype
+			* 228217 ilspf
+			* 228218 crr
+			* 228219 lsrr
+			* 228220 csfr
+			* 228221 lssfr
+			* 228222 mxtpr3
+			* 228223 mntpr3
+			* 228224 mxtpr6
+			* 228225 mntpr6
+			* 228226 mxtpr
+			* 228227 mntpr
+
+	Improvement
+		* [EMOS-155] - surface precipitation type forced interpolation with nearest neighbour
+
+000410
+
+	Notes
+		* GRIBEX support is disabled
+		* Tested against BUFR tables version 000405, please check also changes of the previous version 000404
+
+	Improvement
+		* [EMOS-152] - added basic support for pkg-config
+
+	Bug Fixes
+		* Improved bufr testing
+
+000407
+
+	Notes
+		* added bufr_decode_all and modified bufr_add_bias to process subtype 182
+
+	Improvement
+		* [EMOS-106] - static memory allocation reduced significantly (BSS)
+		* Support to convert octahedral grids to reduced Gaussian (conversion to LatLong and full Gaussian grid works since 000395)
+
+	Bug Fixes
+		* improved grib_api detection
+		* improved initialization of variables (thank you, Dr Arndt Meier)
+
+000406
+
+	Improvement
+		* Default installation of BUFR/GRIBex tables and land sea masks (LSM)
+		* [EMOS-142] - All dependencies are resolved and all dependant tables/files are confirmed to install.
+		* [EMOS-139] - Longer, untruncated logging messages
+
+	Bug Fixes
+		* Fixed cleaning of variable state across multiple interpolations (on requests mixing new & not new CY41R1 LSM, for rotated LL requests).
+		* Do not cache the LSM, ensuring specially crafted cases do not mix LSM resolutions (for rotated LL requests).
+
+000403
+
+	Notes
+		* This version of libemos was tested against BUFR tables version 000404. Please check also changes of the previous version 000402.
+
+	Improvement
+		* [EMOS-102] - When selecting "nearest neighbour" interpolation, use by default the new land sea masks (LSM) generated from the new (high resolution) climate fields in IFS CY41R1.
+
+000402
+
+	Notes
+		* This version of libemos was tested against BUFR tables version 000404. Please check also changes of the previous version 000401.
+
+	Improvements
+		* [EMOS-102] - Add environment variable to trigger non-default land sea masks (LSM) for rotated grids. (Please note, feature was changed in 000403)
+		* New environment variable EMOSLIB_DEBUG to request debug output. This variable can be used alternative to JDCNDBG and the variable can be assigned values 1 to 3 to give progressively more detailed diagnostics.
+
+000401
+
+	Bug Fixes
+		[EMOS-12] - segmentation fault when interpolating wave parameters to 0.05 lat/lon
+		[EMOS-68] - mars cannot interpolate fields to grid 0.1x0.1
+		[EMOS-70] - wrong interpolation of wind direction as archived as a wave model parameter
+		[EMOS-79] - libemos 400 - Problems finding interpolation tables
+		[EMOS-103] - Broken installation of BUFR tables on workstations
+		[EMOS-105] - Support build of single precision together with double precision
+		[EMOS-113] - EMOSLIB fails to interpolate UKMO high-resolution fields correctly
+		[EMOS-115] - LSM tables not found in default installation
+
+	Improvement
+		[EMOS-101] - Update BUFR tables to version 404
+		[EMOS-109] - create a canonical list of interpolation tables and install them with libemos
+
+	New Features
+		[EMOS-69] - Adapt interpolation for new CY41r1 wave parameters
+
+000400
+
+	Platform support
+		* From version 000400 Emoslib uses CMake to manage the build environment
+			* Improved and more stable build system
+			* Tested on various Linux flavours and Mac OS X
+			* Double precision version is build by default
+			* Please also read the new installation guide
+		*Further improvements for Cray compiler
+
+	New features
+		* Added grid N96 EMOS-81
+		* Upgrade BUFR tables to version 000401
+
+	Bugfixes
+		* Fix handling of coefficient files in shared memory EMOS-49
+		* Removing blank spaces from the land sea mask value EMOS-91
+		* Disable optimisation for GRIBEX part - breaks second-order packing EMOS-96
+
+Change 91018 on 2014/03/06 by cgm@cgm_cray
+	GRIBEX - correct table paths for /usr/local/apps EMOS-50
+
+Change 90998 on 2014/03/05 by max@emoslib_marssc-core
+	MAKE update for marssc-core (Redhat 6.4)
+
+Change 90823 on 2014/02/13 by max@emoslib_marssc-core
+	COMPILE adopted compile script for redhat DHS systems EMOS-54
+
+Change 90734 on 2014/02/04 by cgm@magics_redhat
+	TOOLS - commented out line on 'iarg' to work on new Linux machine (EMOS-51)
+
+Change 90733 on 2014/02/04 by cgm@magics_opensuse113
+	TOOLS - increase array size to work on new Linux machine (EMOS-51)
+
+Change 90667 on 2014/01/31 by maf@cct-login
+	Added MPI information as a compile option and modified CRAY config files EMOS-49
+
+Change 90664 on 2014/01/30 by maf@cct-login
+	Some coding errors fixed in debug output handling.
+
+Change 90660 on 2014/01/30 by maf@cct-login
+	Removed JFREE and MPI debug statements. Added shm debug env var
+
+Change 90610 on 2014/01/27 by cgm@cgm_cray
+	Cray - Removed compiler option which prevented use of Google performance malloc EMOS-49
+
+Change 90609 on 2014/01/24 by maf@cct-login
+	CRAY modified RANK in debug output to be same as prodgen EMOS-49
+
+Change 90608 on 2014/01/24 by maf@cct-login
+	Changed POINTER initialisation to zero where previously -1 EMOS-49
+
+Change 90599 on 2014/01/23 by cgm@cgm_cray
+	Cray - improved debug output EMOS-49
+
+Change 90596 on 2014/01/23 by maf@cct-login
+	CRAY testing on seg fault on jfree
+
+Change 90592 on 2014/01/23 by cgm@cgm_cray
+	Cray - more testing EMOS-49
+
+Change 90591 on 2014/01/23 by cgm@cgm_cray
+	GRIBEX update default path for GRIB tables to /usr/local/apps EMOS-50
+
+Change 90577 on 2014/01/22 by cgm@cgm_cray
+	Cray - correct pointer type for Linux EMOS-49
+
+Change 90576 on 2014/01/22 by cgm@cgm_cray
+	Cray - remove warnings on implicit functions
+
+Change 90575 on 2014/01/22 by cgm@cgm_cray
+	Cray - test printout for MPI NEEDS LATER REVERTING
+
+Change 90522 on 2014/01/18 by cgm@cgm_cray
+	Cray - correct path to BUFR tables
+
+Change 90521 on 2014/01/18 by cgm@cgm_cray
+	Cray - enabling shared memory for Linux-Cray platform EMOS-49
+
+Change 90511 on 2014/01/17 by cgm@cgm_cray
+	Disable failing test
+
+Change 90470 on 2014/01/14 by cgm@cgm_cray
+	CRAY add compiler option to force IEEE floting point arithmetic
+
+Change 89700 on 2013/12/06 by cgm@magics_opensuse113
+	COMPILE - add option -fPIC for compilation
+
+Change 89690 on 2013/12/05 by cgm@libemos_c2a
+	COMPILE works now also under IBM Power7
+
+Change 89688 on 2013/12/05 by cgm@magics_opensuse113
+	COMPILE - also handles Linux desktops now
+
+Change 89687 on 2013/12/05 by cgm@cgm_cray
+	Cray add missing test data file
+
+Change 89684 on 2013/12/05 by cgm@magics_opensuse113
+	SCRPT to build tarballs
+
+Change 89683 on 2013/12/05 by cgm@cgm_cray
+	CRAY - have all three compiers working on cca
+
+Change 89664 on 2013/12/04 by cgm@cgm_cray_cca
+	CRAY changes for cca
+
+Change 89567 on 2013/11/22 by cgm@cgm_cray
+	bufrtools - Cray compilation options
+
+Change 89238 on 2013/10/24 by cgm@magics_lxa
+	VERSION 000394
+
+Change 89235 on 2013/10/24 by cgm@magics_opensuse113
+	INSTALL support internal and external naming conventions
+
+Change 87682 on 2013/08/08 by mas@mas
+	added initial tests for interpolation #EMOS-39
+
+Change 87670 on 2013/08/06 by cgm@magics_opensuse113
+	CONFIG - add -fPIC for 64 bit architectures EMOS-13
+
+Change 87669 on 2013/08/06 by cgm@magics_opensuse113
+	BUILD SCRIPT - add 'make clean' call to ensure we start with fresh compilation after re-configuration #EMOS-16
+
+Change 87668 on 2013/08/06 by cgm@magics_opensuse113
+	CONFIG - Cray compiler - correct compiler option for single precision #EMOS-38
+
+Change 87655 on 2013/08/05 by cgm@magics_opensuse113
+	Cray compiler - correct handling for Cray pointer in single precision #EMOS-38
+
+Change 87364 on 2013/07/18 by mas@mas
+	gmake instaed of make #EMOS-16
+
+Change 87361 on 2013/07/18 by cgm@magics_opensuse113
+	Cray compiler - correct handling for Cray pointers in COMMON block of interpolation #EMOS-38
+
+Change 87351 on 2013/07/17 by cgm@magics_opensuse113
+	CONFIG - Cray compiler - add compiler option for LARGEFILE64 #EMOS-38
+
+Change 87350 on 2013/07/17 by cgm@magics_opensuse113
+	Cray compiler - correct handling for Cray pointers in interpolation #EMOS-38
+
+Change 87338 on 2013/07/17 by cgm@magics_opensuse113
+	Cray compiler - correct handling for Cray pointers #EMOS-38
+
+Change 87333 on 2013/07/17 by cgm@magics_opensuse113
+	CONFIG - Cray compiler - add build option and config files #EMOS-38
+
+Change 87332 on 2013/07/17 by cgm@magics_opensuse113
+	CONFIG Intel compilers - remove deprecated compiler option #EMOS-15
+
+Change 87330 on 2013/07/17 by cgm@magics_opensuse113
+	MAKE revise how subfolders are handled - stopping now if a compilation error occors  #EMOS-16
+
+Change 87329 on 2013/07/17 by cgm@magics_opensuse113
+	INTEGRATE from 000393 (Intel compiler and BUFR fix)
+
+16-6-2013   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000393->main
+	* config/config.linux_intel* adjusted icc instaed of gcc -O3 optimisation #EMOS-15
+11-6-2013   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000393->main
+	* config/config.linux_gfortranA64, config.linux_gfortranA64.in updated #EMOS-36
+29-5-2013   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000393->main
+	* tools/bufrtools_wmo/bufr_filter.F commented print*,'cident=',cident(1:3) on Enrico request
+	* tools/bufrtools_wmo/Makefile : changed path for libemos /usr/local/apps/libemos
+14-5-2013   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000393->main
+	* config/config.linux_gfortranR64A64 removed -ffast-math -funroll-loops to have consistancy in results with other platforms #EMOS-36
+17-4-2013   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000393
+	* hgetlsm.F,iglsmd.F,lsm_red.F,pddefs.F replaced default path from /usr/local/lib/metaps/tables/interpolation to /usr/local/apps/libemos/tables added env variable EMOSLIB_FILES to mimic previous path in case of any need
+13-2-2013   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000392->main
+	config.linux_gfortranR64A64: After consultation with Umberto Disabled options -m64 -Ofast -flto -march=native -funroll-loops
+	    https://software.ecmwf.int/wiki/pages/viewpage.action?pageId=22908259
+6-12-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* jagggp.F jopnggf.F: updates for reduced gaussian case SAVE IALEG
+	* jopnllf.F : cover latlon case for MEMORY
+3-12-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* gribex/jmalloc.c : jamalloc jmalloc2 out of any if #EMOS-24
+29-11-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/jopnggf.F: removed env variable
+	* reverted arrays size wavexx2.F, wv2dxx2.F, intf.h
+28-11-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/jopnggf.F: applied changes in order to handle big coeff files
+	* pbio/pbio.c :  added pbread4 and pbread5 to read big coeff files
+	* interpolation/jmemhan2.F : added  using jmalloc2 #EMOS-24
+6-11-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* add tools/bufrtools_wmo/config.ibm_power7R64 to support c2a installation
+25-10-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+392->main,391
+	* hirlsm.F : deliver to hgetlsm real number points to be read #EMOS-21
+17-5-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* wavexx2.F, wv2dxx2.F, intf.h: increased arrays for 0.05 X 0.05 resolution
+27-4-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+392
+	* apache license
+26-3-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+391->main
+	* interpolation/insane.F: relax criteria for table number
+	* grib_api_merging/
+26-3-2012   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->391
+	* grib_api_merging/describe_input_field.c: updated type of level list with missing
+7-12-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->391
+	* wavexx2.F, wv2dxx2.F: increased arrays for 0.1 X 0.1 resolution
+	  waiting for Mars client
+8-11-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->391
+	* iggrid.F : fix for NCEP N47 pseudo gaussian grid
+8-11-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->391
+	* igsize.F : bug fix stride and nymber of points to match east
+7-11-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* .list/land_sea_mask : added LSM_GG_0640 for installation
+3-11-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* added option off for interpolation
+31-10-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	revert
+	* grib_api_merging/intuvp2.c, intf2.c : improved error code check for grib_util_set_spec
+31-10-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* nofld.common, intout.F,hirlsm.F : LNNLSM - Flag using NN with same type of lsm for rotated lat/lon
+27-10-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* igsize.F: big fix for gaussian grid subarea
+21-10-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* Enrico updates from external users
+	    bufrdc_wmo/buexs4.F , tools/bufr_exports/synop2bufr/synop2bufr.f
+29-9-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+390->main
+	* grib_api_merging/intuvp2.c, intf2.c : improved error code check for grib_util_set_spec
+20-9-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* added rgauss_064.h
+	* jgetgg.F, insane.F : updated list of possible redued gaussian with N64
+16-8-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* emos.h, copy_spec_from_ksec.c ISECTION_2  5000
+16-8-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* jgetgg.F : JPMAXNG=4000
+03-8-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* kintrg.F : JPMAXNG=4000
+	* jgetgg.F : updated list of possible redued gaussian with N2000
+	* interpolation/krg2rg*.F : JSEC2 = 3000 JPMAXNG=4000 to allow N2000
+	* interpolation/parim.h : Changed constants JPSTRUNC=3999 JPGTRUNC=4000
+	in order to allow T3999 and N2000
+
+18-7-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+390->main
+	* interpolation/intuvu.F: bug fix - preserve output area between each iteration
+29-6-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* interpolation/wv2dxx2.F,wavexx2.F,intwave2.F: dyn alloc for NEWIDX,DISTNEW
+16-6-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* interpolation/iarcntl.F,iagcntl.F,iscrsz.F LGLOBL = .TRUE. only if grid is global and west is 0 - trigger grib_api calcluation of area for gaussian grid
+9-6-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->390
+	* bufrdc_wmo/mbufr_mars_filter.F: to deal with the satellite instrument MHS (instrument=203).
+18-5-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* grib_api_merging/copy_spec_from_ksec.c : adjust constant for SECOND ORDER packing to be the same as in grib_util
+16-5-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* interpolation/issame.F: NOREPR.EQ.NIREPR  because NOREPR is always set trough describe input field
+	* interpolation/oceanu.F: better estimate for output field
+	* interpolation/estimate.F: better estimate for output Ocean field
+13-5-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* grib_api_merging/describe_input_field.c  enable horizontal case for ocean
+10-5-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* interpolation/intin.F: added intf.f and zsec1(5) = 192
+	* interpolation/gasetup.F : applied RMISSGV
+14-4-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* interpolation/estima.F: more memory for ocean fields
+12-4-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* grib_api_merging/intuvs2.c, intuvp2.c, intf2.c : adedd estima for better memory managment
+	* interpolation/estima.F: to estimate output arraay for gluing functions
+5-4-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* grib_api_merging/intuvs2.c, intuvp2.c, intf2.c :
+	* grib_api_merging/fortint.h REAL_8 instead of R32 for fortfloat
+4-4-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+378
+	* interplation/intuvs.F: preserve NOHFUNC for grid field. Intermediate packing is same as input packing
+1-4-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* grib_api_merging/intuvs2.c : env variable COMPLIANT_UV_SPECTRAL_COMPLEX to set MS=20,KS=20,JS=20 for proper spectral complex encoding
+31-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* grib_api_merging/intf2.c, intvect2,intuvp2 allow real 32 for Emos users
+	* grib_api_merging/intuvs2.c : explicit set of complex packing to resolve case when simple spectral is input
+30-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* interpolation/insane.F: no more check for parameters > 255
+	* grib_api_merging/describe_input_field.c/ reverted  changes NOPARAM necessary to be set
+28-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* interpolation/issame.F: no check for param, level,leveltype, table
+	* grib_api_merging/intuvs2.c : added grib_util
+24-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382
+	* grib_api_merging/describe_input_field.c: comented obsolete setting of level,leveltype and parameter with INTOUT
+21-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381
+	* grib_api_merging: intuvs2.c added truncatelaplacian
+	* bufrtttols_wmo:Bug fix when comparing single figured satellite id( left justification)
+	* interpolation/intfb.F : set isec(5) to 192 if input field has a bitmap
+17-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381
+	* interpolation/intfb.F,iscrsz.F: set properly LGLOBL fo r spectral to gaussian case
+15-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+377
+	* interpolation/intfb.F:RMISSGV instead of JPZMISS for FRAME
+14-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381
+	* interpolation/intvecy.F: bug fix for FRAME set isec1(5)=192
+4-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381
+	* grib_pi_merging/intuvs2.c bug fix gettru
+	* interpolation/gettru.F get NORESOL
+	* interpolation/intuvu.F: after conversion set NORESOL = MTRUNC
+4-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* grib_pi_merging/intf2.c, intuvp2,intvect2.c : bugfix for no interpolation
+1-3-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* grib_api_merging/intf2.c : bugfix for no interpolation
+	* interpolation/iagcntl.F, iarcntl.f, KINTRG.F nofld.common : added LGLOBL
+	* interpolation/global.F: added function to get LGLOBL from common block whether
+	   output grib is global
+15-2-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->382,381,377
+	* interpolation/kintrg.F : removed env variable RG2RG_COMP
+	* created 378,382
+15-2-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381,377
+	* config/config.linux: delete -tp px for all config.linux*A64* files
+15-2-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381,377
+	* interpolation/intfbu.F : bug fix F instead of U for regular gaussian HTYPE
+9-2-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381,377
+	* interpolation/intuvxh.F : bug fix memory allocation of swork comented
+27-1-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381,377
+	* grib_api_merging: update interface of funvctions to be emos example compatible
+	* grib_api_merging_conversion: update interface of funvctions to be emos example compatible
+25-1-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381,377
+	* interpolation: added chkout.F - check if intout  has been called from common block
+	* grib_api_merging: updated ppglue.c
+21-1-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->381
+	* synop2bufr.f:hange have been done to represent R24R24R24R24 as precipitation trace  -0.1 when coded as 79999 in FM-12 SYNOP for Region VI and IV
+20-1-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+381->main
+	* interpolation/wavexx2.F : further update to avoid spurious value and have similar result as wavexxx.F
+19-1-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->373
+	* interpolation/intfb.F : RMISSGV for frame and bitmap ZSEC3(2) = RMISSGV as well
+12-1-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/intvecy.F NIGAUSS instead of NOGAUSS for call of HIRLAMW
+10-1-2011   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000377
+	* config/config.linux_x86_64 added variable COMP = px
+14-12-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000381->main
+	* interpolation/wavexx2.F : Bug Fix - wrong calculation north-south latitudes due to spurious values in RLATINC same style as wavexxx.F
+14-12-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000381,000377
+	* config/config.hppa* changed on recomendation of Liliane Frappez
+	* pbio/added fort2c_hppa.c and ameded sources.hppa - Liliane Frappez
+09-12-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000381,000377
+	* gribex/grchk1.F
+C     Add stream 1022  fsob forecast sensitivity to observations
+C     Add stream 1023  fsow forecast sensitivity to observations wave
+C     Add type  47    taem    time average ensemble mean
+C     Add type  48    taes    time average ensemble standard deviation
+
+02-12-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000381
+	* intfb.F : delete IRWORK to compile on c1a, c1b
+24-11-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000377->main
+	* interpolation/jsymgg.F jsymll.F George added some optimisation
+	* interpolation/hirlsm: Lucio Torissi changes
+	* interpolation/fixarea.F: bug fix for input field which are global west-east but non global north-south
+05-11-2010   Milan.Dragosavac@ecmwf.int
+main-000376
+	* gribex/grchk1.F: added satellite identifier 172, 257
+29-10-2010   Milan.Dragosavac@ecmwf.int
+main-000376
+	* interpolation/iglsmd.F: bug fix spotted bu Iain Russel
+28-10-2010   Milan.Dragosavac@ecmwf.int
+main
+	* interpolation/gasetup.F: set isec(37) to 4 for ocean data, set bitmap to be always present for ocean
+27-10-2010   Milan.Dragosavac@ecmwf.int
+main->000376
+	* bufrdc_wmo/buevar.F buivar.F:  Initialition of NMASK amended
+
+26-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* Created 000376 from 000374 added features from 000373
+		- intuvxh.F: added FRAME
+		- intuvp.F, intuvph.F bug fix for MARS_USE_INTUVP
+		- dssarea.F - reset east to 360 in case of spurious values
+		- intfb: proper failure for krg2rgy
+25-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/added krg2rgz.F to do just intermedite interpolaton
+000372
+	* interpolation/krg2rgu.F: bug fix to read from file grid def instead of millen
+15-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000373->main,000375
+	* interpolation/intuvxh.F: added FRAME
+15-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/intuvu.F: added FRAME
+13-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/:gasetup.F intuvu.F nofld.common: added LUVCOMP for rotated u,v components
+06-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/gasetup.F : added JPREDLL as a possibe output
+05-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/gasetup.F : allow subarea for input data with different scanning mode
+000372->000375
+	* interpolation/igsetup.F : allow subarea for input data with different scanning mode
+03-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/gasetup.F : updated list of packing types
+01-10-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/issame.F: check for reduced latlon  just for NOREPR
+	* interpolation/intwavu.F : fix for Reduced Gaussian Output
+30-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/intfb.F krg2rgu.F : bug fix for double interpolation towards reduced gaussian
+28-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000372,000373
+	* gribex/grchk1.F: added type 45 Cluster representative    CR
+20-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000373
+	* interpolation/issame.F : added env variable GRIBEX_ACCURACY due to backward compatibily with Emos
+	* interpolation/dssarea.F : reset east to 360.0
+17-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/intf.F : finished intermediate unpacked rg to rg
+16-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000372,000373
+	* interpolation/hirlsm.F: vegetation parameters to work using amended nearest neighbour interpolation which include lsm processing - Lucio Torissi
+16-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000372,000373
+	* interpolation/krg2rgy.F, krg2rgd.F : extend grib headers arrays
+	* interpolation/intfb.F :  proper failure for krg2rgy
+	* interpolation/intuvph.F : bug fix user requsted resolution
+14-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/wv2dxx2.F:bug fix if index eq 0 set misssing value
+13-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000372,000380
+	* config: added config.linux*_core2* for drn -tp core2
+	* config: added config.linux*_x86_64* for lxa -tp nehalem-64
+08-09-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/intwavu.F: it is possible just regular output
+	        OUTLEN  = NUM_E_W*NUM_N_S
+21-07-2010   Milan.Dragosavac@ecmwf.int
+000372->main,000380
+	* interpolation/krg2rg.F kinrg.F : extended arrays to accomodate N1024
+07-07-2010   Milan.Dragosavac@ecmwf.int
+main->000380
+	* tools/bufr_exports/synop2bufr/synop2bufr.f :Bug fix kdata array values setting.
+22-06-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/intfb.F: updated dissemination auresol table
+21-06-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/hirlsm.F On request D.Pettenuzzo and L.Torrisi  added land-sea mask check for all parameters in nearest neighbour case
+
+10-06-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/intuvph.F: bug fix for u,v interpolation without packing after conversion
+13-05-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000372
+	* bufrdc_wmo/buetd.F buexs3.F fix for Hungarian synop dat
+	Change to cancel 201yyy,202yyy, 204yyy,207yyy and 208yyy operators
+	if they were not canceled using corresponding cancel operators after
+	last subset processed.
+04-05-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	* tools/synop2bufr : Fix to convert the last bulletin in input file into bufr synop.
+29-04-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000372,000380
+	* interpolation/rgauss_1024.h : revised - Nils Wedi
+	* interpolation/rgauss_2000.h : added - Nils Wedi
+22-04-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000372->main,000380
+	* interpolation/hntfaph.F : added possibility for RESOL=AV and RESOL=certain_resolution
+30-03-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000372->main,000380
+	* interpolation/hntfaph.F : endif on the write place to allow reduced gaussian to latlon
+08-02-2010   Milan.Dragosavac@ecmwf.int
+main
+	* bufrdc_wmo/buevar.F buivar.F:  Initialition of NMASK amended
+03-03-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000372->main,000380
+	* interpolation/hntfaph.F : bug fix from 000371 to save some time
+02-03-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	* interpolation/intuvu.F: added rotation
+01-03-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000372->main,000380
+	* interpolation/hntfaph.F : truncation revert to 000370 because of truncation before  rotation changed in 000371
+	* interpolation/fixarea.F : fix to support non global north-south but global west-east
+15-02-2010   Milan.Dragosavac@ecmwf.int
+main->000380
+	* config/config.linux* : delete -byteswap
+	* buens4.F fixing bug introduced in when compressing characters strings.
+	* In bufr table D 307079 sequence added.
+	* In bufr table C some minor corrections done.
+	* In bufr table B 014045 -014048 unit changed for channel radiance which is wrong in WMO table.
+	* bufrtables: updated B0000000000000014000.TXT, B0000000000098014001.TXT,C0000000000000014000.TXT,C0000000000098014001.TXT,D0000000000000014000.TXT,D0000000000098014001.TXT
+main->000380,000372
+	* bufrdc_wmo/buens4.F : bug fix c1a - c1b issue
+19-02-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000372->main,000380
+	* interpolation/intvect.F: no interpolation for input regular rotatated fields(imprtantant for INTUVP style)
+15-02-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	* interpolation/intuvu.F: added fixarea and dssarea
+15-02-2010   Milan.Dragosavac@ecmwf.int
+	* bufrdc_wmo/get_name_unit.F
+10-02-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000372->main,000380
+	* interpolation/intfbu.F: updated with special proccessing for dissemination style
+	* interpolation/dssarea.F : JP_WARN instead JP_ERROR for checking of North and south boundaries
+	* interpolation/intuvp.F: commented fixarea
+02-02-2010   Milan.Dragosavac@ecmwf.int
+main->000380
+	* bufrtool_wmo: bufr_filter.F, tc_tracks_10t5.F, tc_tracks_10t5.F90
+	* added synop2byufr
+18-01-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000372
+	interpolation/krg2rg.F: increased JPACK = 2000000
+	gribex/grchk1.F: added classes 19 Monitoring Atmospheric Composition and Climate, 20 Permanent experiments
+18-01-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	interpolation/sharedlib.c: renamed _lock _sh_lib_lock _unlock  _sh_lib_unlock
+	interpolation/gettru.F: consider now all cases for output truncation
+13-01-2010   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000372->main,000380
+	* interpolation/intfb.F: no automatic truncation for dissemination style
+	* interpolation/intfb.F: resolution correspondence same as in Product Generation
+17-12-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000380
+	* interpolation/sources.linux: removed sheredlib.c from the list temporary
+08-12-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000372->main,000380
+	* interpolation/clear_c.F: set LDOUBLE=.FALSE.
+	* interpolation/intout.F.: comment LDOUBLE=.FALSE.
+07-12-2009   Milan.Dragosavac@ecmwf.int
+main->000371
+	* bufrtools_wmo/mod_bufr.F90: declaration of eps as real*8
+13-11-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000371->main,000380
+	* interpolation/intfb.F :  bug fix memory allocation for double interpolation SAVE IRWORK
+	* interpolation/jreadll.F jreadgg.F : added INTEGER*8 FSIZE, FRET to satisfy both c1a and linux
+12-11-2009   Milan.Dragosavac@ecmwf.int
+main->000371,000380
+	* bufrdc_wmo/
+	   1) Fix for bufr creation for multi-subset uncompressed case
+		  with different delayed replications in the subsets and if
+	      soft return error code -28 was returned from previous subset.
+	   2) IEEE change for big/little endian
+11-11-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000371->main,000380
+	* interpolation/jopnllsm.c :  dragan add timer function
+	* interpolation/jsymll.F :  dragan add timer calls and prints - commented now
+	* interpolation/sharedlib.c :  dragan add ERR for error messages
+	* interpolation/jallgp.F: added new function for shared memory
+	* interpolation/jagggp.F: added new function for shared memory
+09-11-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/ added hsp2gg2.F hsp2gg3.F new function to determine gaussian number and spectral truncation based on output resolution of rotated lat-lon field. It is done to save computation time for high resolution
+	* interpolation : hntfaph.F changed to support new type of truncation
+	* interpolation : added sharedll.c, sharedgg.c to support shared memory handling
+02-11-2009   baudouin.raoult@ecmwf.int
+main->000371,000380
+	* interpolation : sharedlib.c sharedlib.h: void *share_file(path) -> same a mmap, return pointer to shared memory, int remove_shared_file(path) -> delete shared memory associated with path
+02-11-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000371,000380
+	* config/config.linuxR64.in, config.linux.in config.linuxR64A64.in : added -Mextend for -DTABLE_PATH
+	* interpolation/sharell.c sharegg.c added
+	* interpolation/jallgp.F jagggp.F : updated with new functions for shared memory handling
+27-10-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000371,000380
+	* interpolation/hgetlsm.F : added TABLE_PATH
+15-10-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000371,000380
+	* interpolation/krg2rgu.F increased JPACK = 1500000, JPMAXNG=1280
+	* interpolation/jreadll.F jreadgg.F : pbseek64 instead of pbseek integer*8
+09-10-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int> on Thomas Jung request
+main->000371,000380
+	* bufrdc_wmo/bufren.F: Bug fix uncompress multi subset packing
+24-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int> on Thomas Jung request
+main->000371,000380
+	* interpolation/pbio.c: revert all changes for Thomas Jung pbread,pbseek,pbtell
+	* interpolation/pbio.c: added pbseek64 pbtell64 proposed by Peter Towers
+	* config/config.linuxR64, config.linuxR64A64: added -D_LARGEFILE64_SOURCE in order to have ftello64 to return 64bits argument
+23-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000371
+	* interpolation/jopnllsm.c, jopnggsm.c proper prototype of
+	 void *mmap64 for Linux
+21-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int> on Thomas Jung request
+000371->000380,main
+	* pbio/pbio.c : pbtell - OFF_T* iret , pbseek_(fortint* unit,OFF_T* offset,fortint* whence,OFF_T* iret, pbread,void pbread_(fortint* unit,char* buffer,OFF_T* nbytes,OFF_T* iret)
+16-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000371
+	* gribex/source.rs6000 : copied from source.ibm_power4 main difference gsbyte.F
+	* config/config.rs6000R64A64 : amended to be the same as config.ibm_power4R64 aprt double pecision exception flags
+	* config/config.rs6000R64A64.in config.ibm_power4R64.in fixed
+	* exports/buid_library.*  : bug fix for rs6000 installation
+08-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000371
+	* config/config.rs6000*A64 : added FOPEN64
+08-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000371
+	* interpolation/hsp2gg.F : Match T255 and T213 against N128 instead of N160 upon Alan Geer request
+08-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000371
+	* gribex/grchk1.F : commented check for century to allow Simona to process her data
+08-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->000371
+	* 000371 integrated form 000370 to include changes between 000370 and 000380
+07-09-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* exports/build_library.* : added CNAME=_gnu as default if it gnu defined
+28-07-2009   Milan.Dragosavac@ecmwf.int
+main->000380,000370
+	* tools/bufrtools_wmo/bufr_filter.F : Bufr descriptor 004007 second with micro second accuracy is added for time filtering in case element 004006 SECOND is not used.
+
+	bufrdc_wmo
+	* Check on section 4 size and actual data size. The check will be performed only is variable CHECK_S4=true is set.
+	* For bufr Edition 4 section 3 and 4 can have odd number of bytes
+	* Compression on character strings
+15-07-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000370
+	* interpolation/intf.h : PARAMETER (JPEXPAND = 3600*1801) expanded for 0.1X0.1 resolution
+06-07-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000370
+	* interpolation/rgauss_320.h : updated by Agathe
+06-07-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	* interpolation/insane.F: reset bits per Value to 16 if it is 0
+02-07-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000370
+	* config/config.linux_gfotran*A64 : remove -m64 gfortran doesn't support that
+01-07-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000370, 000380
+	* interpolation/wavexxx.F : Bug Fix - wrong calculation north-south latitudes due to spurious values in RLATINC
+29-06-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	* bufrtables: amended B0000000000098006001.TXT,C0000000000098006001.TXT,D0000000000098006001.TXT
+	* example/bufr/bufr_decode.c : increased size of array
+18-06-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380,000370
+	* interpolation/insane.F : env variable  INCREMENT_NO_LIMIT=1 to avoid check of limit for increment size
+01-06-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int> iain
+main->000380
+	* interpolation/jopnllsm.c, jopnggsm.c proper prototype of
+	 void *mmap64 for Linux
+30-04-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000370,000380
+	* added eventualy A64 = plat in bufrtables/Makefile.in
+08-05-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	* interpolation/intf.F : INTAVAWE2 instaed of INTWAVE to have consistency between Mars and dissemination
+	* interpolation/wv2dxx2.F : added
+	* interpolation/intin.F : added NIMATR - matrix values
+	* interpolation/nifld.common : added NIMATR - matrix values
+	* interpolation/setrep.F : reset LIMISSA = .FALSE. use external missing value
+	* interpolation/intin.F : set local flag NILOCAL in order to get proper LPREC
+	* interpolation/setrep.F : reset LPREC = .FALSE.
+	* interpolation/intwavu.F : use wavexx2.F to have same handling as intwave.F
+	* interpolation/intf.F : Changed check for logical L98WAVE
+	* interpolation/added intwave2.F - Mars to handle properly wave field and to operate with values instaead of bitmap
+	* interpolation/intin.F : added loading of number of points along latitudes from grib_api arrays
+	* interpolation/hntfau.F: if LIMISSA use missing value
+	* interpolation/intin.F: added => missingval because can not be applied in Emos lib everywhere...
+	* interpolation/nifld.common: added LIMISSA
+	* interpolation/insane.F: added gausss number 640 nad 1024 for check of input values
+	* interpolation/intfb.F: NEWMISS for bitmap and frame
+	* interpolation/gasetup.F : added KSEC3 for bitmap section settings
+	* interpolation/intocnu.F intwavu.F: RMISS set from INTIN
+	* interpolation/intin.F: added  lsmset to avoid check of LSMSET
+	* interpolation/intin.F: added setting of Date
+	* interpolation/intfb.F: write to file binary setting env variable DATA_CHECK
+	* interpolation/setrep.F: commented reset NOACC = 0
+	* interpolation/intf.F: set ISIZE after DDSTYLE
+	* interpolation/intuvu.F : DO LOOP = IP_V, IP_V+ISZUV-1
+	* interpolation/ added intvecy.F
+	* interpolation/gettru.F : allow for any type of grid
+	* interpolation/nofld.common : added OUTLROT output length of rotated fields
+	* interpolation/hntfauh.F : setting size of output field OUTLROT
+	* interpolation/intfb.F : IF( ISIZE.EQ.0 ) ISIZE = OUTLROT for rotated fields
+	* interpolation/intf.F : IF( LUNROT ) THEN
+	          OUTLEN = OUTLROT
+	* interpolation/ggrotat.F : NUMPTS = NEXT
+	* interpolation/intfau.F : OUTLROT = NUMPTS after GGROTAT
+	* interpolation/hntfauh.F : added PDDEFS check for special processing
+	* interpolation/hirlam.F, hirlsm.F,hrg2ll.F,hrg2llw.F, hll2ll.F, hll2llw.F : NOWE nad NONS specified
+	* interpolation/hrg2ll.F : NINT instead of INT for NLAT NLON
+30-04-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000370
+	* config/added config.i86pc.in config.i86pcR64.in
+14-04-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	* interpolation/igsetup.F: commented piece of code to allow handling of subarea for scanning mode south to north
+14-04-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000370
+	* interpolation/intout.F: softer criteria for LNOAREA instead of AND - OR
+14-04-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* examples/interpolation/interpolation_example.F: increased JPGRIB to 700000
+06-04-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	* interpolation/intvect.F: reseting OUTLEN for V wind component
+25-03-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	* interpolation/kintrg.F: Bug fix for reduced gaussian to reduced gaussian interpolation. Set env varible RG2RG_COMP in order to get compatible result with previous Emos libraries
+	* interpolation/intvect.F: reseting OUTLEN for V wind component
+16-03-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	* interpolation/kintrg.F: initialise LFFACTOR to false
+16-03-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	* tools/bufrdc_wmo/added  config.ibm_power6R64
+12-03-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	* config/config.linuxR64  changed -tp k8-32 to -tp px
+	* config/ added config.linux_amd*
+11-03-2008   Milan.Dragosavac@ecmwf.int
+main->000370
+	* bufrdc_wmo/bufr_split.F: Program modified to create maximum 255 files to split 255 possible bufr subtypes.
+	* bufrdc_wmo/Makefile: added EXTRA_LIB
+09-03-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	* config/config.linux* : amended optimisation pgf77 -fast and -O3 for gcc, added -D_FILE_OFFSET_BITS=64
+26-02-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000380
+	* interpolation/ oceanu.F oceanp.F : increased JP_GUESS  = 1237104
+	* interpolation/ updated for ocean unpacked  nifld.common, nofld.common, gasetup.F,        intin.F
+	* interpolation/hsp2gg.F : Match truncation T95 against N48
+	* interpolation/ create oceanu.F and intocnu.F to handle unpacked ocean data
+	* interpolation/intint.F added option ocean to se LOCEAN
+	* interpolation/nifld.common added LOCEAN
+	* interpolation/hntfauh.F initialise LSP2RGG = .FALSE.
+	* interpolation/iscrsz.F Bug fix for calcullation of SH size
+	* interpolation/ added intwavu.F to handle unpacked fields
+	* interpolation/intin.F: added reduced_ll option and l_pnts to define reduced lat-lon field
+	* interpolation/intuvu.F: reset OUTLEN before return OUTLEN = ISZUV
+	* interpolation/intuvu.F: Bug fix - without sh2sh after dv to uv conversion
+	* interpolation/hntfauh.F: NINT instead of INT for calculation of NLON NLAT
+	* interpolation/krg2rgu.F: defined NONS for merging with grib_api
+	* interpolation/gasetup.F: KSEC2(22+ILOOP) = NOLPTS(ILOOP) for definition of reducedgaussian
+	* interpolation/: added gettru.F - Determine truncation based on output grid
+	    increments
+
+27-01-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000370
+	* Get fractional or binary(0,1)values for Land-Sea mask based on environmental variable LSM_VALUES
+	* interpolation/iagcntl.F iarcntl.F: added env variable LSM_REAL to allowe real values of lsm
+	* bufrdc_wmo/sources: added bustop.F - A new routine used by mbufr_mars_filter.F to       force stopping expansion after certain number of elements.,
+	                      buens3.F - Bug fix to reset ksec3(4) flag for compression.
+						  buprt.F  - Prints full name of 64 characters and better
+						  control of code/flag table printing
+27-01-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000370
+	* gribex/grchk1.F: added class  17 = la LACE ALADIN,18 = yt YOTC
+12-01-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000370
+	* bufrdc_wmo/sources: added mbufr_mars_filter.F
+12-01-2009   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	* interpolation/intuvxh.F intuvgh.F: NINT instead of INT for calculation of NLON NLAT
+	* interpolation/jmakll.F : INTEGER*8 NEWPOS, NSIZE, NRET reverted to INTEGER NEWPOS, NSIZE, NRET
+	* interpolation/auresol.F : deleted 1023 and added 2047 truncation
+16-12-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	*  interpolation/jmakll.F : INTEGER*8 NEWPOS, NSIZE, NRET
+	*  interpolation/jparams.h : JPLONO = 8200
+15-12-2008   Martin.Suttie@ecmwf.int
+main->000370
+	* bufrdc_wmo/bufr_split.F added handling of BUFR subtypes 216 and 217
+18-11-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000370->main
+	*  interpolation/igplsm.F: commented check if less then zero due to bitmaped fields
+	*  options/  added options_ibm_power6
+	*  added sources.ibm_power6 everywhere
+17-11-2008   Martin.Suttie@ecmwf.int
+main->000370
+	* bufrdc_wmo/bufr_repack_206t205.F: KELEM changed from 2000 to 16000
+09-10-2008   Milan.Dragosavac@ecmwf.int
+main->000360,000350
+	* bufrdc_wmo: Bufr subroutines  dtable.F dtable1.F get_tables.F and get_tables1.F have been changed to fix potential problems of re-using tables kept in memory.
+26-09-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000360->main
+	* config/ : added config.ibm_power6 config.ibm_power6R64 config.ibm_power6.in config.ibm_power6R64.in
+25-09-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000360->main
+	* interpolation/iglsmd.F : 0.25/0.25 predefined lsm with env variable
+	* interpolation/parim.h : added JP0P25 = JPMULT / 4
+	* added lsm_xx_lsm0p25deg in /usr/local/lib/metaps/tables/interpolation
+22-09-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000360->main
+	bufrdc_wmo
+	* A new variable USE_TABLE_C introduced. When set to true bufr software will load code and flag tables. There are subroutines to get the meaning of the code and flag values.
+	* buprt.F has been modified to print code/flag values meaning
+	* New subroutine buget_opera_image.F to handle radar image data up to 10 mega pixels particularly suitable for Opera composite radar images ( rain rates).
+	* Subroutine bufrex.f has been modified to handle delayed repetitions
+	* Missing value indicator rvind=1.7D38 and eps=10D-8 are used in consistent way.
+	* parameter.F modified. JELEM=320000 set
+	* Example decode_bufr_image.F is available in the examples directory.
+	* Bufr tables updated.
+	* Bufr user's Guide updated
+
+
+05-09-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* interpolation/kintrg.F : set JPMAXNG to 1280
+	* interpolation/krg2rg.F : changed size of grib sections arrays, JPMAXNG=1280
+05-09-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* gribex/grchk1.F: added stream 1240 Eurosip Monthly Means,
+	                                1241 EUROSIP Hindcast Monthly Means
+04-09-2008   Jean Clochard <jean.clochard@meteo.fr>
+main->000360
+	* gribex/dmesec2.F emesec2.F: Bug fix decode/encode Mercator grid
+03-09-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* config/config.mac_intel* :  Mac OS Intel's compilers
+	* config/config.linuxR64 : -tp k8-32 instead of -tp px
+	 * gribtemplates: added localDefinitionTemplate_098_000_031
+29-07-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* interpolation/setrep.F : reset NOACC, NOLEVEL to 0
+25-07-2008   Iain.Russell@ecmwf.int
+main->000360
+	* pbio/gbyte.c : static fortint MASK = -1;
+23-07-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* pbio/mvchars.c : added return to prevent warnings
+	* pbio/readprod.c : conversion (const unsigned char*) line 333
+22-07-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000320
+	* tools/bufrtools/bufr_split.F: subtype 233 added
+03-07-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* gribex/grchk1.F: added stream 1040 Ensemble Forecast Hindcast Statistics (EFHS)
+02-07-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* interpolation/oceanp.c: increased JP_GUESS  = 1038240 to allow for 0.25*0.25 interpolated grid
+26-06-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* interpolation/oceanp.c: increased JP_GUESS  = 519840 to allow for 0.25*0.25 interpolated grid
+	* interpolation/insane.F: added env variable INCREMENT_CHECK to disable increment checking
+12-06-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* gribex/getsetValues.c: rename copyName to copyNameLoc due to multiple definition in shared library
+	* interpolation/jmalloc.c: removed
+	* updated sources in  interpolation/
+04-06-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* add Makefile.shared in each dir
+	* config/config.linuxR64A64 config.linuxR64: added fpic to build shared lib
+	* gribex/sencode.h : commented  #include "getsetValues.h" because of double definitions despachInterger
+04-06-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	*  interpolation/wvqlint.F, wvqlidx.F: bug fixes
+01-06-2008   ryad.elkhatib@meteo.fr
+main->000360
+	*  config/config.super-uxR64.in :added Configuration file for NEC SX cross-compiler
+30-05-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	*  exports/buid_library.* : removed PATH
+28-05-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000360->main
+	*  interpolation/hntfaph.F : added check weather to enable lsm processing
+	*  interpolation/hirlsm.F : Neaarest Neighbour interpolation modified - only same as interpolated points is used for NN - in a sense land/sea
+19-05-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	*  interpolation/wvqlint.F, wvqlidx.F : more changes to be similar with w251idx.F, wv2dint.F
+15-05-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	*  interpolation/wvqlint.F, wvqlidx.F :allow up to 0.1 degree resolution.
+09-05-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* pbio/pbio.c: sami bug fix instead *unit = (fortint) NULL;  *unit = 0
+24-04-2007   Milan.Dragosavac@ecmwf.int
+main->000360
+	* tools/bufrtools_wmo/bufr_split.F: subtype 241 GTS IASI added
+23-04-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	*  interpolation/w251idx.F :allow upto 0.1 degree resolution.
+21-04-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	*  interpolation/hsp2gg.F :Added checking for a automatic truncation T1279 -> N640
+01-04-2008   Milan.Dragosavac@ecmwf.int
+	* interpolation/iglsmd.c : added env varibale to force processing of lsm with 10min file
+31-03-2008   Milan.Dragosavac@ecmwf.int
+main->000360
+	* bufrtables/: updated tables D0000000000098013001.TXT B0000000000098013001.TXT
+26-03-2008   Umberto.Modigliani@ecmwf.int
+main
+	* example/bufr:long int status=0; stack size increased to 30000
+26-03-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* bufrtables/: updated tables B0000000000098013001.TXT D0000000000098013001.TXT
+19-03-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000360->main
+	*  interpolation/hirlsm.F hll2ll hrg2gg: Added completely new checking for nearest neighbour processing
+12-03-2007   Umberto.Modigliani@ecmwf.int
+	* config/: config.ibm_power4* -qarch=auto -qtune=auto
+main->000360
+12-03-2008   Ryad El Khatib
+main->000360
+	* gribex/c2ordr.F, d2ordr.F, inscal.F : portability fix on integer precision
+	* gribex/jmalloc.c : remove useless cpp macros
+	* gribex/gsbite.F : optimisation directive for NEC SX
+	* gribex/gbitmap.F portability fix.
+	* build_library: propose alternative configuration rs6000/ibm_power4 if aix system
+	                 added choise for Linux between gfortran and ifort compiler
+	* config/: added 'darwin' system
+	* config/: added g95 for Linux but not officialy supported
+	* config/: added support for POWERPC
+11-03-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	*  interpolation/kintrg.F: parameter number 43 - Soil type to be procesed with nearest neighbour interpolation
+		by default
+29-02-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* interpolation/intfb.F: added lfirst variable to avoid multiple
+	        memory allocation before rg2rgy routine
+25-02-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000360
+	* interpolation/intlogs.c : added include<string.h>
+	* gribex/gribex.F : added parentless on line 5023
+	* config/config.rs6000*.in : added -WF,-Dpath option for FFLAGS
+07-02-2008   Milan Dragosavac <Milan.Dragosavac@ecmwf.int>
+000350->main
+	* bufrdc_wmo:The unit number used to open file for bufr tables was changed
+	to use any free unit number. The subroutines modified are:
+	ctable.F btable.F dtable.F ctable1.F btable1.F dtable1.F get_free_unit.F
+05-02-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* config/config.linux_gfortran*A64* added -DINTEGER_IS_INT
+21-01-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* interpolation/intuvu.F: Bug fix filing output arrays
+16-01-2008   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* interpolation/hgenll.F: NINT instead of INT for calculation of NLON NLAT
+	* interpolation/jgetgg.F: added 640 reduced gaussian definition
+	* gribex/grchk1.F: added class 16 dt (Data Targeting System)
+	* config/fortran2c_gfortran: wright library for gfortran
+main
+	* exports/build_library.bufr: move g77 to gfortran
+18-12-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* interpolation/wv2dint.F,wv2didx.F,w251idx.F,wv2dxxx.F: Changed JPLLMAX to 1801 to allow 0.1 resoluton
+	* interpolation/wv2dint.F: added new function argument RNS diference in north south direction
+	* interpolation/w251idx.F.F: Bug fix calculation of indexes along each latitude in iregular lat-lon if it  input field is not global, treating separetly cases for global and non globa input field
+11-12-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* interpolation/wv2dint.F: it calls wv2didx instead of w251idx for indexing of nearest points because of consistensy between Mars and Disemination
+10-12-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000350->main
+	* interpolation/wv2didx.F: Bug fix calculation of indexes along each latitude in iregular lat-lon if it  input field is not global, treating separetly cases for global and non globa input field
+	* interpolation/w251idx.F: Bug fix calculation of increment for output regular lat-lon field
+05-12-2007   Dragan Jokic <Dragan.Jokic@ecmwf.int>
+main->000350
+	* interpolation/wv2dint.F: Bug fix generating latitutes for input field
+	* islproc.F hirlam.F igtog.F igtogr.F irgtog.F: parameter .43 - Soil type to be procesed with nearest neighbour interpolation
+26-11-2007   Milan Dragosavac <Milan.Dragosavac@ecmwf.int>
+main->000350
+	* bufrdc_wmo: bufrstop.F deleted
+27-11-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000350->main
+	* interpolation/intout.F: forsing bilinear interpolation for rotation setting keyword interpolation to "bilinear"
+	* interpolation/clear_c.F: reset LO12PT to true
+
+26-11-2007   Milan Dragosavac <Milan.Dragosavac@ecmwf.int>
+000350->main
+	* Introduction of 209YYY operator to represent IEEE 32/64 bit floating point numbers.
+	* The software now keeps in memory maximum 10 tables which speeds up parallel processing in some cases.
+23-11-2007   Milan Dragosavac <Milan.Dragosavac@ecmwf.int>
+main->000350
+	* bufrtables/links.sh: new links
+	* bufrtables/txt2bufr_tables.f
+	* pbio/PBGroutines.h
+19-11-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* pbio/gbyte_le.c: fortint is int now and no assert
+16-11-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* config/config.linux_gfortranA64* added  -DPOINTER_64 for 64 bits machines
+	* interpolation/wvqlint.F: change to integer declaration of some variables
+	* bufrtables/links.sh: link -fs
+14-11-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* interpolation/islproc.F hirlam.F igtog.F igtogr.F irgtog.F: parameter 128.43  Soil type to be procesed with nearest neighbour interpolation
+22-10-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	 * config/config.itanium* removed -DFOPEN64 from CFLAGS
+18-10-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	 * config/config.rs6000*.in added -WF for FFLAGS
+10-10-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	 * interpolation/ggintrp.F: increased JPMAXGG = 4096 to acomodate big fields
+08-10-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* gribex/grbcom.h gribex.F grsdef.F : the environment variable GRIBEX_DUMP_DATA_ON_ERROR
+05-10-2007   Milan Dragosavac <Milan.Dragosavac@ecmwf.int>
+000350
+	* tools/bufrtools_wmo/: real*8 for values missing value and y
+		section2 jsec increased 4096 parametrs statements updated
+27-09-2007   Milan Dragosavac <Milan.Dragosavac@ecmwf.int>
+000350
+	* tools/bufr_split.F: New subtype 146  added
+24-09-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* pbio/gbyte_alpha.c: copy version just for alpha  from 000300
+	   create gbyte_li.c for linux and update source.linux
+	 * gribex/getsetValues.h: bug fix const char instead unsigned char for struct despatchI
+	 * config/config.linux_gnu*: added -I. for FFLAGS
+11-09-2007   Milan Dragosavac <Milan.Dragosavac@ecmwf.int>
+	* tools/bufr: New subtype 212
+10-09-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* example/bufr/Makefile: Removed bufr_decode.c from all
+	* bufrtables/Makefile: added FFLAGS
+04-09-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* pbio/gbyte_alpha.c: Bug fix for 64 bits packing
+03-09-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000340
+main->000350
+	 * Added header with LGPL license rules in each Fortran and C program
+30-08-2007   Manuel Fuentes <mar@ecmwf.int>
+main->000350
+	 * gribtemplates: added localDefinitionTemplate_214_098_245 updated localDefinitionTemplate_098_235_015 localDefinitionTemplate_098_235_004 localDefinitionTemplate_098_235_016
+02-08-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	 * interpolation/jgetgg.F: added Reduced Gaussian definition N640 -> rgauss_640.h
+30-07-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000350
+	* gribex/calcop.F packcf.F unpackcf.F : Increased maximum  Truncation to be handled to T2047
+	* interpolation/jopnggsm.c: Bug fix Calculation coefficient files
+27-07-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000350->main
+	* gribex/calcop.F packcf.F unpackcf.F : Increased maximum  Truncation to be handled to T1279
+19-07-2007   Oliver Treiber <Oliver.Treiber@ecmwf.int>
+main->000350
+	* pbio/pbio.c: Bug fix - setvbuf to be called every time new file is open
+13-07-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000340
+	* Multiple(Temperton's) FFT routines with test programs are added in Emos library
+	* bufrdc_wmo/buevar.F buivar.F : removed EXTERNAL GETENV statemets
+	* exports/add LICENSE and gpl-3.0.txt, changed README files
+02-07-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/hgengrw.F: Bug fix calculating number of latitudes
+	* gribex/grchk1.F: Add Types 38 -  Hindcast std dev 39 - Hindcast distribution
+19-06-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000340->main
+	* interpolation/wavexxx.F waveidx.F: to allow 0.1 resolution
+04-06-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000340->main
+	* interpolation/gasetup.F intout.F: added settings fog jpeg packing to be used with grib_api
+	* interpolation/setrep.F: bug fix - reseting number of points for input fields in common block when is unpacked field  passed to interpolation
+22-05-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000320, 000340
+	* config: added config.sun4_gnu*
+10-05-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/reset_c.F: Bug fix for LSM flag
+09-05-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000340
+	* config: removed options for fortran2c
+	* example/bufr: added options for fortran2c
+02-05-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* removed release 000330
+	* tools/bufrtools: added bufr_repack_206t205.F
+17-04-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* bufrdc/bubox.F: changed parameters size to KBOXR(4096000),VALS(4096000)
+29-03-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000320->main
+	* interpolation/kintrg: added fudge factor for calculating of neighbouring longitude
+27-03-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* gribex/gribex.F: #ifdef REAL_BIGGER_THAN_INTEGER instead if (defined)
+	* pbio/pbio.c: static oct_bin3
+	* pbio/gbyte_alpha.c: static unsigned int onbit
+	* pbio/PBGroutines.c: added declaration void dsgnbt_(
+	* pbio/ gribex/: added various include system lib
+	    emos/users_patch/problems_gribex_000310_Dr_Jeff_Cole
+000320->main
+26-03-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000320->main
+	* pbio: sources.sun4 added pbgroutines
+	* crexdc:
+	* crextables:
+	* bufrdc_wmo:
+	* bufrtables:
+	* examples/bufr: added c program for decoding
+	* config: added options for fortran2c
+23-03-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000320
+	* pbio/pbio.c: added check for file pointers pbread pbwrite
+09-03-2007   Manuel Fuentes <mar@ecmwf.int>
+main->000320, 000330
+	* gribtemplates/localDefinitionTemplate_214_098_244:Definition for SREPS from Spain
+	* gribex/fortranInterface.c: Support for A8 (8 character string in local definitions)
+	* gribex/handleLocalDefinitions.c: Support for A8 (8 character string in local definitions)
+20-02-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000320, 000330
+	* gribex/grchk1.F: Add CLASS = 15 SREPS Short-Range Ensemble Prediction System
+09-02-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000320->main, 000330
+	* interpolation: changed areachk.F igdins.F iagcntl.F nifld.common
+	 to fix pole problem for staggered grids
+05-02-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000320, 000330
+	* gribex/grchk1.F: added streams 1032,1033,1078,1079
+24-01-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000320, 000330
+	* gribex/grchk1.F added satellite identifiers 56, 171
+	* pbio/gbyte_alpha.c: Enrico's version to speed up process
+22-01-2007   Martin Suttie
+000310->main, 000320, 000330
+	* tools/bufrtools:bufr_split.F
+16-01-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000320->main, 000330
+	* config: config.linux* pgf77 instead pgf90
+12-01-2007   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000320->main, 000330
+	* interpolation/parim.h: increased max number of vertical levels
+15-12-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000320->main
+	* interpolation: added setrep.F, setrep.F, intuvy.F, intvecy.F
+05-12-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310, 000320, 000330
+	* bufrtables:added $(A64) in Makefiles
+20-11-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310, 000320, 000330
+	* bufrtables:changed D0000000000098012001.TXT, B0000000000098012001.TXT
+	* options: added option_itanium
+	* nterpolation gribex: added sources.itanium
+17-11-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000320->main, 000330
+	* interpolation: added krg2rgy.F - RG to RG packed to unpacked
+	* interpolation/intfb.F: double interpolatiin
+14-11-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310, 000320, 000330
+	* gribtables update from metdb database
+	* gribtemplates update
+07-11-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main, 000320, 000330
+	* config: config.linux_gfortran* added -fconvert=swap -fdefault-real-8
+01-11-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310, 000320, 000330
+	* bufrtables:changed D0000000000098012000.TXT D0000000000098012001.TXT D0000000000254011001.TXT
+	* config: PROFILE=-pg
+30-10-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main,000320, 000330
+	* tools/Dchange_grib: added Makefile.cluster , Makefile.clusterA64
+	* config: config.ibm_power4* OLI=-qwarn64
+28-10-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* new releases 000320, 000330
+	* 000320: doubleinterpolatio
+	* 000330: bug fix rg 2 rg
+27-10-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310
+	* config/config.linux_gfortran*: use pointers bug fix
+main
+	* interpolation/sources.*: added krg2rgd.F
+24-10-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/hgengrd.F:nint instead int for lat and lon calculation
+23-10-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main
+	* interpolation/kintrg.F:bug fix with fudging factor
+000310->main
+	* interpolation/hirlam.F:bug fix for missing data values
+06-10-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/parim.h:changed default dissemination lat/long grid step to 0.25 degrees)
+02-10-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310
+	* config: added config.linux_gfortranR64 config.linux_gfortran
+	* interpolation/jacobi.F:comented EXTERNAL GETPID, UNLINK, RENAME
+	* interpolation/Makefile: added posibility to compile interpolation with diffrent compilers
+	* config : added config.linux_pgf77 config.linux_pgf77R64
+28-09-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/intin.F: Added input field accuracy specification
+	* interpolation/outrep.F: this functiopn has been added to say whether or not user specified
+	   output field representation
+	* interpolation/sources.*: Added outrep.F
+21-09-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/intf.F: Changed code because of merging with grib_api
+	* interpolation/intin.F: added keyword npts to provide number of points laong a latitude
+	   and longitude
+	* interpolation/hntfauh.F: added code to handle scanning mode 64 if is input unpacked field
+	* interpolation/nofld.common: added variables because of merging with grib_api
+21-09-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/jtimer.c: CLK_TCK is an obsolete name for CLOCKS_PER_SEC
+19-09-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* tools/bufrtools/Makefile  added bufr_repack_satid bufr_ship_anmh_ERA to be installed
+	* interpolation/jopnllsm.c: memory map for Linux
+15-09-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* tools/bufrtools removed external getarg jsec=4096
+30-08-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/issame.F: Removed check for scannning mode
+25-08-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/areachk.F: Force dissemination style proccessing with resolution that is not multiplied by base       resolution (0.25) with env variable MARS_INTERPOLATION_INWARDS
+23-08-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* tools/compareGribFiles change library path added Makefile.cluster
+22-08-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/intfb.F ddstyle: added code to force interpolation to fail for
+	  wrong grid step in dissemination style
+	* interpolation/areachk.F: force inward points with env variable MARS_INTERPOLATION_INWARDS
+17-08-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310->main
+	* interpolation/hntfaph.F added code to handle scanning mode 64
+10-08-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310
+	* interpolation/intf.h inceased interlnal array because of N1024
+	* interpolation/make.dep: updated dependencies
+07-08-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310
+	* interpolation/areacheck.F Bug fix if is input lat/lon field not global
+	  again because I lost previous changes
+20-07-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000310 -> main
+	* bufrtools: added 	config.linuxA64 and config.linuxR64A64 and option
+	  -byteswapio for linux platform
+	* Dchange_grib: added 	Makefile.linuxA64
+18-07-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000310
+	* interpolation/areacheck.F Bug fix if is input lat/lon field not global
+11-07-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* release 000310 - changed bufrdc_wmo and crexdc
+	* bufrtables: removed external getarg
+17-05-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* examples/gribex: added test.sh
+000300 -> main
+	* config: added -DINTEGER_IS_INT for gcc on A64
+	* config: added -tp px for pgcc
+10-05-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* New release 000303
+main->000303
+	* gribex: Changing of code csect4.F, maxmin.F to be compiled
+	  with g95 compiler
+	* added config files for g95,itanium and open solaris
+10-04-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000300 -> main
+	* crexdc: added TABLE_PATH everywhere
+	* interpolation/fixarea.F check if lat/lon and gaussian global to within
+	 a tolerance of 0.1 degrees for both case -east and +east
+main->000300
+	* bufrdc_wmo/bus012.F bug fix after user
+000300 -> main
+	* interpolation/fixarea.F proper fix for global grid fields
+30-03-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main->000300
+	* gribex/grchk1.F added STREAM = 1089  Daily climatology wave
+	*         STREAM = 1231  Multi-model Multi-annual Forecast means
+	*         STREAM = 1232  Multi-model Multi-annual Forecast wave
+	*         STREAM = 1233  Multi-model Multi-annual Forecast wave means
+000300 -> main
+	* config/config.rs6000* set with underscore by default
+23-03-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* tools/compareGribFiles/PBXroutines.c PBGroutines.h
+	  extern OFF_T ftello64(FILE *);
+	  Makefile.linux: DEBUG=-O2
+	* interpolation/fixarea.F agly fix when is original resolution 1.5
+	* gribex/grchk1.F streams 1076 - Monthly Means dacl Daily climatology
+
+21-03-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+	* interpolation/hirlam.F added nearest neighbour handling for
+	  vegetation
+16-03-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000300 -> main
+	* config/config.hpia64*
+	  DEBUG = +O0
+	* tools/compareGribFiles/PBXroutines.c PBGroutines.h
+	   -DFOPEN64 -Dlinux
+13-03-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000300 -> main
+	* pbio/PBGroutines.c pbio/fileRead.h interpolation/jopnllsm.c
+	Added support to handle large file
+	* LARGE_FILE = -Dlinux -DFOPEN64 for config.linux*
+	* CC_A32=-m32 config.linux config.linuxR64
+08-03-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+main -> 000300
+	* added tool in 000300 release
+06-03-2006   Sinisa Curic <Sinisa.Curic@ecmwf.int>
+000300 -> main
+	* interpolation/intisl.F: EQV instead EQ for logical variable
+	* gribex/grchk1.F: new streams have been added 1030 - Ensemble Data Assimilation,
+	   1088 - Ensemble Wave Data Assimilation
+	* Makefile: add rm *.f make clean everywhere
+000290
+	* Added CLASS = 12 TIGGE
+	* Added satelite indentifier 199
+	* 211 level type has been replaced with 209 because 211 is in use by NCEP
+	* Get fractional or binary(0,1)values for Land-Sea mask based on environmental variable LSM_VALUES
+	* Force nearest neighbour processing setting environmental variable NEAREST_NEIGHBOUR to 1
+

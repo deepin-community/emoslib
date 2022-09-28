@@ -1,0 +1,35 @@
+How to build and install Emoslib library
+========================================
+
+Building and installation has been tested on several platforms and with several compilers.
+However for some platforms modifications to the installation engine may be required.
+If you encounter any problems during the installation procedure please send an e-mail
+with your problem to:
+
+    Software.Support@ecmwf.int
+
+
+Installation using CMake
+------------------------
+Requires that cmake be installed on your system.
+
+1. Download Emoslib from https://software.ecmwf.int/wiki/display/EMOS/Releases
+
+2. Unpack distribution:
+   > tar -xzf libemos-x.y.z-Source.tar.gz
+
+3. Create a separate directory for the build:
+   > mkdir build
+   > cd build
+
+4. Run cmake pointing to the source and specify the installation location
+   > cmake  ../libemos-x.y.z-Source -DCMAKE_INSTALL_PREFIX=/path/to/where/you/install/emoslib
+
+5. Compile, test and install:
+   > make
+   > make test
+   > make install
+
+
+For more details, please see:
+https://software.ecmwf.int/wiki/display/EMOS/Installation+Guide

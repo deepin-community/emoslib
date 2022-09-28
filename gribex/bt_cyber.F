@@ -1,0 +1,837 @@
+C Copyright 1981-2016 ECMWF.
+C
+C This software is licensed under the terms of the Apache Licence 
+C Version 2.0 which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
+C
+C In applying this licence, ECMWF does not waive the privileges and immunities 
+C granted to it by virtue of its status as an intergovernmental organisation 
+C nor does it submit to any jurisdiction.
+C
+
+      SUBROUTINE INXBIT (KGRIB,KLENG,KNSPT,KPARM,KNUM,KBIT,
+     C                   KBLEN,HFUNC,KRET)
+C
+C---->
+C**** INXBIT - Insert/extract bits consecutively in/from a given array
+C
+C     Purpose.
+C     --------
+C
+C           Take rightmost KBLEN bits from KNUM words of KPARM
+C           and insert them consecutively in KGRIB, starting at
+C           bit after KNSPT or vice versa.
+C
+C**   Interface.
+C     ----------
+C
+C           CALL INXBIT (KGRIB,KLENG,KNSPT,KPARM,KNUM,KBIT,
+C    C                   KBLEN,KRET)
+C
+C           Integer    K.
+C           Real       P.
+C           Logical    O.
+C           Character  H.
+C
+C               Input Parameters.
+C               -----------------
+C
+C               KGRIB      - Array containing bitstream.
+C               KLENG      - Length (words) of this array.
+C               KNSPT      - Bit number after which insertion or
+C                            extraction starts.
+C               KPARM      - Array from which bits are taken for
+C                            insertion in the bitstream or to which
+C                            bits are extracted from the bitstream.
+C               KBIT       - Number of bits in computer word.
+C               KNUM       - Number of bit fields inserted/extracted.
+C               KBLEN      - Number of bits per bit field.
+C               HFUNC      - Requested function.
+C                            'C' to insert bits in bitstream,
+C                            'D' to extract bits from bitstream.
+C
+C               Output Parameters.
+C               ------------------
+C
+C               KNSPT      - Bit number of last bit inserted/extracted.
+C
+C               KRET       - Return code.
+C                            0 , No error encountered.
+C                            1 , Insertion/extraction exceeded
+C                                array boundary.
+C
+C     Method.
+C     -------
+C
+C           Word and offset pointer calculated before calling
+C           insertion/extraction routines.
+C
+C     Externals.
+C     ----------
+C
+C           SBYTES6
+C           GBYTES6
+C
+C     Reference.
+C     ----------
+C
+C           ECLIB documentation on SBYTES and GBYTES.
+C
+C     Comments.
+C     ---------
+C
+C           Cyber version of routine.
+C           Routine contains Sections 0 to 3 and Section 9.
+C
+C     Author.
+C     -------
+C
+C           J. Hennessy      ECMWF      18.06.91
+C
+C     Modifications.
+C     --------------
+C
+C           J. Hennessy      ECMWF      08.11.91
+C           Parameter KMACH removed from list of input parameters.
+C
+C           J. Hennessy      ECMWF      12.10.92
+C           Dimension of IMASK changed from 64 to 65.
+C
+C     ----------------------------------------------------------------
+C----<
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 0 . Definition of variables. Data statements.
+C     ----------------------------------------------------------------
+C
+C*    Prefix conventions for variable names.
+C
+C     Logical      L (but not LP), global or common.
+C                  O, dummy arguments.
+C                  G, local variable.
+C                  LP, parameter.
+C     Character    C, Global or common.
+C                  H, dummy arguments.
+C                  Y (but not YP), local variables.
+C                  YP, parameter.
+C     Integer      M and N, global or common.
+C                  K, dummy arguments.
+C                  I, local variables.
+C                  J (but not JP), loop control.
+C                  JP, parameter.
+C     Real         A to F and Q to X, global or common.
+C                  P (but not PP), dummy arguments.
+C                  Z, local variables.
+C                  PP, parameter.
+C
+      INTEGER IND
+      INTEGER INUM
+      INTEGER IOFF
+      INTEGER IPR
+      INTEGER IWORD
+C
+      INTEGER KBIT
+      INTEGER KBLEN
+      INTEGER KGRIB
+      INTEGER KLENG
+      INTEGER KNSPT
+      INTEGER KNUM
+      INTEGER KPARM
+      INTEGER KRET
+C
+      INTEGER J901
+C
+      DIMENSION KGRIB(KLENG)
+      DIMENSION KPARM(*)
+C
+      CHARACTER*1 HFUNC
+C
+C
+C     Debug print switch.
+C
+      DATA IPR /0/
+C
+C     ----------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 1 . Set initial values.
+C     ----------------------------------------------------------------
+C
+  100 CONTINUE
+C
+      IF (IPR.EQ.1)
+     C   THEN
+             WRITE (*,*) 'INXBIT : Section 1.'
+             WRITE (*,*) '         Input values used -'
+             WRITE (*,9009) KLENG
+             WRITE (*,9002) KNSPT
+             WRITE (*,9004) KBIT
+             WRITE (*,9005) HFUNC
+         ENDIF
+C
+      KRET = 0
+C
+C     ----------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 2 . Bit insertion/extraction.
+C     ----------------------------------------------------------------
+C
+  200 CONTINUE
+C
+      IF (IPR.EQ.1) WRITE (*,*) 'INXBIT : Section 2.'
+C
+C*    Calculate word pointer and offset.
+C
+      IWORD = KNSPT / KBIT
+      IOFF  = KNSPT - IWORD * KBIT
+      IWORD = IWORD + 1
+      IF (IPR.EQ.1) WRITE (*,9003) IWORD , IOFF
+C
+C     Insert/extract bits.
+C
+      IF (HFUNC.EQ.'C')
+     C   THEN
+             CALL SBYTES6 (KGRIB(IWORD),KPARM,IOFF,KBLEN,0,KNUM)
+         ELSE
+             CALL GBYTES6 (KGRIB(IWORD),KPARM,IOFF,KBLEN,0,KNUM)
+         ENDIF
+C
+C     Update pointer.
+C
+      KNSPT = KNSPT + KBLEN * KNUM
+C
+C     ----------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 3 . Check out of range.
+C    -----------------------------------------------------------------
+C
+  300 CONTINUE
+C
+      IF (IPR.EQ.1) WRITE (*,*) 'INXBIT : Section 3.'
+C
+      IND = KNSPT / KBIT
+      IF (IND.GT.KLENG)
+     C   THEN
+             KRET = 1
+             WRITE (*,9001) IND , KLENG
+         ENDIF
+C
+C     ----------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 9 . Return to calling routine. Format statements.
+C     ----------------------------------------------------------------
+C
+  900 CONTINUE
+C
+      IF (IPR.EQ.1)
+     C   THEN
+             INUM = KNUM
+             IF (INUM.GT.360)
+     C          THEN
+                    INUM = 360
+                    WRITE (*,9007) INUM
+                ENDIF
+             DO 901 J901=1,INUM
+               IF (HFUNC.EQ.'C')
+     C             THEN
+                       WRITE (*,9006) KPARM(J901)
+                   ELSE
+                       WRITE (*,9008) KPARM(J901)
+                   ENDIF
+  901        CONTINUE
+             WRITE (*,*) 'INXBIT : Section 9.'
+             WRITE (*,*) '         Output values set -'
+             WRITE (*,9002) KNSPT
+         ENDIF
+C
+C
+ 9001 FORMAT (1H ,'INXBIT : Word ',I8,' is outside array bounds ',I8)
+C
+ 9002 FORMAT (1H ,'         KNSPT  = ',I8)
+C
+ 9003 FORMAT (1H ,'INXBIT : Word is',I8,', bit offset is ',I2)
+C
+ 9004 FORMAT (1H ,'         KBIT   = ',I8)
+C
+ 9005 FORMAT (1H ,'         HFUNC  = ',A)
+C
+ 9006 FORMAT (1H ,'         Inserted value = ',I20)
+C
+ 9007 FORMAT (1H ,'         First ',I9,' values.')
+C
+ 9008 FORMAT (1H ,'         Extracted value = ',I20)
+C
+ 9009 FORMAT (1H ,'         KLENG  = ',I20)
+C
+      RETURN
+C
+      END
+      SUBROUTINE ABORTX (HNAME)
+C
+C**** ABORTX - Terminates execution of program.
+C
+C     Purpose.
+C     --------
+C
+C           Terminates execution of program.
+C
+C**   Interface.
+C     ----------
+C
+C           CALL ABORTX (HNAME)
+C
+C           Integer    K.
+C           Real       P.
+C           Logical    O.
+C           Character  H.
+C
+C               Input Parameters.
+C               -----------------
+C
+C               HNAME      - Name of calling routine.
+C
+C               Output Parameters.
+C               ------------------
+C
+C               None.
+C
+C     Method.
+C     -------
+C
+C           Prints message and terminates.
+C
+C     Externals.
+C     ----------
+C
+C           ABORT
+C
+C     Reference.
+C     ----------
+C
+C           None.
+C
+C     Comments.
+C     ---------
+C
+C           Cyber version of routine.
+C           Routine contains Sections 0 to 1 and Section 9.
+C
+C     Author.
+C     -------
+C
+C           J. Hennessy      ECMWF      13.11.91
+C
+C     Modifications.
+C     --------------
+C
+C           None.
+C
+C     ------------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 0 . Definition of variables.
+C     ------------------------------------------------------------------
+C
+C*    Prefix conventions for variable names.
+C
+C     Logical      L (but not LP), global or common.
+C                  O, dummy arguments.
+C                  G, local variable.
+C                  LP, parameter.
+C     Character    C, Global or common.
+C                  H, dummy arguments.
+C                  Y (but not YP), local variables.
+C                  YP, parameter.
+C     Integer      M and N, global or common.
+C                  K, dummy arguments.
+C                  I, local variables.
+C                  J (but not JP), loop control.
+C                  JP, parameter.
+C     Real         A to F and Q to X, global or common.
+C                  P (but not PP), dummy arguments.
+C                  Z, local variables.
+C                  PP, parameter.
+C
+C
+      CHARACTER*(*) HNAME
+C
+C     ------------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 1 . Print message and terminate.
+C     ------------------------------------------------------------------
+C
+  100 CONTINUE
+C
+      WRITE (*,9001) HNAME
+C
+      CALL ABORT ('US',0,' ')
+C
+C     ------------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 9 . Format statements.
+C     ------------------------------------------------------------------
+C
+  900 CONTINUE
+C
+ 9001 FORMAT (1H ,'ABORTX : Routine ',A,' has requested program',
+     C               ' termination.')
+C
+      RETURN
+C
+      END
+      SUBROUTINE SETPAR (KBIT,KNEG,KPR)
+C
+C**** SETPAR - Set number of bits in word. Set maximum negative integer.
+C
+C     Purpose.
+C     --------
+C
+C           Set number of bits in word. Set maximum negative integer.
+C
+C**   Interface.
+C     ----------
+C
+C           CALL SETPAR (KBIT,KNEG,KPR)
+C
+C           Integer    K.
+C           Real       P.
+C           Logical    O.
+C           Character  H.
+C
+C               Input Parameters.
+C               -----------------
+C
+C               KPR        - Debug print switch.
+C                            1 , print out.
+C                            0 , No print out.
+C
+C               Output Parameters.
+C               ------------------
+C
+C               KBIT       - Number of bits in computer word.
+C
+C               KNEG       - Maximum negative integer.
+C
+C     Method.
+C     -------
+C
+C           Values are assigned.
+C
+C     Externals.
+C     ----------
+C
+C           None.
+C
+C     Reference.
+C     ----------
+C
+C           None.
+C
+C     Comments.
+C     ---------
+C
+C           Cyber version of routine.
+C           Routine contains Sections 0 to 3 and Section 9.
+C
+C     Author.
+C     -------
+C
+C           J. Hennessy      ECMWF      28.10.91
+C
+C     Modifications.
+C     --------------
+C
+C           None.
+C
+C     ------------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 0 . Definition of variables. Data statements.
+C     ------------------------------------------------------------------
+C
+C*    Prefix conventions for variable names.
+C
+C     Logical      L (but not LP), global or common.
+C                  O, dummy arguments.
+C                  G, local variable.
+C                  LP, parameter.
+C     Character    C, Global or common.
+C                  H, dummy arguments.
+C                  Y (but not YP), local variables.
+C                  YP, parameter.
+C     Integer      M and N, global or common.
+C                  K, dummy arguments.
+C                  I, local variables.
+C                  J (but not JP), loop control.
+C                  JP, parameter.
+C     Real         A to F and Q to X, global or common.
+C                  P (but not PP), dummy arguments.
+C                  Z, local variables.
+C                  PP, parameter.
+C
+C
+      INTEGER KBIT
+      INTEGER KNEG
+      INTEGER KPR
+C
+C     ------------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 1 . Assign values.
+C     ------------------------------------------------------------------
+C
+  100 CONTINUE
+C
+      IF (KPR.EQ.1)  WRITE (*,*) ' SETPAR : Section 1.'
+C
+      KBIT = 64
+      KNEG = -9223372036854775807
+C
+C     ------------------------------------------------------------------
+C
+C
+C
+C
+C
+C
+C
+C
+C
+C*    Section 9 . Return to calling routine. Format statements.
+C     ------------------------------------------------------------------
+C
+  900 CONTINUE
+C
+      IF (KPR.EQ.1)
+     C   THEN
+             WRITE (*,*) ' SETPAR : Section 9.'
+             WRITE (*,*) '          Output values set -'
+             WRITE (*,9001) KBIT
+             WRITE (*,9002) KNEG
+         ENDIF
+C
+ 9001 FORMAT (1H ,'          KBIT = ',I3)
+C
+ 9002 FORMAT (1H ,'          KNEG = ',I22)
+C
+      RETURN
+C
+      END
+      SUBROUTINE GBYTE(SOURCE,DEST,IOFSET,IBYTSZ)
+C
+C**** GBYTE - Get a single bit field from SOURCE into DEST on Cyber.
+C
+C*    INPUT   : SOURCE(1)= WORD CONTAINING START OF BIT FIELD
+C*              DEST     = TARGET WORD
+C*              IOFSET   = OFFSET IN BITS FOR START OF THE FIELD
+C*              IBYTSZ   = LENGTH OF FIELD IN BITS
+C*
+C*    OUTPUT  : SOURCE,IOFSET,IBYTSZ UNCHANGED
+C*              DEST CONTAINS FIELD RIGHT JUSTIFIED
+C*
+C*    AUTHOR  : M.MIQUEU   08/1981 (REWRITTEN FROM J.MARTELLET'S)
+C*
+C*****
+      INTEGER SOURCE(1),DEST
+      INTEGER SH1
+
+
+      NBPW=64
+      SH1=IOFSET+IBYTSZ-NBPW
+
+      IF(SH1.GT.0) GO TO 2
+
+
+C     BYTES DO NOT SPAN WORDS
+
+
+      SH1=NBPW+SH1
+
+
+      DEST=AND(
+     1          SHIFT(SOURCE(1),SH1),
+     2          SHIFT(MASK(IBYTSZ),IBYTSZ)
+     3        )
+
+      RETURN
+
+C     BYTE SPANS WORDS
+
+2     CONTINUE
+
+
+      DEST=OR(
+     1        SHIFT(
+     2              AND(SOURCE(1),COMPL(MASK(IOFSET)))
+     3              ,SH1),
+     4        SHIFT(
+     5              AND(SOURCE(2),MASK(SH1))
+     6              ,SH1)
+     7       )
+
+
+
+      RETURN
+      END
+      SUBROUTINE GBYTES(S,D,ISKIP1,IBSIZ,ISKIP2,NBYTES,KWOFF)
+C
+C**** GBYTES - Cyber version.
+C
+C S CONTAINS A BIT STRING OF INDEFINITE LENGTH. GBYTES WILL
+C EXTRACT NBYTES BITSTRINGS, IBSIZ BITS LONG, AND STORE THEM
+C RIGHT JUSTIFIED 0 FILL, INTO SUCCESSIVE WORDS OF D. THE
+C SUCCESSIVE BITSTRINGS START AT BIT POSITIONS
+C     ISKIP1+1+(IBYTE-1)*(IBSIZ+ISKIP2)
+C IN THE BIT STRING S. I.E. SKIP ISKIP1 BITS AT THE START,
+C AND ISKIP2 BITS BETWEEN THE EXTRACTED STRINGS.
+C BIT ISKP+1 IN A STRING IS FOUND IN WORD IS=1+ISKIP/NBPW IN S,
+C WHERE NBPW IS THE NUMBER OF BITS PER WORD. THE STARTING BIT
+C IS FOUND BY SKIPPING MOD(ISKP,NBPW) BITS IN THAT WORD.
+C KWOFF IS AN OPTIONAL 7TH PARAMETER, WHICH DEFAULTS TO 0
+C IF PRESENT KWOFF BITS ARE TOTALLY IGNORED AT THE START OF A WORD
+C THUS IF A PACKED CYBER BIT STRING IS TRANSFERRED TO THE
+C CRAY, WITH EACH 60 BIT CYBER WORD PLACED AT THE RIGHT END OF
+C A 64 BIT CRAY WORD, A BYTE SEQUENCE WHICH WAS ORIGINALLY
+C LOCATED WITH START POINTS IN ARITHMETIC PROGRESSION ON THE
+C CYBER, WILL NO LONGER HAVE THIS PROPERTY ON THE CRAY. BY
+C USING THE ROUTINE WITH KWOFF=4, THE ELEMENTS OF THE BYTE
+C SEQUENCE CAN BE EXTRACTED ON THE CRAY, USING THE SAME SKIPS
+C AS WERE USED ON THE CYBER.
+      DIMENSION S(2) , D(NBYTES)
+      INTEGER SH1
+      ENTRY GBYTES7 (S,D,ISKIP1,IBSIZ,ISKIP2,NBYTES,KWOFF)
+      IGNORE = KWOFF
+      GO TO 10
+      ENTRY GBYTES6 (S,D,ISKIP1,IBSIZ,ISKIP2,NBYTES)
+      IGNORE = 0
+   10 CONTINUE
+      NBPW=64
+      IS=1+ISKIP1/(NBPW-IGNORE)
+      ISKIP = MOD(ISKIP1,NBPW-IGNORE) + IGNORE
+      ISTEP = ISKIP2+IBSIZ
+      DO 75 IBYTE = 1 , NBYTES
+C WITH THE STARTING WORD AND BIT POSITION DETERMINED, THE
+C DESIRED EXTRACTION CAN BE DONE BY
+C***     CALL GBYTE(S(IS),D(IBYTE),ISKIP,IBSIZ)
+C BUT SINCE THE CODE IS SHORT IT IS INSERTED IN-LINE.
+         SH1 = ISKIP+IBSIZ
+         IF(SH1.GT.NBPW) GO TO 50
+C BYTE COMES FROM 1 WORD OF S
+         D(IBYTE) = AND( SHIFT(S(IS),SH1),SHIFT(MASK(IBSIZ),IBSIZ))
+         GO TO 65
+   50    CONTINUE
+         SH1 =SH1-NBPW
+C BYTE COMES FROM 2 WORDS OF S.
+         D(IBYTE) = OR(SHIFT(AND(S(IS),COMPL(MASK(ISKIP))),SH1)
+     1                           ,
+     2                SHIFT(AND(SHIFT(S(IS+1),IGNORE),MASK(SH1)),SH1)
+     3                 )
+   65    CONTINUE
+C UPDATE STARTING WORD AND BIT POSITION
+         ISKIP = ISKIP+ISTEP
+         IF(ISKIP.LT.NBPW) GO TO 75
+         ISKIP =ISKIP-NBPW
+         IS = IS+1+ISKIP/(NBPW-IGNORE)
+         ISKIP = MOD(ISKIP,NBPW-IGNORE) + IGNORE
+   75 CONTINUE
+      RETURN
+      END
+      SUBROUTINE SBYTE(DEST,SOURCE,IOFSET,IBYTSZ)
+C
+C**** GBYTE - Store a single bit field from SOURCE into DEST on Cyber.
+C
+C*    INPUT   : SOURCE   = WORD CONTAINING  BIT FIELD RIGHT JUSTIFIED
+C*              DEST(1)  = 1ST TARGET WORD
+C*              IOFSET   = OFFSET IN BITS FOR START OF THE FIELD
+C*              IBYTSZ   = LENGTH OF FIELD IN BITS ; .LE.WORD SIZE .....
+C*
+C*    OUTPUT  : SOURCE,IOFSET,IBYTSZ UNCHANGED
+C*              DEST(1) AND EVENTUALLY DEST(2) CONTAIN FIELD
+C*
+C*    AUTHOR  : M.MIQUEU   08/1981 (REWRITTEN FROM J.MARTELLET'S)
+C*
+C*****
+      INTEGER SOURCE,DEST(1)
+      INTEGER SH1,SH2,SH3
+
+
+      NBPW=64
+      SH1=IOFSET+IBYTSZ
+      IF(SH1.GT.NBPW) GO TO 2
+
+      SH2=NBPW-SH1
+      IF(SH2.LT.0) SH2=NBPW-SH2
+
+C     BYTE  DOES NOT SPAN WORDS
+
+
+      DEST(1)=SHIFT(
+     1              OR(
+     2                 AND(SHIFT(DEST(1),SH1),
+     3                     SHIFT(COMPL(MASK(IBYTSZ)),IBYTSZ) )
+     4                 ,
+     5                 AND(SOURCE,
+     6                     COMPL(SHIFT(COMPL(MASK(IBYTSZ)),IBYTSZ)) )
+     7                 )
+     8              ,SH2)
+
+
+
+      RETURN
+
+2     CONTINUE
+
+C     BYTE SPANS 2 WORDS
+
+      SH3=2*NBPW-SH1
+
+
+      DEST(1)=OR(
+     1           AND(DEST(1),MASK(IOFSET))
+     2           ,
+     3           AND(SHIFT(SOURCE,SH3) , COMPL(MASK(IOFSET)) )
+     4           )
+
+      DEST(2)=OR(
+     1           AND(DEST(2) , COMPL(MASK(SH1-NBPW)) )
+     2           ,
+     3           SHIFT( AND(SOURCE , COMPL(MASK(SH3)) ) ,SH3)
+     4           )
+
+
+
+      RETURN
+      END
+      SUBROUTINE SBYTES(D,S,ISKIP1,IBSIZ,ISKIP2,NBYTES,KWOFF)
+C
+C**** SBYTES - Cyber version.
+C
+C REVERSES THE ACTION OF GBYTES, TAKING FIELDS FROM S AND
+C INSERTING THEM INTO A BIT STRING IN D. SEE GBYTES.
+C AUTHOR D. ROBERTSON  AUG,1981
+      DIMENSION D(2) , S(NBYTES)
+      INTEGER SH1,SH2,SH3
+      ENTRY SBYTES7 (D,S,ISKIP1,IBSIZ,ISKIP2,NBYTES,KWOFF)
+      IGNORE = KWOFF
+      GO TO 10
+      ENTRY SBYTES6 (D,S,ISKIP1,IBSIZ,ISKIP2,NBYTES)
+      IGNORE = 0
+   10 CONTINUE
+      NBPW=64
+      ID=1+ISKIP1/(NBPW-IGNORE)
+      ISKIP = MOD(ISKIP1,NBPW-IGNORE) + IGNORE
+      ISTEP = ISKIP2+IBSIZ
+      DO 75 IBYTE = 1 , NBYTES
+C WITH THE STARTING WORD AND BIT POSITION KNOWN, THE
+C DESIRED INSERTION CAN BE DONE BY
+C**      CALL SBYTE(D(ID),S(IBYTE),ISKIP,IBSIZ)
+C BUT THE CODE IS SHORT ENOUGH TO GO IN-LINE.
+         SH1 = ISKIP+IBSIZ
+         IF(SH1.GT.NBPW) GO TO 50
+         SH2 = NBPW-SH1
+         IF(SH2.LT.0) SH2 = NBPW-SH2
+C BYTE GOES INTO 1 WORD OF D.
+         D(ID) = SHIFT(OR(AND(SHIFT(D(ID),SH1),MASK(NBPW-IBSIZ)),
+     1                   AND(S(IBYTE),SHIFT(MASK(IBSIZ),IBSIZ))),SH2)
+         GO TO 65
+   50    CONTINUE
+C BYTE GOES INTO 2 WORDS OF D.
+         SH3 = 2*NBPW-SH1
+         D(ID)=OR(AND(D(ID),MASK(ISKIP)),
+     1               AND(SHIFT(S(IBYTE),SH3),COMPL(MASK(ISKIP))))
+         D(ID+1)=OR(AND(D(ID+1),SHIFT(COMPL(MASK(SH1-NBPW)),NBPW-IGNORE)
+     1                 ),
+     2              SHIFT(AND(S(IBYTE),COMPL(MASK(SH3))),SH3-IGNORE))
+   65    CONTINUE
+C UPDATE STARTING WORD AND BIT POSITION
+         ISKIP = ISKIP+ISTEP
+         IF(ISKIP.LT.NBPW) GO TO 75
+         ISKIP = ISKIP - NBPW
+         ID = ID+1+ISKIP/(NBPW-IGNORE)
+         ISKIP = MOD(ISKIP,NBPW-IGNORE) + IGNORE
+   75    CONTINUE
+      RETURN
+      END

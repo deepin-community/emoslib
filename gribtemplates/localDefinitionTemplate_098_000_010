@@ -1,0 +1,31 @@
+!
+!	localDefinitionTemplate_010
+!	---------------------------
+!
+!Description			Octet	Code	Ksec1	Count
+!-----------			-----	----	-----	-----
+!
+localDefinitionNumber		41	I1	37	-
+class				42	I1	38	-
+type				43	I1	39	-
+stream				44	I2	40	-
+experimentVersionNumber		46	A4	41	-
+number				50	I1	42	-
+total				51	I1	43	-
+centralClusterDefinition	52	I1	44	-
+parameterIndicator		53	I1	45	-
+levelIndicator			54	I1	46	-
+northLatitudeOfDomainOfTubing	55	S3	47	-
+westLongitudeOfDomainOfTubing	58	S3	48	-
+southLatitudeOfDomainOfTubing	61	S3	49	-
+eastLongitudeOfDomainOfTubing	64	S3	50	-
+numberOfOperationalForecastTube	67	I1	51	-
+numberOfControlForecastTube	68	I1	52	-
+heightOrPressureOfLevel		69	I2	53	-
+referenceStep			71	I2	54	-
+radiusOfCentralCluster		73	I2	55	-
+ensembleStandardDeviation	75	I2	56	-
+distanceFromTubeToEnsembleMean	77	I2	57	-
+numberOfForecastsInTube		79	I1	58	-
+ensembleForecastNumbers		80	LP_I1	59	numberOfForecastsInTube
+spareToEnsureFixedLength	-	PADTO	n/a	334

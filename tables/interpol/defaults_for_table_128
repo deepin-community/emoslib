@@ -1,0 +1,14 @@
+Param  lsm  wind  prec  lsm interp
+-----  ---  ----  ----  ----------
+131     y     y     n     n       # U
+132     y     y     n     n       # V
+142     y     n     y     n       # LSP
+143     y     n     y     n       # CP
+144     y     n     y     n       # SF
+151     n     n     n     n       # MSL
+165     y     y     n     n       # 10U
+166     y     y     n     n       # 10V
+172     n     n     n     y       # LSM
+228     y     n     y     n       # TTP
+239     y     n     y     n       # CSF
+240     y     n     y     n       # LSF

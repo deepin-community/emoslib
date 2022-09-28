@@ -1,0 +1,19 @@
+#ifndef libemos_version_h
+#define libemos_version_h
+
+#define LIBEMOS_VERSION_STR "@LIBEMOS_VERSION_STR@"
+#define LIBEMOS_VERSION     "@LIBEMOS_VERSION@"
+
+#define LIBEMOS_MAJOR_VERSION @LIBEMOS_MAJOR_VERSION@
+#define LIBEMOS_MINOR_VERSION @LIBEMOS_MINOR_VERSION@
+#define LIBEMOS_PATCH_VERSION @LIBEMOS_PATCH_VERSION@
+
+const char * libemos_version();
+
+unsigned int libemos_version_int();
+
+const char * libemos_version_str();
+
+const char * libemos_git_sha1();
+
+#endif // libemos_version_h

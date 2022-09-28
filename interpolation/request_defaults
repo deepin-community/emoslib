@@ -1,0 +1,11 @@
+Parameter                Input                      Output
+---------                -----                      ------
+format                   grib                       grib
+area                     0/0/0/0                    0/0/0/0
+scan                     0                          0
+table                    128                        not_applicable
+uselsm                   parameter_dependent        not_applicable
+usewind                  parameter_dependent        not_applicable
+useprecip                parameter_dependent        not_applicable
+lsm_param                parameter_dependent        not_applicable
+

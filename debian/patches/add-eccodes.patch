@@ -1,0 +1,18 @@
+Description: Need to ensure all are linked shared against eccodes
+Author: Alastair McKinstry <mckinstry@debian.org>
+Last-Updated: 2019-08-27
+Forwarded: not-needed
+
+Index: emoslib-4.5.9/CMakeLists.txt
+===================================================================
+--- emoslib-4.5.9.orig/CMakeLists.txt
++++ emoslib-4.5.9/CMakeLists.txt
+@@ -132,7 +132,7 @@ ecbuild_add_option( FEATURE ECCODES DESC
+ 
+ if( HAVE_ECCODES)
+   set( GRIB_API_INCLUDE_DIRS ${ECCODES_INCLUDE_DIRS} )
+-  set( GRIB_API_LIBRARIES    ${ECCODES_LIBRARIES} )
++  set( GRIB_API_LIBRARIES    "eccodes;${ECCODES_LIBRARIES}" )
+   set( GRIB_API_DEFINITIONS  ${ECCODES_DEFINITIONS} )
+   set( grib_api_BASE_DIR     ${eccodes_BASE_DIR} )
+   set( grib_handling_pkg eccodes )

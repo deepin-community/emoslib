@@ -1,0 +1,91 @@
+0-INDEX-0                              This file!
+LSM_GG_0032                            land-sea mask (LSM) for reduced Gaussian N32
+LSM_GG_0032_CY41R1                     LSM for reduced Gaussian N32, for cycle 41r1
+LSM_GG_0048                            LSM for reduced Gaussian N48
+LSM_GG_0048_CY41R1                     LSM for reduced Gaussian N48, for cycle 41r1
+LSM_GG_0080                            LSM for reduced Gaussian N80
+LSM_GG_0080_CY41R1                     LSM for reduced Gaussian N80, for cycle 41r1
+LSM_GG_0096                            LSM for reduced Gaussian N96
+LSM_GG_0096_CY41R1                     LSM for reduced Gaussian N96, for cycle 41r1
+LSM_GG_0128                            LSM for reduced Gaussian N128
+LSM_GG_0128_CY41R1                     LSM for reduced Gaussian N128, for cycle 41r1
+LSM_GG_0160                            LSM for reduced Gaussian N160
+LSM_GG_0160_CY41R1                     LSM for reduced Gaussian N160, for cycle 41r1
+LSM_GG_0200                            LSM for reduced Gaussian N200
+LSM_GG_0200_CY41R1                     LSM for reduced Gaussian N200, for cycle 41r1
+LSM_GG_0256                            LSM for reduced Gaussian N256
+LSM_GG_0256_CY41R1                     LSM for reduced Gaussian N256, for cycle 41r1
+LSM_GG_0320                            LSM for reduced Gaussian N320
+LSM_GG_0320_CY41R1                     LSM for reduced Gaussian N320, for cycle 41r1
+LSM_GG_0400                            LSM for reduced Gaussian N400
+LSM_GG_0400_CY41R1                     LSM for reduced Gaussian N400, for cycle 41r1
+LSM_GG_0512                            LSM for reduced Gaussian N512
+LSM_GG_0512_CY41R1                     LSM for reduced Gaussian N512, for cycle 41r1
+LSM_GG_0640                            LSM for reduced Gaussian N640
+LSM_GG_0640_CY41R1                     LSM for reduced Gaussian N640, for cycle 41r1
+LSM_GG_1024                            LSM for reduced Gaussian N1024
+LSM_GG_1024_CY41R1                     LSM for reduced Gaussian N1024, for cycle 41r1
+LSM_GG_1280                            LSM for reduced Gaussian N1280
+LSM_GG_1280_CY41R1                     LSM for reduced Gaussian N1280, for cycle 41r1
+LSM_O64                                LSM for reduced Gaussian O64 (octahedral)
+LSM_O64_CY41R1                         LSM for reduced Gaussian O64 (octahedral), for cycle 41r1
+LSM_O80                                LSM for reduced Gaussian O80 (octahedral)
+LSM_O80_CY41R1                         LSM for reduced Gaussian O80 (octahedral), for cycle 41r1
+LSM_O96                                LSM for reduced Gaussian O96 (octahedral)
+LSM_O96_CY41R1                         LSM for reduced Gaussian O96 (octahedral), for cycle 41r1
+LSM_O128                               LSM for reduced Gaussian O128 (octahedral)
+LSM_O128_CY41R1                        LSM for reduced Gaussian O128 (octahedral), for cycle 41r1
+LSM_O160                               LSM for reduced Gaussian O160 (octahedral)
+LSM_O160_CY41R1                        LSM for reduced Gaussian O160 (octahedral), for cycle 41r1
+LSM_O200                               LSM for reduced Gaussian O200 (octahedral)
+LSM_O200_CY41R1                        LSM for reduced Gaussian O200 (octahedral), for cycle 41r1
+LSM_O256                               LSM for reduced Gaussian O256 (octahedral)
+LSM_O256_CY41R1                        LSM for reduced Gaussian O256 (octahedral), for cycle 41r1
+LSM_O320                               LSM for reduced Gaussian O320 (octahedral)
+LSM_O320_CY41R1                        LSM for reduced Gaussian O320 (octahedral), for cycle 41r1
+LSM_O400                               LSM for reduced Gaussian O400 (octahedral)
+LSM_O400_CY41R1                        LSM for reduced Gaussian O400 (octahedral), for cycle 41r1
+LSM_O512                               LSM for reduced Gaussian O512 (octahedral)
+LSM_O512_CY41R1                        LSM for reduced Gaussian O512 (octahedral), for cycle 41r1
+LSM_O640                               LSM for reduced Gaussian O640 (octahedral)
+LSM_O640_CY41R1                        LSM for reduced Gaussian O640 (octahedral), for cycle 41r1
+LSM_O1024                              LSM for reduced Gaussian O1024 (octahedral)
+LSM_O1024_CY41R1                       LSM for reduced Gaussian O1024 (octahedral), for cycle 41r1
+LSM_O1280                              LSM for reduced Gaussian O1280 (octahedral)
+LSM_O1280_CY41R1                       LSM for reduced Gaussian O1280 (octahedral), for cycle 41r1
+climate.v014                           Set of climate land-sea mask files, version 014
+defaults_for_table_001                 table parameter interpolation options (WMO)
+defaults_for_table_128                 table parameter interpolation options (ECMWF)
+defaults_for_table_129                 table parameter interpolation options (ECMWF)
+lsm_32_lsm0p5deg                       LSM 0.5 degree resolution (32-bit)
+lsm_32_lsm10m01                        LSM 10 minute resolution (32-bit)
+lsm_32_lsmn080                         LSM for reduced Gaussian N80 (32-bit)
+lsm_32_lsmr160                         LSM for reduced Gaussian N160 (32-bit)
+lsm_64_lsm0p5deg                       LSM 0.5 degree resolution (64-bit)
+lsm_64_lsm10m01                        LSM 10 minute resolution (64-bit)
+lsm_64_lsmn080                         LSM for reduced Gaussian N80 (64-bit)
+lsm_64_lsmr160                         LSM for reduced Gaussian N160 (64-bit)
+lsm_xx_lsm0p25deg
+lsm_xx_lsm0p5deg
+lsm_xx_lsm10m01
+lsm_xx_lsmn080
+lsm_xx_lsmr160
+parameter_processing_defaults          not currently used (see rddefs.c)
+r160_32_19790930                       LSM for reduced Gaussian N160 from 1979-09-30 (32-bit)
+r160_32_19910917                       LSM for reduced Gaussian N160 from 1991-09-17 (32-bit)
+r160_32_19930804                       LSM for reduced Gaussian N160 from 1993-08-04 (32-bit)
+r160_32_19940302                       LSM for reduced Gaussian N160 from 1994-03-02 (32-bit)
+r160_32_19940823                       LSM for reduced Gaussian N160 from 1994-08-23 (32-bit)
+r160_32_19950404                       LSM for reduced Gaussian N160 from 1995-04-04 (32-bit)
+r160_64_19790930                       LSM for reduced Gaussian N160 from 1979-09-30 (64-bit)
+r160_64_19910917                       LSM for reduced Gaussian N160 from 1991-09-17 (64-bit)
+r160_64_19930804                       LSM for reduced Gaussian N160 from 1993-08-04 (64-bit)
+r160_64_19940302                       LSM for reduced Gaussian N160 from 1994-03-02 (64-bit)
+r160_64_19940823                       LSM for reduced Gaussian N160 from 1994-08-23 (64-bit)
+r160_64_19950404                       LSM for reduced Gaussian N160 from 1995-04-04 (64-bit)
+r160_xx_19790930                       LSM for reduced Gaussian N160 from 1979-09-30
+r160_xx_19910917                       LSM for reduced Gaussian N160 from 1991-09-17
+r160_xx_19930804                       LSM for reduced Gaussian N160 from 1993-08-04
+r160_xx_19940302                       LSM for reduced Gaussian N160 from 1994-03-02
+r160_xx_19940823                       LSM for reduced Gaussian N160 from 1994-08-23
+r160_xx_19950404                       LSM for reduced Gaussian N160 from 1995-04-04

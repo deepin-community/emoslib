@@ -1,0 +1,3 @@
+C
+      COMMON /COMKEYC/ CIDENT
+C

@@ -1,0 +1,27 @@
+!
+!	localDefinitionTemplate_023
+!	---------------------------
+!
+!Description			Octet	Code	Ksec1	Count
+!-----------			-----	----	-----	-----
+!
+localDefinitionNumber		41	I1	37	-
+class				42	I1	38	-
+type				43	I1	39	-
+stream				44	I2	40	-
+experimentVersionNumber		46	A4	41	-
+ensembleNumber			50	I2	42	-
+zero				n/a	PAD	43	1
+systemNumber			52	I2	44	-
+methodNumber			54	I2	45	-
+verifyingMonth			56	I4	46	-
+averagingPeriod			60	I1	47	-
+forecastMonth			61	I2	48	-
+referenceDate			63	I4	49	-
+climateDateFrom			67	I4	50	-
+climateDateTo			71	I4	51	-
+unitsDecimalScaleFactor		75	S1	52	-
+thresholdIndicator		76	I1	53	-
+lowerThresholdValue		77	I2	54	-
+upperThresholdValue		79	I2	55	-
+spareSetToZero			81	PAD	56	4

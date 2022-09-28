@@ -1,0 +1,10 @@
+drop_tune.patch
+bufrnum.patch
+pkgconfig.patch
+shared.patch
+build_fixes.patch
+cmake_fixes.patch
+testbuild.patch
+interpol_tables_path.patch
+little_endian.patch
+add-eccodes.patch

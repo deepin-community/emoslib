@@ -1,0 +1,96 @@
+After creating bufr library go to station_list directory
+
+   make
+if you use Prtland compilers please specify
+   make CNAME=_pgf90
+
+There are 5 files in this directory
+
+1) wmo_a.pl   
+
+   Script which format ftp WMO Volume A station list
+   suitable for wmo_make_station program
+
+2) wmo_make_station
+
+   creates binary station list station_amend.dat.
+   mv station_amend.dat station_list.dat to be used by 
+   synop2bufr program
+
+3)  wmo_make_station.f  source program for 2)
+
+
+4) wmo.txt input text station list for wmo_make_station program
+
+5) important_stations.dat  read by wmo_make_station program
+
+
+  Steps to be done:
+
+ a)  ftp station list from WMO http://www.wmo.int/pages/prog/www/ois/volume-a/vola-home.htm 
+
+  The ftp-ed file is like Pub9volA090928.flatfile
+
+ b)  wmo_a.pl Pub9volA090928.flatfile  outputfile
+
+
+  sort -k2,2 outputfile > outputfile.1
+
+  mv outputfile.1 wmo.txt
+
+  edit wmo.txt ;remove the last line and save file
+
+  If you want to add your own stations edit wmo.txt file.
+
+  you can add station anywhere but it is important to
+  sort the file upon block number ( 2 field ).
+
+  sort -k2,2 wmo.txt > a
+
+  move a wmo.txt
+
+  mv a wmo.txt
+
+ c) create binary station list 
+
+    ./wmo_make_station
+
+   It will create station_amend.dat which is new binary station list
+
+   cp station_amend.dat ~PP_BASE/dat/statlion_list.dat
+
+ d) Create station list which contains instrument height fileds as missing values
+    This values has to set to proper values for each station from the Country.
+
+    ./make_synop2bufr_station
+
+    The input is wmo.txt and file synop2bufr_station.txt shall be created
+
+    The last 4 fields in the synop2bufr_station.txt are heights above ground in m for:
+
+    
+    temperature
+    visibility
+    precipitation
+    wind    
+
+
+ e) Edit synop2bufr_station.txt and fill in instrument heights for above elements
+    for your stations. The example is synop2bufr_station.txt.greece
+
+    save the file and cp synop2bufr_station.txt ~PP_BASE/dat/.
+
+
+ f) Make sure that binary version and text version of stations contain the same stations.
+
+If you want to run test program before instal library and Bufr tables
+just run small script:
+
+./test.sh
+
+that will set requered environment variables
+and run: 
+
+./synop2bufr -i data/greek.gts -o data/greek.gts.bufr -c 87
+
+

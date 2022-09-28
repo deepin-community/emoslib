@@ -1,0 +1,97 @@
+Author: Alastair McKinstry <mckinstry@debian.org>
+Description: Enable building shared libs in emoslib (cmake)
+ Build shared libs for emos. Significant changes needed for cmake-build,
+ but a cleaner patch than before.
+ Needs to build -fpic, -mcmodel=medium for shared, but preferably don't
+ for static, so build in separate dirs.
+Last-Update: 2017-07-04
+Forwarded: no
+
+Index: emoslib-4.4.9/libemos-sp-shared/CMakeLists.txt
+===================================================================
+--- /dev/null
++++ emoslib-4.4.9/libemos-sp-shared/CMakeLists.txt
+@@ -0,0 +1,21 @@
++foreach( _src ${libemos_srcs} )
++  list( APPEND emos_sp_shared_srcs ../${_src} )
++endforeach()
++
++# excluding double-precision specific definitions
++
++list( REMOVE_ITEM LIBEMOS_DEFINITIONS REAL_8 REAL_BIGGER_THAN_INTEGER )
++
++# library
++
++set( CMAKE_Fortran_MODULE_DIRECTORY  ${CMAKE_CURRENT_BINARY_DIR} )
++include_directories( ${LIBEMOS_BASE_DIR}/interpolation ${LIBEMOS_BASE_DIR}/bufrdc_wmo )
++ecbuild_add_library(
++  TYPE SHARED
++  TARGET      emos_sp_shared
++  VERSION     0d
++  OUTPUT_NAME "emos"
++  DEFINITIONS ${LIBEMOS_DEFINITIONS}
++  LIBS        eccodes_f90 eccodes
++  SOURCES     ../libemos_version.c ${emos_sp_shared_srcs}
++  GENERATED   ../libemos_version.c )
+Index: emoslib-4.4.9/libemos-dp-shared/CMakeLists.txt
+===================================================================
+--- /dev/null
++++ emoslib-4.4.9/libemos-dp-shared/CMakeLists.txt
+@@ -0,0 +1,24 @@
++# configure Fortran-based targets for double precision (compilation & linking)
++
++set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} ${emos_double_precision_flags}")
++
++# library
++
++foreach( _src ${libemos_srcs} )
++  list( APPEND emos_dp_shared_srcs ../${_src} )
++endforeach()
++
++set( CMAKE_Fortran_MODULE_DIRECTORY  ${CMAKE_CURRENT_BINARY_DIR} )
++
++include_directories( ${LIBEMOS_BASE_DIR}/interpolation ${LIBEMOS_BASE_DIR}/bufrdc_wmo )
++
++ecbuild_add_library(
++  TYPE SHARED
++  TARGET      emos_shared
++  VERSION     0d
++  OUTPUT_NAME "emosR64"
++  DEFINITIONS ${LIBEMOS_DEFINITIONS}
++  LIBS        eccodes_f90 eccodes
++  SOURCES     ../libemos_version.c ${emos_dp_shared_srcs}
++  GENERATED   ../libemos_version.c )
++
+Index: emoslib-4.4.9/CMakeLists.txt
+===================================================================
+--- emoslib-4.4.9.orig/CMakeLists.txt
++++ emoslib-4.4.9/CMakeLists.txt
+@@ -297,6 +297,8 @@ if( HAVE_SINGLE_PRECISION )
+   add_subdirectory( libemos-sp )
+ endif()
+ add_subdirectory( libemos-dp )
++add_subdirectory( libemos-sp-shared )
++add_subdirectory( libemos-dp-shared )
+ 
+ if( CMAKE_Fortran_COMPILER_ID MATCHES "PGI" )
+   set_source_files_properties( version.c PROPERTIES COMPILE_DEFINITIONS "FORTRAN_LINKER_PGI" )
+Index: emoslib-4.4.9/cmake/ecbuild_add_library.cmake
+===================================================================
+--- emoslib-4.4.9.orig/cmake/ecbuild_add_library.cmake
++++ emoslib-4.4.9/cmake/ecbuild_add_library.cmake
+@@ -359,6 +359,15 @@ function( ecbuild_add_library_impl )
+ 
+     get_property( _target_pic TARGET ${_PAR_TARGET} PROPERTY POSITION_INDEPENDENT_CODE )
+     if( _target_pic )
++      if( "${CMAKE_C_COMPILER_ID}" STREQUAL "GNU" )
++         set( _PAR_CFLAGS "${FPIC} ${MCMODEL_FLAGS}  ${_PAR_CFLAGS}" )
++      endif()
++      if( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" )
++         set( _PAR_CXXFLAGS "${FPIC} ${MCMODEL_FLAGS} ${_PAR_CXXFLAGS}" )
++      endif()
++      if( "${CMAKE_Fortran_COMPILER_ID}" STREQUAL "GNU" )
++         set( _PAR_FFLAGS "${FPIC} ${MCMODEL_FLAGS} ${_PAR_FFLAGS}" )
++      endif()
+       if( "${CMAKE_C_COMPILER_ID}" STREQUAL "Cray" )
+         set( _PAR_CFLAGS "-fPIC -h PIC ${_PAR_CFLAGS}" )
+       endif()

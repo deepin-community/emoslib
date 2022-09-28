@@ -1,0 +1,250 @@
+0-INDEX-0                         mac  This file!
+areachk.F                         mac  Fixup input/output field area definitions
+auresol.F                         mac  Returns the default truncation for given lat/long grid
+bitmap.h                          mac  Header for bitmap routines
+chequal.F                         mac  Compare ASCII character strings without regard to case
+chkout.F
+chkprec.F                         mac  Check if precipitation threshold has been redefined
+clear_c.F                         mac  Clear interpolation common blocks
+current.h                         mac  Info about gaussian definition currently in common
+ddstyle.F                         mac  Create regular lat/lon subgrid by selecting points
+defaults_for_table_001            mac  Parameter processing defaults for WMO table 1
+defaults_for_table_128            mac  Parameter processing defaults for ECMWF table 128
+dpath_tables_interpol.F90
+dssarea.F                         mac  Fixup field area specification (dissemination style)
+emosPrecision.c                   mac  Returns 64 if double-precision (64-bit) REALs in use
+estima.F
+fft99.F
+fftchk.c                          mac  Check truncation and longitude grid interval OK for FFT
+fixarea.F                         mac  Fixup area definition to correspond to grid definitions
+forced_nearest_neighbour.F
+freecf.F                          mac  Set trigger to allow mutual memory flushing of types 6/7
+funcs.F                           mac  Fortran functions used by ocean interpolation (intocn)
+gasetup.F
+getconf.F                         mac  Decides how to handle legendre coefficients
+gettru.F
+gghtype.F                         mac  Return Gaussian grid type, from field representation, grid number and array with the number of points at each latitude
+ggintrp.F                         mac  Finds value at a point by interpolation in a gaussian field
+gglonlat.F                        mac  Returns the bilinear/nearest neighbour-interpolated value at a specific position, given a global, unrotated Gaussian grid description. Weights/distances are calculated in lon/lat space.
+ggrotat.F                         mac  Generates a rotated gaussian grid
+ggvalue.F                         mac  Rotates one line of latitude in a gaussian grid
+global.F
+gmapbit.c                         mac  Get a bit from a given position in a bitmap
+grdynam.h                         mac  Dynamically allocated work space arrays(grid to grid)
+grfixed.h                         mac  Fixed work space array definitions
+grspace.h                         mac  Work space array definitions
+hgengg.F                          mac  Lat/longs (before rot) for rotated gaussian grid
+hgengrd.F                         mac  Lat/longs (before rot) for rotated grid
+hgengrw.F                         mac  Lat/longs (before rot) for rotated grid for winds
+hgenll.F                          mac  Lat/longs (before rot) for rotated lat/long grid
+hgetlsm.F                         mac  Read old land-sea mask values from file
+hirlam.F                          mac  Rotated lat/lon from reduced gauss using 12-point interpolation
+hirlamw.F                         mac  Rotated lat/lon U/V from reduced gauss using 12-point interpolation
+hirlsm.F                          mac  As hirlam.F but using land-sea masks
+hll2ll.F                          mac  Creates rotated lat/lon from lat/lon using 12-pt interpn
+hll2llw.F                         mac  Rotated U and V lat/lon from lat/lon using 12-pt interpn
+hll2xyz.F                         mac  Converts array of lat/longs to (x,y,z) coordinates
+hnei12.F                          mac  Finds 12 neighbours for horizontal interpolation
+hneill.F                          mac  Finds 12 neighbours for lat/lon horizontal interpolation
+hntfap.F                          mac  Prepare to interpolate packed input field
+hntfaph.F                         mac  Prepare to interpolate packed input field
+hntfaps.F                         mac  Prepare to interpolate packed input field
+hntfau.F                          mac  Prepare to interpolate unpacked input field
+hntfauh.F                         mac  Prepare to interpolate unpacked input field
+hntfaus.F                         mac  Prepare to interpolate unpacked input field
+hpshgpw.F                         mac  Rotates grid about y-axis and calculates angle between local axes
+hrg2gg.F                          mac  Rotated gauss from reduced gauss using 12-point interpolation
+hrg2ggw.F                         mac  Rotated U and V gauss from reduced gauss using 12-point interpolation
+hsh2gg.F                          mac  Finds a suitable Gaussian grid and/or spectral truncation for a given spectral truncation and/or lat/long increments
+hsp2gg.F                          mac  This routine finds a suitable Gaussian grid for a given spectral truncation
+hsp2gg2.F                         mac  This routine finds a suitable Gaussian grid and spectral truncation for given North-South/East-West increments
+hsp2gg3.F                         mac  This routine finds a suitable spectral truncation for a given Gaussian grid description
+hwts12.F                          mac  Interpolation weightings for horizontal interpolation
+hwtsll.F                          mac  Interpolation lat/lon weightings for horizontal interpolation
+hwtslsm.F                         mac  As hwts12.F but using land-sea masks
+iafree.F                          mac  Deallocate heap space used by grid-pt to grid-pt interpolation
+iagcntl.F                         mac  Control interpolation regular gaussian or lat/long fields
+iainit.F                          mac  Initialise common decks for grid-pt to grid-pt interpolation
+iarcntl.F                         mac  Control interpolation of quasi regular gaussian -> gaussian or lat/long
+ibasini.F                         mac  Ensure basic interpolation setup is done
+igalloc.F                         mac  Allocates heap space
+igbess.F                          mac  Computes initial approximations to gaussian latitudes
+igdins.F                          mac  Calculate distance between points in output latitude array and its N/S neighbours in input latitude array
+igdiwe.F                          mac  Calculate distance between points in output latitude array and its W/E neighbours in input latitude array
+igglat.F                          mac  Compute gaussian latitudes for a given truncation
+iggmem.F                          mac  Acquires heap space
+iggrid.F                          mac  Generate lat/long points for a gaussian truncation and area
+igint.F                           mac  Calculate unnormalised interpolation wts between regular grids
+igintr.F                          mac  Calculate interpolation wts for one line of lat for regular grids
+iglgrid.F                         mac  Generate lat/long points for regular lat/long grid
+iglsize.F                         mac  Evaluate array sizes for regular lat/long and area
+iglsm01.F                         mac  Process one lat row from 10 minute land sea mask
+iglsmb.F                          mac  Calculate effects of land-sea masks on unnormalised wts for a quasi regular input and a  regular output
+iglsmd.F                          mac  Generate the land sea mask file info
+iglsmr.F                          mac  Calculate effects of land-sea masks for one lat on the unnormalised interpolation weights
+iglsmst.F                         mac  Process one line of latitude from standard land sea mask file
+ignorm.F                          mac  Normalise the array of interpolation weights
+igplsm.F                          mac  Force an interpolated land sea mask to a real 0-1 field
+igpoleg.F                         mac  Calculate values at pole of regular lat/long field when input is gaussian
+igpolew.F                         mac  Calculate values at pole of regular lat/long field when input is gaussian (for a wind field)
+igprec.F                          mac  Additional interpolation for precipitation
+igsetup.F                         mac  Setup GRIB sections 1, 2, 4 for the new interpolation product
+igsize.F                          mac  Evaluate array sizes for a gaussian truncation and area
+igtog.F                           mac  Interpolation between regular input and output
+insane.F                          mac  Check consistency of interpolation options
+intf.F                            mac  Make user interpolation request
+intf.h                            mac  Header for intf, intfa, intfb and intfc
+intfap.F                          mac  Prepare to interpolate packed input field
+intfau.F                          mac  Prepare to interpolate unpacked input field
+intfb.F                           mac  Interpolate input field
+intfbu.F                          mac  Interpolate unpacked input field
+intin.F                           mac  Handle user request parameters for input data
+intisl.F                          mac  Perform ISLSCP processing
+intisl.h                          mac  Defines for ISLSCP processing
+intlog.F                          mac  Logs error messages from interpolation routines
+intlog.h                          mac  Common block for interpolation diagnostics logging
+intlogd.F                         mac  Toggle display flag for error messages from interpolation
+intlogr.F                         mac  Logs error messages containing real number
+intlogs.c                         mac  Save MARS server display function pointer
+intocn.F                          mac  Interpolates ocean field
+intocnu.F
+intout.F                          mac  Handle user request parameters for output data
+intpnum.F                         mac  Returns INTP_CYCLE
+intuvdh.F                         mac  Encodes/decodes data into/from GRIB code
+intuvgh.F                         mac  U & V reduced gaussian to rotated GRIB U & V
+intuvp.F                          mac  Interpolate packed U/V fields
+intuvs.F                          mac  Create GRIB U/V from GRIB VO/D without interpolation
+intuvu.F                          mac  Interpolate unpacked U/V fields
+intuvxh.F                         mac  Interpolate wind component spectral field to grid point
+intuvy.F
+intvecy.F
+intwave2.F
+intwavu.F
+irdiwe.F                          mac  Calculate distance between points in long array and its W/E neighbours for a quasi regular input and regular field
+irgmem.F                          mac  Acquires heap space for quasi regular to regular
+irgrid.F                          mac  Generate lat points and start points for a quasi regular gaussian
+irgtog.F                          mac  interpolates quasi regular input to regular output
+irint.F                           mac  Calculate unnormalised wts for quasi reg to reg
+irintr.F                          mac  Calculate unnormalised wts for quasi reg to reg, 1 lat
+irlsmb.F                          mac  Calculate effects of land-sea mask on unnormalised interpolation weights for regular input and output fields
+irprec.F                          mac  Extra interpolation for precipitation when input is quasi regular
+irsize.F                          mac  Evaluate array sizes for a quasi reg gaussian
+iscrsz.F                          mac  Calculate scratch space size for unpacking GRIBs
+isggvalid.F                       mac  Checks if a Gaussian grid definition is valid
+islproc.F                         mac  Generates point from four neighbours using lsm types
+issame.F                          mac  Check whether input and output fields are same
+issameiarray.F                    mac  Check if two integer arrays have the same entries
+issamerarray.F                    mac  Check if two real arrays have the same entries
+itimer.c
+jacobi.F                          mac  Rotates spectral fields by latitude
+jagggp.F                          mac  Converts spectral input fields to a gaussian grid
+jallgp.F                          mac  Converts spectral input fields to lat/long grid
+jallwn.F                          mac  Converts spectral input fields to lat/long grid (U & V)
+jbess.F
+jchmod.c                          mac  Gives Fortran callable chmod (for Fujitsu)
+jdebug.F                          mac  Checks whether the debug flag is to be turned on
+jfindfn.F                         mac  Create full pathname and open file
+jfindfn3.F                        mac  Version of jfindfn.F which calls PBxxxx3 routines
+jfindir.F                         mac  Find directory name defined by an environment variable
+jgetgg.F                          mac  Reads the definition of a gaussian grid
+jgglat.F                          mac  Computes gaussian lines of latitude for given truncation
+jindex.c                          mac  Returns length of a character string (+ embedded blanks)
+jjset99.F                         mac  Computes factors of n & trig functions FOR FFT99
+jmakgg.F                          mac  Makes legendre functions for latitudes(gaussian)
+jmakgg3.F                         mac  Version of jmakgg.F which calls PBxxxx3 routines
+jmakll.F                          mac  Makes legendre functions for latitudes(regular lat/lon)
+jmakll3.F                         mac  Version of jmakll.F which calls PBxxxx3 routines
+jmemhan.F                         mac  Handles dynamic memory allocation
+jmemhan2.F
+jmkofgg.F                         mac  Builds up offsets into storage array for gaussian grid
+jmovgg.F                          mac  Moves gaussian grid point data from array to array
+jmovll.F                          mac  Moves grid point data from array to array
+jmvugg.F                          mac  Moves gaussian grid point data from array to array
+jmvull.F                          mac  Moves grid point data from array to array
+jnorsgg.F                         mac  Determines latitude in gaussian grid N or S of given latitude
+jnumgg.F                          mac  Returns number of points in each latitude of gaussian grid
+jopngg.F                          mac  Finds a file of legendre polynomials for grid/truncation
+jopnggf.F                         mac  Open interpolation coefficients file on Fujitsu
+jopnggsm.c                        mac  Handle file of legendre polynomials as memory mapped
+jopnll.F                          mac  Finds a file of legendre polynomials for grid/truncation
+jopnllf.F                         mac  Open interpolation coefficients file on Fujitsu
+jopnllsm.c                        mac  Handle file of legendre polynomials as memory mapped
+jparam2.h                         mac  Hold trigger to allow memory flushing of types 6/7
+jparams.h                         mac  PARAMETER definitions
+jreadgg.F                         mac  Reads legendre functions for one latitude(gaussian)
+jreadll.F                         mac  Reads legendre functions for one latitude(lat/long)
+jsgggp.F                          mac  Converts stretched spectral fields to a gaussian grids
+jsh2sh.F                          mac  Changes resolution of a field of spectral coefficients
+jsllgp.F                          mac  Converts stretched spectral fields to a lat/long grids
+jspleg1.F                         mac  Calculates the legendre functions for one latitude
+jsppole.F                         mac  Calculates fourier coefficient for U or V at pole
+jstrll.F                          mac  Converts stretched spectral fields to a lat/long grids
+jstrwll.F                         mac  Converts stretched spectral winds to a lat/long grids
+jsymgg.F                          mac  Converts spectral input fields to gaussian grid
+jsymll.F                          mac  Converts spectral input fields to lat/long grid
+juvpole.F                         mac  Creates polar wind U or V for lat/long from U/V spectral
+jvod2uv.F                         mac  Interpolate spectral vort/div to spectral U/V
+jwindll.F                         mac  Converts spectral to lat/long grid for wind U and V
+jwscal.F                          mac  Applies scale factor to all latitudes except the poles
+kintrg.F                          mac  Interpolate reduced gaussian to new reduced gaussian
+knfrom4.F                         mac  Generates new field point from four nearest neighbours
+krg2rg.F                          mac  Interpolate field from reduced gaussian grid to another
+krg2rgd.F
+krg2rgu.F                         mac  Interpolate unpacked reduced gaussian to reduced gaussian
+krg2rgy.F
+krg2rgz.F
+ll2xyz.F                          mac  Convert lat/long coords to (x,y,z)
+lsm_red.F                         mac  Lookup filename for N160 reduced gaussian lsm file
+lsmfld.F                          mac  Determines whether field is for 'land-sea mask' treatment
+makemap.c                         mac  Build a bitmap from a definition given in a file
+memreq.h                          mac  Memory request definitions
+mkbitmp.F                         mac  Select points using a bitmap
+mkframe.F                         mac  Remove points from inside a frame boundary
+newisl.F                          mac  Interpolate field on old lsm mask to one on new lsm
+ngintrp.F                         mac  Finds value at a pt by interpolation in a gaussian field
+ngrotat.F                         mac  Generates a rotated gaussian grid
+ngvalue.F                         mac  Rotates one line of latitude in a gaussian grid
+nifld.common                      mac  Input field common block
+nifld.extracommon
+nmakgg.F                          mac  Make interpolation coeffs one lat at a time for gaussian grids
+nmakll.F                          mac  Make interpolation coeffs one lat at a time for lat/long grids
+nofld.common                      mac  Output field common block
+numptns.F                         mac  Calculate number of grid points in range from north to south
+numptwe.F                         mac  Calculate number of grid points in range from west to east
+oceanp.F                          mac  Interpolate GRIB ocean field
+oceanu.F
+outrep.F
+parameter_processing_defaults
+parim.h                           mac  PARAMETER definitions
+pddefs.F                          mac  Setup interpolation using parameter dependent options
+precip.F                          mac  Says if field is to have 'precipitation' treatment
+qgoct.F                           mac  Reduced Gaussian grid, octahedral progression series
+qpassm.F
+rename_unlink.c                   mac  Provide Fortran interface to rename/unlink
+request_defaults
+reset_c.F                         mac  Reset interpolation handling options using GRIB product
+rgauss_*.h                        mac  Definitions for reduced gaussian grids
+rpassm.F
+rphi.F                            mac  Rotates spectral coefficients by longitude
+set99.F
+setrep.F
+shareddt.c
+sharedgg.c
+sharedlib.c
+sharedlib.h
+sharedll.c
+sharedmemory.h                    mac  Defines for shared memory interpolation coefficients
+sscal.F                           mac  Implements the BLAS routine of the same name
+strlat.F                          mac  Transform stretched <-> real lats; calculate map factor
+w251idx.F                         mac  Find nearest-neighbour for wave 2dsp (251) field interpolation
+waveidx.F                         mac  Find nearest-neighbours for wave field interpolation
+wavexx2.F
+wv2didx.F                         mac  Find nearest-neighbour for wave 2dsp field interpolation
+wv2dint.F                         mac  interpolation of quasi-regular lat/long wave 2D spectra fields
+wv2dxx2.F
+wvqlidx.F                         mac  Find nearest-neighbours for quasi-regular lat/long waves
+wvqlin2.F
+wvqlint.F                         mac  Handle interpolation of quasi-regular lat/long wave fields
+xyz2ll.F                          mac  Convert (x,y,z) coords to lat/long
+yrotate.F                         mac  Rotate about y-axis
+zprec.F

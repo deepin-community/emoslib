@@ -1,0 +1,30 @@
+!
+!	localDefinitionTemplate_032
+!	---------------------------
+!
+!Description			Octet	Code	Ksec1	Count
+!-----------			-----	----	-----	-----
+!
+localDefinitionNumber		41	I1	37	-
+class				42	I1	38	-
+type				43	I1	39	-
+stream				44	I2	40	-
+experimentVersionNumber		46	A4	41	-
+number				50	I1	42	-
+totalNumberOfClusters		51	I1	43	-
+spareSetToZero			52	PAD	n/a	1
+clusteringMethod		53	I1	44	-
+startTimeStep			54	I2	45	-
+endTimeStep			56	I2	46	-
+northernLatititudeOfDomain	58	S3	47	-
+westernLongititudeOfDomain	61	S3	48	-
+southernLatititudeOfDomain	64	S3	49	-
+easternLongititudeOfDomain	67	S3	50	-
+domain					70	A1	51	-
+operationalForecastCluster	71	I1	52	-
+controlForecastCluster		72	I1	53	-
+representativeMember        73  I1  54  -
+climatologicalRegime        74  I1  55  -
+numberOfForecastsInCluster	75	I1	56	-
+ensembleForecastNumbers		76	LP_I1	57	numberOfForecastsInCluster
+spareToEnsureFixedLength	-	PADTO	n/a	328

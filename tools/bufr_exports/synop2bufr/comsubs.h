@@ -1,0 +1,5 @@
+c
+
+      COMMON /COMSUB/ NSUB
+C
+C           NSUB   -  NUMBER OF SUB-SETS (COUNTER)   

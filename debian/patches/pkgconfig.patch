@@ -1,0 +1,97 @@
+Description: Create pkg-config files for EMOS libraries
+Author: Alastair McKinstry <mckinstry@debian.org>
+Last-Updated: 2015-05-13
+Forwarded: no
+
+Index: emoslib-4.4.9/CMakeLists.txt
+===================================================================
+--- emoslib-4.4.9.orig/CMakeLists.txt
++++ emoslib-4.4.9/CMakeLists.txt
+@@ -167,6 +167,13 @@ message( STATUS "BUFR_TABLES_PATH: ${BUF
+ # config header
+ ecbuild_generate_config_headers( DESTINATION ${INSTALL_INCLUDE_DIR}/libemos )
+ 
++ecbuild_pkgconfig(NAME emos 
++                  TEMPLATE cmake/emos.pc.in
++                  URL https://software.ecmwf.int/wiki/display/EMOS/Emoslib)
++ecbuild_pkgconfig(NAME emosR64
++                  TEMPLATE cmake/emosR64.pc.in
++                  URL https://software.ecmwf.int/wiki/display/EMOS/Emoslib)
++
+ configure_file( libemos_config.h.in  libemos_config.h  @ONLY )
+ configure_file( libemos_version.h.in libemos_version.h @ONLY )
+ configure_file( libemos_version.c.in libemos_version.c @ONLY )
+Index: emoslib-4.4.9/cmake/emos.pc.in
+===================================================================
+--- /dev/null
++++ emoslib-4.4.9/cmake/emos.pc.in
+@@ -0,0 +1,32 @@
++git_tag=@PKGCONFIG_GIT_TAG@
++
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=${prefix}
++libdir=${prefix}/@INSTALL_LIB_DIR@
++includedir=${prefix}/@INSTALL_INCLUDE_DIR@
++bindir=${prefix}/@INSTALL_BIN_DIR@
++fmoddir=${prefix}/@INSTALL_INCLUDE_DIR@
++
++CC=@CMAKE_C_COMPILER@
++CXX=@CMAKE_CXX_COMPILER@
++FC=@CMAKE_Fortran_COMPILER@
++
++rpath=@RPATH_FLAG@${libdir}
++
++libs=-L${libdir} -lemos
++
++libs_private=-lemos -lgfortran -lm
++
++cflags=-I${prefix}/include/pbio -I${prefix}/include/interpolation -I${prefix}/include/gribex
++
++#====================================================================
++Name: emos
++Description: ECMWF Interpolation library
++URL: @PKGCONFIG_URL@
++Version: @PKGCONFIG_VERSION@
++Libs: ${libs}
++Libs.private: ${libs_private}
++Requires: @PKGCONFIG_REQUIRES@
++Requires.private: @PKGCONFIG_REQUIRES_PRIVATE@
++Cflags: ${cflags}
++#====================================================================
+Index: emoslib-4.4.9/cmake/emosR64.pc.in
+===================================================================
+--- /dev/null
++++ emoslib-4.4.9/cmake/emosR64.pc.in
+@@ -0,0 +1,32 @@
++git_tag=@PKGCONFIG_GIT_TAG@
++
++prefix=@CMAKE_INSTALL_PREFIX@
++exec_prefix=${prefix}
++libdir=${prefix}/@INSTALL_LIB_DIR@
++includedir=${prefix}/@INSTALL_INCLUDE_DIR@
++bindir=${prefix}/@INSTALL_BIN_DIR@
++fmoddir=${prefix}/@INSTALL_INCLUDE_DIR@
++
++CC=@CMAKE_C_COMPILER@
++CXX=@CMAKE_CXX_COMPILER@
++FC=@CMAKE_Fortran_COMPILER@
++
++rpath=@RPATH_FLAG@${libdir}
++
++libs=-L${libdir} -lemosR64
++
++libs_private=-lemosR64 -lgfortran -lm
++
++cflags=-I${prefix}/include/pbio -I${prefix}/include/interpolation -I${prefix}/include/gribex
++
++#====================================================================
++Name: emosR64
++Description: ECMWF Interpolation library
++URL: @PKGCONFIG_URL@
++Version: @PKGCONFIG_VERSION@
++Libs: ${libs}
++Libs.private: ${libs_private}
++Requires: @PKGCONFIG_REQUIRES@
++Requires.private: @PKGCONFIG_REQUIRES_PRIVATE@
++Cflags: ${cflags}
++#====================================================================

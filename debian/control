@@ -1,0 +1,72 @@
+Source: emoslib
+Section: utils
+Priority: optional
+Maintainer: Alastair McKinstry <mckinstry@debian.org>
+Build-Depends: debhelper-compat (=13), 
+ gfortran | fortran-compiler, 
+ ecbuild (>= 3.3.0-2),
+ libboost-dev (>= 1.47.0), 
+ libboost-test-dev, 
+ chrpath,
+ libeccodes-dev (>= 2.4.1),
+ libeccodes-tools,
+ libopenjp2-7-dev,
+ zlib1g-dev,
+ libfftw3-dev,
+ libnetcdf-dev
+Standards-Version: 4.6.0
+Homepage: https://software.ecmwf.int/wiki/display/EMOS/Emoslib
+Vcs-Browser: https://salsa.debian.org:/science-team/emos
+Vcs-Git: https://salsa.debian.org:/science-team/emos.git
+
+Package: libemos0d
+Section: libs
+Architecture: any
+Multi-Arch: same
+Depends: ${misc:Depends}, ${shlibs:Depends}, libemos-data
+Description: ECMWF Interpolation Library
+ The Interpolation library (EMOSLIB) includes Interpolation software and GRIB, 
+ BUFR, CREX encoding/decoding routines. It is used by the ECMWF meteorological 
+ archival and retrieval system (MARS) and also by the ECMWF graphics 
+ package MetView.
+
+Package: libemos-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libemos0d ( = ${binary:Version}), ${misc:Depends}, libeccodes-tools | libemos-bin:any 
+Recommends: pkg-config
+Description: ECMWF Interpolation Library - development
+ The Interpolation library (EMOSLIB) includes Interpolation software and GRIB, 
+ BUFR, CREX encoding/decoding routines. It is used by the ECMWF meteorological 
+ archival and retrieval system (MARS) and also by the ECMWF graphics 
+ package MetView.
+ .
+ This package contains the static libraries and headers needed to build 
+ applications against libemos.
+
+Package: libemos-bin
+Section: libs
+Architecture: any
+Multi-Arch: allowed
+Depends: ${misc:Depends}, ${shlibs:Depends}, libemos-data, libeccodes-tools
+Description: ECMWF Interpolation Library - binaries
+ The Interpolation library (EMOSLIB) includes Interpolation software and GRIB,
+ BUFR, CREX encoding/decoding routines. It is used by the ECMWF meteorological
+ archival and retrieval system (MARS) and also by the ECMWF graphics
+ package MetView.
+ .
+ This package provide bufr-* and other tools
+
+Package: libemos-data
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: Data files for the ECMWF Interpolation library
+ The Interpolation library (EMOSLIB) includes Interpolation software and GRIB, 
+ BUFR, CREX encoding/decoding routines. It is used by the ECMWF meteorological 
+ archival and retrieval system (MARS) and also by the ECMWF graphics 
+ package MetView.
+ .
+ This package contains the data files needed by EMOSLIB.

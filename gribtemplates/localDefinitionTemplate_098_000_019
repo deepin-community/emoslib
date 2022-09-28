@@ -1,0 +1,23 @@
+!
+!	localDefinitionTemplate_019
+!	---------------------------
+!
+!Description				Octet	Code	Ksec1	Count
+!-----------				-----	----	-----	-----
+!
+localDefinitionNumber			41	I1	37	-
+class					42	I1	38	-
+type					43	I1	39	-
+stream					44	I2	40	-
+experimentVersionNumber			46	A4	41	-
+number                  50	I1	42	-
+ensembleSize				51	I1	43	-
+versionNumberOfESuite 	52	I1	44	-
+implementationDate		53	I4	45	-
+numberOfReforecastYears	57	I3	46	-
+lengthOfClimate	60	I3	47	-
+reforecastSize	63	I3	48	-
+versionOfModelClimate	66	I3	49	-
+efiOrder				69	I1	50	-
+efiVersion				70	I1	51	-
+spareSetToZero				71	PAD	n/a	10

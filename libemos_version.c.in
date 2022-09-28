@@ -1,0 +1,12 @@
+#include "libemos_version.h"
+
+const char * libemos_version()     { return LIBEMOS_VERSION; }
+const char * libemos_version_str() { return LIBEMOS_VERSION_STR; }
+
+unsigned int libemos_version_int()
+{
+  return 100*LIBEMOS_MAJOR_VERSION + 10*LIBEMOS_MINOR_VERSION + 1*LIBEMOS_PATCH_VERSION;
+}
+
+const char * libemos_git_sha1() { return "@LIBEMOS_GIT_SHA1@"; }
+

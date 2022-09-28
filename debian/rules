@@ -1,0 +1,120 @@
+#!/usr/bin/make -f
+
+# export DH_VERBOSE=1
+
+# The magic debhelper  rule
+%:
+	dh $@ --buildsystem=ecbuild
+
+export DEB_LDFLAGS_MAINT_PREPEND := -Wl,-z,defs -Wl,--as-needed
+
+export ECCODES_DEFINITION_PATH=/usr/share/eccodes/definitions/
+export GRIB_DEFINITION_PATH=/usr/share/eccodes/definitions/
+export ECCODESX_SAMPLES_PATH=/usr/share/eccodes/samples
+export GRIB_SAMPLES_PATH=/usr/share/eccodes/samples
+
+# gfortran warns of type mismatch on Fortran/C code. Not worth fixing this by redesign
+# (porting to F90) when its being replaced by mir. Just disable the warning
+GF_FLAGS:=$(if $(filter $(shell readlink /usr/bin/gfortran), gfortran-9), \
+                 , -fallow-invalid-boz -fallow-argument-mismatch )
+DESTDIR:=$(shell pwd)/debian/tmp
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+ARCH:=$(shell dpkg --print-architecture)
+LIBDIR:=/usr/lib/${DEB_HOST_MULTIARCH}
+CMAKE_DIR:=debian/tmp/share/libemos/cmake
+DO_TEST:=true
+
+# FC set to f77 by default in make
+# Read default compiler name unless FC is actually set
+ifeq ($(FC),f77)
+  FC:=$(shell basename $(shell readlink /etc/alternatives/f95))
+endif
+
+
+ifneq ($(filter flang,$(FC)),)
+FFLAGS:=$(shell dpkg-buildflags --get FCFLAGS |  sed -e 's/-g //')
+else
+FFLAGS:=$(shell dpkg-buildflags --get FCFLAGS ) $(GF_FLAGS) 
+endif
+
+export FCFLAGS=$(FFLAGS)
+export FFLAGS FCFLAGS
+
+# Do tests on little-endian only for the moment;
+ENDIAN:=$(shell dpkg-architecture -qDEB_BUILD_ARCH_ENDIAN)
+
+FPIC_LIST:= "s390x amd64 ppc64el m68k sparc64"
+ifneq (,$(findstring $(ARCH),$(FPIC_LIST)))
+  FPIC:= -fPIC
+else
+  FPIC:= -fpic
+endif
+
+MCMODEL_FLAGS:=''
+BUILD_FLAGS:=''
+
+ifeq ($(ARCH), amd64)
+  MCMODEL_FLAGS:= -mcmodel=medium
+endif
+ifeq ($(ARCH), sparc64)
+  MCMODEL_FLAGS:= -mcmodel=medany
+endif
+ifeq ($(ARCH), ppc64el)
+  MCMODEL_FLAGS:= -mcmodel=large
+endif
+ifeq ($(ARCH), hurd-i386)
+  BUILD_FLAGS:= ' -D__GNU__'
+endif
+
+override_dh_auto_test:
+	# Need to be installed into debian/tmp before tests
+	cd obj-* && $(MAKE) install
+	# Need links for tests.
+	(cd bufrtables && sh ./links.sh)
+	 $(ENDIAN)==little && dh_auto_test || echo "Tests disabled on bigendian systems for the moment"
+
+override_dh_auto_clean:
+	find bufrtables -type l -delete
+	dh_auto_clean
+
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-DECBUILD_MACROS_DIR=$(CURDIR)/cmake \
+		-DENABLE_ECCODES=On \
+		-Deccodes_DIR=/usr \
+		-DENABLE_FFTW=ON \
+		-DENABLE_LITTLE_ENDIAN=On \
+		-DCMAKE_INSTALL_PREFIX=$(DESTDIR) \
+		-DBUILD_SHARED_LIBS=ON \
+		-DENABLE_LIBEMOS_BUILD_SHARED_LIBS=On \
+		-DMCMODEL_FLAGS=${MCMODEL_FLAGS} \
+		-DBUILD_FLAGS=${BUILD_FLAGS} \
+		-DFPIC=${FPIC} \
+		-DINSTALL_LIBDIR=${LIBDIR} \
+		-DINTERPOL_TABLES_PATH=/usr/share/emos \
+		-DBUFR_TABLES_PATH=/usr/share/emos/bufrtables \
+		-DTEST_BUFR_TABLES_PATH=${CURDIR}/bufrtables
+
+override_dh_auto_install:
+	cd obj-* && $(MAKE) install
+	for d in debian/tmp/bin/* ; do \
+		( chrpath -d $$d || echo "Ignoring non-ELF file errors") ; done
+	chrpath -d debian/tmp/lib/*.0d
+	(cd $(DESTDIR)/share/libemos/tables/bufrtables && sh ./links.sh)
+	# delete broken symlinks
+	( cd $(DESTDIR)/share/libemos/tables/bufrtables/ && file * | grep broken | cut -f1 -d: | xargs rm )
+	# Now in libeccodes
+	rm -f debian/tmp/bin/bufr_filter
+	# Fix broken paths 
+	cat ${CMAKE_DIR}/libemos-targets-release.cmake | \
+		sed -e 's%libemos.a%libemos.so%' | \
+		sed -e 's%libemosR64.a%libemosR64.so%' | \
+		sed -e 's%$${_IMPORT_PREFIX}/bin%/usr/bin%' | \
+		sed -e 	's%$${_IMPORT_PREFIX}/lib%$(LIBDIR)%' > ${CMAKE_DIR}/tmp
+	mv ${CMAKE_DIR}/tmp ${CMAKE_DIR}/libemos-targets-release.cmake
+	# Change default from emos to emos_shared to link against shared libs in metview, etc.
+	grep -v LIBEMOS_SELF_LIBRARIES ${CMAKE_DIR}/libemos-config.cmake | \
+		sed -e 's%.*set( libemos_BASE_DIR.*%set( libemos_BASE_DIR /usr )%' > ${CMAKE_DIR}/tmp
+	mv ${CMAKE_DIR}/tmp ${CMAKE_DIR}/libemos-config.cmake  
+	echo >> ${CMAKE_DIR}/libemos-config.cmake 
+	echo "set( LIBEMOS_SELF_LIBRARIES    "emos_shared" )" >> ${CMAKE_DIR}/libemos-config.cmake 

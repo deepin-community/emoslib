@@ -1,0 +1,27 @@
+Param  lsm  wind  prec  lsm interp
+-----  ---  ----  ----  ----------
+131     n     y     n     n
+132     n     y     n     n
+140     y     n     n     n
+141     y     n     n     n
+142     n     n     y     n
+143     n     n     y     n
+144     n     n     y     n
+165     n     y     n     n
+166     n     y     n     n
+170     y     n     n     n
+171     y     n     n     n
+172     n     n     n     y
+173     y     n     n     n
+182     y     n     n     n
+183     y     n     n     n
+184     y     n     n     n
+190     y     n     n     n
+191     y     n     n     n
+192     y     n     n     n
+193     y     n     n     n
+199     y     n     n     n
+200     y     n     n     n
+228     n     n     y     n
+239     n     n     y     n
+240     n     n     y     n

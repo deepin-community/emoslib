@@ -1,0 +1,20 @@
+Author: Alastair McKinstry <mckinstry@debian.org>
+Description: Drop tune=native which breaks on s390x, and is a bad idea in general distros.
+Last-Updated: 2016-01-01
+Forwarded: https://software.ecmwf.int/issues/browse/SUP-1593
+
+Index: emoslib-4.3.9/CMakeLists.txt
+===================================================================
+--- emoslib-4.3.9.orig/CMakeLists.txt
++++ emoslib-4.3.9/CMakeLists.txt
+@@ -64,8 +64,8 @@ endif()
+ # build type flags
+ if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
+   ecbuild_add_fortran_flags("-ffixed-line-length-none -fcray-pointer -fno-second-underscore -Wuninitialized -Wunused-variable -DSHAREDMEMORY")
+-  ecbuild_add_fortran_flags("-O2 -mtune=native" BUILD RELEASE)
+-  ecbuild_add_fortran_flags("-O2 -mtune=native" BUILD RELWITHDEBINFO)
++  ecbuild_add_fortran_flags("-O2" BUILD RELEASE)
++  ecbuild_add_fortran_flags("-O2" BUILD RELWITHDEBINFO)
+   ecbuild_add_fortran_flags("-g"                BUILD RELWITHDEBINFO)
+   ecbuild_add_fortran_flags("-g"                BUILD DEBUG)
+   if(ECBUILD_MACRO_VERSION VERSION_GREATER 1.9)

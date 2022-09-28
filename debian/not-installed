@@ -1,0 +1,8 @@
+lib/pkgconfig/libemos.pc
+lib/pkgconfig/libemosR64.pc
+lib/pkgconfig/emosR64.pc
+lib/pkgconfig/emos.pc
+share/libemos/tables/land_sea_mask
+share/libemos/tables/bufrtables/CMakeLists.txt
+share/libemos/tables/bufrtables/.gitignore
+share/libemos/tables/bufrtables/VERSION.cmake

@@ -1,0 +1,5 @@
+This directory contains a mixture of software, most of which was in the GRIB 
+decoding and encoding update library.  The software in this directory is used 
+to make part of the libemos library.
+
+John Chambers 30th July 1993.

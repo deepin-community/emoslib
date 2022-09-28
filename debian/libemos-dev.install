@@ -1,0 +1,9 @@
+pbio/*.h		usr/include/pbio
+gribex/*.h		usr/include/gribex
+include/libemos/*.h		usr/include/libemos
+interpolation/*.h	usr/include/interpolation
+obj-*/e*.pc		usr/lib/${DEB_HOST_MULTIARCH}/pkgconfig
+lib/*.a		usr/lib/${DEB_HOST_MULTIARCH}
+share/libemos/cmake/*	usr/lib/${DEB_HOST_MULTIARCH}/cmake/libemos
+lib/*.so		usr/lib/${DEB_HOST_MULTIARCH}
+share/libemos/tables/bufrtables/VERSION.cmake usr/lib/${DEB_HOST_MULTIARCH}/cmake/libemos

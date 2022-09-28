@@ -1,0 +1,142 @@
+!
+!	localDefinitionTemplate_244
+!	---------------------------
+!
+! # SREPS Short-Range EPS information
+! 
+! Last update: 20070223
+!
+!Description				Octet	Code	Ksec1	Count
+!-----------				-----	----	-----	-----
+!
+!
+! Compatibility with MARS
+!
+localDefinitionNumber			41	I1	37	-
+Class					42	I1	38	-
+Type					43	I1	39	-
+Stream					44	I2	40	-
+experimentVersionNumber			46	A4	41	-
+Number.					50	I1	42	-
+Total.					51	I1	43	-
+!
+! **_EXPERIMENT_**
+!
+************_EXPERIMENT_************	52	A4	44	-
+Experiment_Identifier			56	A8	45	-
+Sub-Experiment_Identifier		64	A8	47	-
+!
+! **_PRODUCT_**
+!
+************_PRODUCT_***************	72	A4	49	-
+Original_CodeTable_2_Version_Number	76	I1	50	-
+Original_Parameter_Iden_(CodeTable2)	77	I1	51	-
+Original_Parameter_Identifier		78	A8	52	-
+Product_Identifier			86	A8	54	-
+!
+! Thresholds and Distributions
+!
+Threshold_[Distribution]_(0=n,1=yes)	94	I2	56	-
+Threshold_[Distribution]_Units		96	A4	57	-
+At_least__[Distribut._Proportion_Of]	100	I4	58	-
+Less_Than_[To_Overall_Distribution]	104	I4	59	-
+!
+zeroForFutureProducts			108	PAD	60	40
+!
+! **_ENSEMBLE_**
+!
+************_ENSEMBLE_**************	148	A4	100	-
+Number_Combination_Ensembles_(1=no) 	152	I2	101	-
+Show_Combination_E._[2]_(0=no,1=yes)	154	I1	102	-
+Show_Combination_E._[3]_(0=no,1=yes)	155	I1	103	-
+Show_Combination_E._[4]_(0=no,1=yes)	156	I1	104	-
+zeroForFutureCombinations		157	PAD	105	7
+Total_Number_Members_Used		164	I2	112	-
+Total_Number_Members_Possible		166	I2	113	-
+Total_Number_Members_Missing		168	I2	114	-
+Ensemble_Combination_Number		170	I2	115	-
+Ensemble_Identifier			172	A8	116	-
+Local_Number_Members_Used		180	I2	118	-
+Local_Number_Members_Possible		182	I2	119	-
+Local_Number_Members_Missing		184	I2	120	-
+!
+listMembersUsed				-	LIST	-	Local_Number_Members_Used
+Used_Model_LBC				-	A4	-	-
+endlistMembersUsed			-	ENDLIST	-	listMembersUsed
+!
+listMembersMissing			-	LIST	-	Local_Number_Members_Missing
+Missing_Model_LBC			-	A4	-	-
+endlistMembersMissing			-	ENDLIST	-	listMembersMissing
+!
+! More than one Combination
+!
+listEnsembleCombination2		-	LIST	-	Show_Combination_E._[2]_(0=no,1=yes)
+Ensemble_Combinat._Number_(0=no)_[2]	-	I2	-	-
+Ensemble_Identifier_[2]			-	A8	-	-
+Local_Number_Members_Used_[2]		-	I2	-	-
+Local_Number_Members_Possible_[2]	-	I2	-	-
+Local_Number_Members_Missing_[2]	-	I2	-	-
+Date_[2]				-	D3	-	-
+Hour_[2]				-	I1	-	-
+Minute_[2]				-	I1	-	-
+Time_Range_One_[2]			-	I2	-	-
+Time_Range_Two_[2]			-	I2	-	-
+endlistEnsembleCombination2		-	ENDLIST	-	listEnsembleCombination2
+!
+listMembersUsed_[2]			-	LIST	-	Local_Number_Members_Used_[2]
+Used_Model_LBC_[2]			-	A4	-	-
+endlistMembersUsed_[2]			-	ENDLIST	-	listMembersUsed_[2]
+!
+listMembersMissing_[2]			-	LIST	-	Local_Number_Members_Missing_[2]
+Missing_Model_LBC_[2]			-	A4	-	-
+endlistMembersMissing_[2]		-	ENDLIST	-	listMembersMissing_[2]
+!
+listEnsembleCombination3		-	LIST	-	Show_Combination_E._[3]_(0=no,1=yes)
+Ensemble_Combinat._Number_(0=no)_[3]	-	I2	-	-
+Ensemble_Identifier_[3]			-	A8	-	-
+Local_Number_Members_Used_[3]		-	I2	-	-
+Local_Number_Members_Possible_[3]	-	I2	-	-
+Local_Number_Members_Missing_[3]	-	I2	-	-
+Date_[3]				-	D3	-	-
+Hour_[3]				-	I1	-	-
+Minute_[3]				-	I1	-	-
+Time_Range_One_[3]			-	I2	-	-
+Time_Range_Two_[3]			-	I2	-	-
+endlistEnsembleCombination3		-	ENDLIST	-	listEnsembleCombination3
+!
+listMembersUsed_[3]			-	LIST	-	Local_Number_Members_Used_[3]
+Used_Model_LBC_[3]			-	A4	-	-
+endlistMembersUsed_[3]			-	ENDLIST	-	listMembersUsed_[3]
+!
+listMembersMissing_[3]			-	LIST	-	Local_Number_Members_Missing_[3]
+Missing_Model_LBC_[3]			-	A4	-	-
+endlistMembersMissing_[3]		-	ENDLIST	-	listMembersMissing_[3]
+!
+listEnsembleCombination4		-	LIST	-	Show_Combination_E._[4]_(0=no,1=yes)
+Ensemble_Combinat._Number_(0=no)_[4]	-	I2	-	-
+Ensemble_Identifier_[4]			-	A8	-	-
+Local_Number_Members_Used_[4]		-	I2	-	-
+Local_Number_Members_Possible_[4]	-	I2	-	-
+Local_Number_Members_Missing_[4]	-	I2	-	-
+Date_[4]				-	D3	-	-
+Hour_[4]				-	I1	-	-
+Minute_[4]				-	I1	-	-
+Time_Range_One_[4]			-	I2	-	-
+Time_Range_Two_[4]			-	I2	-	-
+endlistEnsembleCombination4		-	ENDLIST	-	listEnsembleCombination4
+!
+listMembersUsed_[4]			-	LIST	-	Local_Number_Members_Used_[4]
+Used_Model_LBC_[4]			-	A4	-	-
+endlistMembersUsed_[4]			-	ENDLIST	-	listMembersUsed_[4]
+!
+listMembersMissing_[4]			-	LIST	-	Local_Number_Members_Missing_[4]
+Missing_Model_LBC_[4]			-	A4	-	-
+endlistMembersMissing_[4]		-	ENDLIST	-	listMembersMissing_[4]
+!
+! EXTRA INFORMATION like 191
+!
+*********_EXTRA_DATA_***************	-	A4	-	-
+Extra_Data_FreeFormat_(0=none)		-	I2	-	-
+Data_Descriptor_Bytes			-	BYTES	-	Extra_Data_FreeFormat_(0=none)
+padToAMultipleOf80Bytes			0	PADFROM	n/a	80
+!

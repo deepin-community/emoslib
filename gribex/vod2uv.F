@@ -1,0 +1,129 @@
+C Copyright 1981-2016 ECMWF.
+C
+C This software is licensed under the terms of the Apache Licence 
+C Version 2.0 which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
+C
+C In applying this licence, ECMWF does not waive the privileges and immunities 
+C granted to it by virtue of its status as an intergovernmental organisation 
+C nor does it submit to any jurisdiction.
+C
+
+
+      SUBROUTINE VOD2UV(VOR,DIV,KTIN,U,V,KTOUT)
+C
+C---->
+C
+CL    CALCULATE SPHERICAL HARMONIC COEFFICIENTS OF U*COS(LAT) AND
+CL    V*COS(LAT) AT TRIANGULAR TRUNCATION KTOUT, GIVEN THE COEFFICIENTS
+CL    OF DIVERGENCE AND VORTICITY AT TRUNCATION KTIN
+CL
+CL    WHERE VOR(KDIM1)=INPUT ARRAY OF VORTICITY COEFFICIENTS
+CL          DIV(KDIM1)=INPUT ARRAY OF DIVERGENCE COEFFICIENTS
+CL          KTIN      =INPUT TRIANGULAR TRUNCATION
+CL          KDIM1     =(KTIN+1)*(KTIN+2)
+CL          U(KDIM2)  =OUTPUT ARRAY OF U*COS(LAT) COEFFICIENTS
+CL          V(KDIM2)  =OUTPUT ARRAY OF V*COS(LAT) COEFFICIENTS
+CL          KTOUT     =OUTPUT TRIANGULAR TRUNCATION (KTOUT.LE.KTIN)
+CL          KDIM2     =(KTOUT+1)*(KTOUT+4)
+C
+C     VERSION 1   5/1/81   JAN HASELER   ECMWF
+C
+C     VERSION 2   5/5/87   MODIFIED BY D. R. ROSKILLY
+C     THIS MOD. DOES NOT CALCULATE THE EXTRA VALUES FOR
+C     U AND V WINDS TO ALLOW VORT. AND DIV. TO BE RE-CALCULATED
+C     IF REQUIRED.
+C
+C     Version 3  15/2/88   routine renamed VOD2UV from DVTOUV.
+C
+C     VERSION 4  21/8/91   MODIFIED BY K.RIDER
+C
+C     THIS MOD. WAS MADE BECAUSE VERSION 2 WAS INCONSISTENTLY
+C     TRUNCATING U AND V TO T(ITOUT-1).
+C     NOW VORT. AND DIV. ARE CONSISTENTLY TRUNCATED TO T105
+C     AND U AND V ARE CALCULATED WITH TRUNCATION T(ITOUT),(WITH
+C     ZERO VALUES AT THE CORNER. VORT. AND DIV. CAN BE RECALCULATED
+C     IF REQUIRED, BUT ONLY TRUNCATED TO T(ITOUT) SINCE THE HIGHER
+C     COEFFICIENTS HAVE BEEN LOST.
+C
+C----<
+C
+      COMPLEX VOR(1),DIV(1),U(1),V(1),ZI
+C
+      DD(PM,PN)=-SQRT((PN*PN-PM*PM)/(4.*PN*PN-1.))/PN
+      SS(PM,PN)=-PM/(PN*(PN+1.))
+C
+      ZI=(0.,1.)
+      REARTH=6.371E6
+      K=1
+      IMN=1
+      ITOUT=MIN0(KTOUT,KTIN)
+C
+CL            1.1       M<ITOUT; N=M
+ 110  CONTINUE
+      DO 155 JM=1,ITOUT
+      ZM=JM-1.
+      ZN=ZM
+      IF (JM.EQ.1) GOTO 115
+      U(K)=(-DD(ZM,ZN+1.)*VOR(IMN+1)+ZI*SS(ZM,ZN)*DIV(IMN))*REARTH
+      V(K)=( DD(ZM,ZN+1.)*DIV(IMN+1)+ZI*SS(ZM,ZN)*VOR(IMN))*REARTH
+      GOTO 120
+C
+ 115  CONTINUE
+      U(K)=(-DD(ZM,ZN+1.)*VOR(IMN+1))*REARTH
+      V(K)=( DD(ZM,ZN+1.)*DIV(IMN+1))*REARTH
+C
+ 120  CONTINUE
+      IMN=IMN+1
+      K=K+1
+      JMP=JM+1
+      IF (JMP.GT.ITOUT) GOTO 140
+C
+CL            1.3       M<ITOUT; N<ITOUT-1
+ 130  CONTINUE
+      DO 135 JN=JMP,ITOUT-1
+      ZN=JN-1.
+      U(K)=( DD(ZM,ZN)*VOR(IMN-1)-DD(ZM,ZN+1)*VOR(IMN+1)
+     1        +ZI*SS(ZM,ZN)*DIV(IMN))*REARTH
+      V(K)=(-DD(ZM,ZN)*DIV(IMN-1)+DD(ZM,ZN+1)*DIV(IMN+1)
+     1        +ZI*SS(ZM,ZN)*VOR(IMN))*REARTH
+      K=K+1
+ 135  IMN=IMN+1
+C
+CL            1.3.1     M<ITOUT; N=ITOUT-1
+ 136  CONTINUE
+      ZN=ITOUT-1
+      U(K)=( DD(ZM,ZN)*VOR(IMN-1)+ZI*SS(ZM,ZN)*DIV(IMN))*REARTH
+      V(K)=(-DD(ZM,ZN)*DIV(IMN-1)+ZI*SS(ZM,ZN)*VOR(IMN))*REARTH
+      K=K+1
+      IMN=IMN+1
+C
+CL            1.4       M<ITOUT; N=ITOUT
+ 140  CONTINUE
+      ZN=ITOUT
+      U(K)=( DD(ZM,ZN)*VOR(IMN-1))*REARTH
+      V(K)=(-DD(ZM,ZN)*DIV(IMN-1))*REARTH
+      K=K+1
+C
+CL            1.5       M<ITOUT; N=ITOUT+1
+ 150  CONTINUE
+C--   ZN=ITOUT+1
+C--   U(K)=( DD(ZM,ZN)*VOR(IMN))*REARTH
+C--   V(K)=(-DD(ZM,ZN)*DIV(IMN))*REARTH
+C--   K=K+1
+      IMN=IMN+1+KTIN-ITOUT
+ 155  CONTINUE
+C
+CL            1.6       M=ITOUT; N=ITOUT
+ 160  CONTINUE
+      U(K)=0.
+      V(K)=0.
+      K=K+1
+C
+CL            1.7       M=ITOUT; N=ITOUT+1
+ 170  CONTINUE
+C--   ZN=ITOUT+1
+C--   U(K)= DD(ZM,ZN)*VOR(IMN)*REARTH
+C--   V(K)=-DD(ZM,ZN)*DIV(IMN)*REARTH
+C
+      RETURN
+      END

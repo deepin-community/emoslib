@@ -1,0 +1,23 @@
+!       localDefinitionTemplate_031
+!       ---------------------------
+!
+! # EUROSIP Products 
+!
+!Description                    Octet   Code    Ksec1   Count
+!-----------                    -----   ----    -----   -----
+!
+localDefinitionNumber           41      I1      37      -
+class                           42      I1      38      -
+type                            43      I1      39      -
+stream                          44      I2      40      -
+experimentVersionNumber         46      A4      41      -
+number                          50      I1      42      -
+total                           51      I1      43      -
+forecastMonth					52		I2		44		-
+dateOfForecastRun               54      I4      45      -     ! yyyymmdd 
+numberOfModels                  58      I1      46      -
+spareSetToZero                  59      PAD     n/a     42
+listOfModelIdentifiers          101     LIST    47      numberOfModels
+modelIdentifier                 -       I2      -       -
+ENDLIST                         -       ENDLIST -       listOfModelIdentifiers
+unusedEntriesSetToBlanks        -       SP_TO   -       240

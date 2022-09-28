@@ -1,0 +1,89 @@
+C Copyright 1981-2016 ECMWF.
+C
+C This software is licensed under the terms of the Apache Licence 
+C Version 2.0 which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
+C
+C In applying this licence, ECMWF does not waive the privileges and immunities 
+C granted to it by virtue of its status as an intergovernmental organisation 
+C nor does it submit to any jurisdiction.
+C
+
+      SUBROUTINE BUUNP(KBPW,KSOURC,KDEST,KWPT,KBPT,KSIZE,KERR)
+C
+C**** *BUUNP*
+C
+C
+C     PURPOSE.
+C     --------
+C          PURPOSE OF THIS ROUTINE IS TO UNPACK BIT STRING OF
+C     KSIZE BITS, STARTED AT WORD KWPT OF ARRAY KSOURC AFTER
+C     SKIPPING KBPT BITS. RESULT IS PUT INTO KDEST.
+C
+C**   INTERFACE.
+C     ----------
+C
+C          *CALL* *BUUNP(KBPW,KSOURC,KDEST,KWPT,KBPT,KSIZE,KERR)*
+C
+C        INPUT :
+C                 *KBPW*      - NUMBER OF BITS IN COMPUTER WORD
+C                 *KSOURC*    - SOURCE (CONTINUOUS BIT STRING OF
+C                               ARBITRARY LENGTH)
+C                 *KWPT*      - WORD POINTER
+C                 *KBPT*      - BIT POINTER
+C                 *KSIZE*     - NUMBER OF BITS TO BE EXTRACTED
+C        OUTPUT:
+C                 *KDEST*     - DESTINATION
+C                 *KERR*      - RETURN ERROR CODE
+C
+C     METHOD.
+C     -------
+C
+C            NONE.
+C
+C
+C     EXTERNALS.
+C     ----------
+C
+C
+C          GBYTE     - UNPACK BIT PATTERN
+C
+C
+C     REFERENCE.
+C     ----------
+C
+C          NONE.
+C
+C     AUTHOR.
+C     -------
+C
+C          M. DRAGOSAVAC    *ECMWF*       15/01/91.
+C
+C
+C     MODIFICATIONS.
+C     --------------
+C
+C          NONE.
+C
+C
+      IMPLICIT LOGICAL(L,O,G), CHARACTER*8(C,H,Y)
+C
+      DIMENSION KSOURC(*)
+C
+C     ------------------------------------------------------------------
+C*          1.   EXTRACT BIT PATTERN.
+C                --------------------
+ 100  CONTINUE
+C
+      IF(KERR.GT.0) RETURN
+C
+      IF(KSIZE.GT.KBPW) THEN
+         KERR=13
+         WRITE(KNTN,*)' BUUNP :'
+         CALL BUERR(KERR)
+         RETURN
+      END IF
+C
+      CALL GBYTE(KSOURC(KWPT),KDEST,KBPT,KSIZE)
+C
+      RETURN
+      END
