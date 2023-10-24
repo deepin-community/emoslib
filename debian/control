@@ -12,10 +12,9 @@ Build-Depends: debhelper-compat (=13),
  libeccodes-tools,
  libopenjp2-7-dev,
  zlib1g-dev,
- libfftw3-dev,
- libnetcdf-dev
-Standards-Version: 4.6.0
-Homepage: https://software.ecmwf.int/wiki/display/EMOS/Emoslib
+ libfftw3-dev
+Standards-Version: 4.6.2
+Homepage: https://confluence.ecmwf.int/display/EMOS/Emoslib
 Vcs-Browser: https://salsa.debian.org:/science-team/emos
 Vcs-Git: https://salsa.debian.org:/science-team/emos.git
 
