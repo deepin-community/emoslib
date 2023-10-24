@@ -8,3 +8,4 @@ testbuild.patch
 interpol_tables_path.patch
 little_endian.patch
 add-eccodes.patch
+deprecated-fix.patch
